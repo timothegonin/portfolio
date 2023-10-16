@@ -3,7 +3,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
 import devPicture from "../assets/pictures/devPicture.jpg";
+import TechIcons from "./Icons";
+import CssIcon from "../assets/icons/css3.svg";
 
 const Jumbotron = () => {
 	return (
@@ -25,6 +28,11 @@ const Jumbotron = () => {
 					Développeur <span className="text-nowrap">Front-End | React JS</span>
 				</h2>
 			</div>
+			<Stack direction="horizontal" gap={3}>
+				<img src={TechIcons.CssIcon} alt="css logo" />
+				<img src={TechIcons.HtmlIcon} alt="html5 logo" />
+				<img src={TechIcons.JavaScriptIcon} alt="javascript logo" />
+			</Stack>
 		</div>
 	);
 };
