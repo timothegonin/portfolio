@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Stack from "react-bootstrap/Stack";
 import devPicture from "../assets/pictures/devPicture.jpg";
 import TechIcons from "./Icons";
-import CssIcon from "../assets/icons/css3.svg";
 
 const Jumbotron = () => {
 	return (
@@ -32,6 +31,9 @@ const Jumbotron = () => {
 				<img src={TechIcons.CssIcon} alt="css logo" />
 				<img src={TechIcons.HtmlIcon} alt="html5 logo" />
 				<img src={TechIcons.JavaScriptIcon} alt="javascript logo" />
+				<img src={TechIcons.ReactIcon} alt="react logo" />
+				<img src={TechIcons.ReduxIcon} alt="redux logo" />
+				<img src={TechIcons.SassIcon} alt="sass logo" />
 			</Stack>
 		</div>
 	);
