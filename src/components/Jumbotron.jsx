@@ -35,6 +35,17 @@ const Jumbotron = () => {
 				<img src={TechIcons.ReduxIcon} alt="redux logo" />
 				<img src={TechIcons.SassIcon} alt="sass logo" />
 			</Stack>
+			<Stack direction="horizontal" gap={3}>
+				<img src={TechIcons.BootstrapIcon} alt="boostrap logo" />
+				{/* <img src={TechIcons.FigmaIcon} alt="figma logo" /> */}
+				<img src={TechIcons.GitIcon} alt="git logo" />
+				<img src={TechIcons.GitHubIcon} alt="github logo" />
+				{/* <img src={TechIcons.GitKrakenIcon} alt="git kraken logo" /> */}
+				<img src={TechIcons.NpmIcon} alt="npm logo" />
+				{/* <img src={TechIcons.PostmanIcon} alt="postman logo" /> */}
+				{/* <img src={TechIcons.VsCodeIcon} alt="visual studio code logo" /> */}
+				<img src={TechIcons.YarnIcon} alt="yarn logo" />
+			</Stack>
 		</div>
 	);
 };
