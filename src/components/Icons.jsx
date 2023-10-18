@@ -8,13 +8,13 @@ import SassIcon from "../assets/icons/tech/sass.svg";
 
 //TOOLS ICONS
 import BootstrapIcon from "../assets/icons/tools/bootstrap.svg";
-// import FigmaIcon from "../assets/icons/tools/figma.svg";
+import FigmaIcon from "../assets/icons/tools/figma.svg";
 import GitIcon from "../assets/icons/tools/git.svg";
 import GitHubIcon from "../assets/icons/tools/github.svg";
-// import GitKrakenIcon from "../assets/icons/tools/gitkraken.svg";
+import GitKrakenIcon from "../assets/icons/tools/gitkraken.svg";
 import NpmIcon from "../assets/icons/tools/npm.svg";
-// import PostmanIcon from "../assets/icons/tools/postman.svg";
-// import VsCodeIcon from "../assets/icons/tools/vscode.svg";
+import PostmanIcon from "../assets/icons/tools/postman.svg";
+import VsCodeIcon from "../assets/icons/tools/vscode.svg";
 import YarnIcon from "../assets//icons/tools/yarn.svg";
 
 const TechIcons = {
@@ -27,13 +27,13 @@ const TechIcons = {
 	SassIcon,
 	//-TOOLS
 	BootstrapIcon,
-	// FigmaIcon,
+	FigmaIcon,
 	GitIcon,
 	GitHubIcon,
-	// GitKrakenIcon,
+	GitKrakenIcon,
 	NpmIcon,
-	// PostmanIcon,
-	// VsCodeIcon,
+	PostmanIcon,
+	VsCodeIcon,
 	YarnIcon,
 };
 
