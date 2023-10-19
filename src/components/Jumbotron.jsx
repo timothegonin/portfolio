@@ -27,34 +27,37 @@ const Jumbotron = () => {
 					Développeur <span className="text-nowrap">Front-End | React JS</span>
 				</h2>
 			</div>
-			<section className="p-2 border border-1 rounded my-2 bg-white">
-				<h3 className="text-start fs-5">Technologies</h3>
-				<hr class="border border-success border-1 opacity-50 m-0"></hr>
-				<Stack direction="horizontal" gap={2} className=" flex-wrap my-2">
-					<img src={TechIcons.CssIcon} alt="Css icon" />
-					<img src={TechIcons.HtmlIcon} alt="Html5 icon" />
-					<img src={TechIcons.JavaScriptIcon} alt="Javascript icon" />
-					<img src={TechIcons.ReactIcon} alt="React icon" />
-					<img src={TechIcons.ReduxIcon} alt="Redux icon" />
-					<img src={TechIcons.SassIcon} alt="Sass icon" />
-				</Stack>
-			</section>
 
-			<section className="p-2 border border-1 rounded my-2 bg-white">
-				<h3 className="text-start fs-5">Outils</h3>
-				<hr class="border border-success border-1 opacity-50 m-0"></hr>
-				<Stack direction="horizontal" gap={2} className="flex-wrap my-2">
-					<img src={TechIcons.BootstrapIcon} alt="Bostrap icon" />
-					<img src={TechIcons.FigmaIcon} alt="Figma icon" />
-					<img src={TechIcons.GitIcon} alt="Git icon" />
-					<img src={TechIcons.GitHubIcon} alt="Github icon" />
-					<img src={TechIcons.GitKrakenIcon} alt="GitKraken icon" />
-					<img src={TechIcons.NpmIcon} alt="Npm icon" />
-					<img src={TechIcons.PostmanIcon} alt="Postman icon" />
-					<img src={TechIcons.VsCodeIcon} alt="Visial studio code icon" />
-					<img src={TechIcons.YarnIcon} alt="Yarn icon" />
-				</Stack>
-			</section>
+			<div className="d-flex flex-column flex-md-row gap-md-3 justify-content-center">
+				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-4">
+					<h3 className="text-start fs-5">Technologies</h3>
+					<hr className="border border-success border-1 opacity-50 m-0"></hr>
+					<Stack direction="horizontal" gap={2} className=" flex-wrap my-2">
+						<img src={TechIcons.CssIcon} alt="Css icon" />
+						<img src={TechIcons.HtmlIcon} alt="Html5 icon" />
+						<img src={TechIcons.JavaScriptIcon} alt="Javascript icon" />
+						<img src={TechIcons.ReactIcon} alt="React icon" />
+						<img src={TechIcons.ReduxIcon} alt="Redux icon" />
+						<img src={TechIcons.SassIcon} alt="Sass icon" />
+					</Stack>
+				</section>
+
+				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-4">
+					<h3 className="text-start fs-5">Outils</h3>
+					<hr className="border border-success border-1 opacity-50 m-0"></hr>
+					<Stack direction="horizontal" gap={2} className="flex-wrap my-2">
+						<img src={TechIcons.BootstrapIcon} alt="Bostrap icon" />
+						<img src={TechIcons.FigmaIcon} alt="Figma icon" />
+						<img src={TechIcons.GitIcon} alt="Git icon" />
+						<img src={TechIcons.GitHubIcon} alt="Github icon" />
+						<img src={TechIcons.GitKrakenIcon} alt="GitKraken icon" />
+						<img src={TechIcons.NpmIcon} alt="Npm icon" />
+						<img src={TechIcons.PostmanIcon} alt="Postman icon" />
+						<img src={TechIcons.VsCodeIcon} alt="Visial studio code icon" />
+						<img src={TechIcons.YarnIcon} alt="Yarn icon" />
+					</Stack>
+				</section>
+			</div>
 		</div>
 	);
 };
