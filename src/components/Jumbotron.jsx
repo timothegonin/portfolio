@@ -10,23 +10,31 @@ import TechIcons from "./Icons";
 const Jumbotron = () => {
 	return (
 		<div className="p-5 mb-4 bg-body-tertiary h-100">
-			<Container>
+			<Container fluid className="mb-4">
 				<Row className="justify-content-center">
-					<Col xs={6} md={4}>
+					<Col xs={6} md={4} className="d-flex align-items-center">
 						<Image
 							src={devPicture}
 							className="img-fluid img-thumbnail"
 							roundedCircle
 						/>
 					</Col>
+					<Col className="d-flex flex-column align-items-center justify-content-center">
+						<h1 className="fw-bold text-nowrap">Timothé Gonin</h1>
+						<h2 className="fs-4 text-break">
+							Développeur{" "}
+							<span className="text-nowrap">Front-End | React JS</span>
+						</h2>
+					</Col>
 				</Row>
 			</Container>
-			<div className="container-fluid py-3">
+
+			{/* <div className="container-fluid py-3">
 				<h1 className="fw-bold text-nowrap">Timothé Gonin</h1>
 				<h2 className="col-md-8 fs-4 text-break">
 					Développeur <span className="text-nowrap">Front-End | React JS</span>
 				</h2>
-			</div>
+			</div> */}
 
 			<div className="d-flex flex-column flex-md-row gap-md-3 justify-content-center">
 				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-4">
