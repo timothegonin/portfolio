@@ -25,6 +25,10 @@ const Picture = styled(Image)`
 	object-position: center;
 `;
 
+const TechIconsWrapper = styled(Container)`
+	max-width: 650px;
+`;
+
 const Jumbotron = () => {
 	return (
 		<div className="p-5 mb-4 bg-body-tertiary h-100">
@@ -48,8 +52,8 @@ const Jumbotron = () => {
 				</Row>
 			</PresentationWrapper>
 
-			<div className="d-flex flex-column flex-md-row gap-md-3 justify-content-center">
-				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-4">
+			<TechIconsWrapper className="d-flex flex-column flex-md-row gap-md-3 justify-content-center">
+				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-6">
 					<h3 className="text-start fs-5">Technologies</h3>
 					<hr className="border border-success border-1 opacity-50 m-0"></hr>
 					<Stack direction="horizontal" gap={2} className=" flex-wrap my-2">
@@ -62,7 +66,7 @@ const Jumbotron = () => {
 					</Stack>
 				</section>
 
-				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-4">
+				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-6">
 					<h3 className="text-start fs-5">Outils</h3>
 					<hr className="border border-success border-1 opacity-50 m-0"></hr>
 					<Stack direction="horizontal" gap={2} className="flex-wrap my-2">
@@ -77,7 +81,7 @@ const Jumbotron = () => {
 						<img src={TechIcons.YarnIcon} alt="Yarn icon" />
 					</Stack>
 				</section>
-			</div>
+			</TechIconsWrapper>
 		</div>
 	);
 };
