@@ -17,6 +17,9 @@ import PostmanIcon from "../assets/icons/tools/postman.svg";
 import VsCodeIcon from "../assets/icons/tools/vscode.svg";
 import YarnIcon from "../assets//icons/tools/yarn.svg";
 
+//CONTACT ICONS
+import LinkedInIcon from "../assets/icons/contact/linkedin.svg";
+
 const TechIcons = {
 	//-TECH
 	CssIcon,
@@ -35,6 +38,8 @@ const TechIcons = {
 	PostmanIcon,
 	VsCodeIcon,
 	YarnIcon,
+	//-CONTACT
+	LinkedInIcon,
 };
 
 export default TechIcons;
