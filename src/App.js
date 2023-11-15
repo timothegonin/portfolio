@@ -1,7 +1,7 @@
 import "./App.css";
 import ParticlesBackground from "./components/ParticlesBackground";
 import Jumbotron from "./components/Jumbotron";
-import ProjectCard from "./components/ProjectCard";
+import Projects from "./container/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -10,7 +10,7 @@ function App() {
 		<div className="App">
 			<ParticlesBackground />
 			<Jumbotron />
-			<ProjectCard />
+			<Projects />
 			<Contact />
 			<Footer />
 		</div>
