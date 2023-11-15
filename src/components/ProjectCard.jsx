@@ -5,18 +5,24 @@ import Button from "react-bootstrap/Button";
 const ProjectCard = () => {
 	return (
 		<Card style={{ width: "18rem" }}>
-			<Card.Img
-				variant="top"
-				// src="holder.js/100px180"
-				className="bg-secondary h-100 w-100 py-5"
-			/>
+			{/* HEAD */}
+			<Card.Header className="p-1">
+				<Card.Img
+					variant="top"
+					// src="holder.js/100px180"
+					className="bg-secondary h-100 w-100 py-5"
+				/>
+			</Card.Header>
+			{/* BODY */}
 			<Card.Body>
-				<Card.Title>Card Title</Card.Title>
+				<Card.Title className="mb-0">Card Title</Card.Title>
 				{/* <Card.Text>
 					Some quick example text to build on the card title and make up the
 					bulk of the card's content.
 				</Card.Text> */}
-
+			</Card.Body>
+			{/* FOOTER */}
+			<Card.Footer>
 				<ButtonGroup aria-label="Basic example">
 					<Button variant="outline-secondary" size="sm">
 						Infos
@@ -25,7 +31,7 @@ const ProjectCard = () => {
 						Accéder
 					</Button>
 				</ButtonGroup>
-			</Card.Body>
+			</Card.Footer>
 		</Card>
 	);
 };
