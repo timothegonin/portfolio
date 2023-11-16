@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
-const ProjectCard = () => {
+const ProjectCard = ({ title }) => {
 	return (
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
@@ -15,7 +15,7 @@ const ProjectCard = () => {
 			</Card.Header>
 			{/* BODY */}
 			<Card.Body>
-				<Card.Title className="mb-0">Card Title</Card.Title>
+				<Card.Title className="mb-0">{title}</Card.Title>
 				{/* <Card.Text>
 					Some quick example text to build on the card title and make up the
 					bulk of the card's content.
