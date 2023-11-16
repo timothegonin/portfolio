@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 import ProjectCard from "../components/ProjectCard";
 import Stack from "react-bootstrap/Stack";
 
@@ -23,7 +24,9 @@ const Projects = () => {
 	}, []);
 
 	return isDataLoaded ? (
-		<p>Chargement...</p>
+		<Spinner animation="border" role="status">
+			<span className="visually-hidden">Chargement...</span>
+		</Spinner>
 	) : (
 		<section className="mb-4">
 			<h3 className="py-4">Projets</h3>
