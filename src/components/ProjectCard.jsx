@@ -2,17 +2,16 @@ import Card from "react-bootstrap/Card";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
-import reverviaPreview from "../assets/preview/reservia.jpg";
-
-const ProjectCard = ({ title }) => {
+const ProjectCard = ({ title, image }) => {
+	console.log(image);
 	return (
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
 			<Card.Header className="p-1">
 				<Card.Img
 					variant="top"
-					src={reverviaPreview}
-					className="bg-secondary w-100 rounded-6"
+					src={require(`../assets/preview/${image}`)}
+					alt={`Preview picture of ${title} project`}
 				/>
 			</Card.Header>
 			{/* BODY */}
@@ -31,8 +30,10 @@ const ProjectCard = ({ title }) => {
 					</Button>
 					<Button
 						href="https://timothegonin.github.io/TimotheGonin_2_10052021/"
+						target="_blank"
 						variant="outline-primary"
 						size="sm"
+						role="button"
 					>
 						Accéder
 					</Button>

@@ -32,7 +32,11 @@ const Projects = () => {
 			<h3 className="py-4">Projets</h3>
 			<Stack className="align-items-center" gap={3}>
 				{projectsData.map((project) => (
-					<ProjectCard key={project.id} title={project.title} />
+					<ProjectCard
+						key={project.id}
+						title={project.title}
+						image={project.preview}
+					/>
 				))}
 			</Stack>
 		</section>
