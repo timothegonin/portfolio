@@ -3,7 +3,6 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
 const ProjectCard = ({ title, image }) => {
-	console.log(image);
 	return (
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
