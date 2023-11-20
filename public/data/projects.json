@@ -2,21 +2,25 @@
 	{
 		"id": 1,
 		"title": "Reservia",
-		"preview": "reservia.jpg"
+		"preview": "reservia.jpg",
+		"link": "https://timothegonin.github.io/TimotheGonin_2_10052021/"
 	},
 	{
 		"id": 2,
 		"title": "Ohmyfood",
-		"preview": "ohmyfood.jpg"
+		"preview": "ohmyfood.jpg",
+		"link": "https://timothegonin.github.io/TimotheGonin_3_17062021/"
 	},
 	{
 		"id": 3,
 		"title": "FishEye",
-		"preview": "fisheye.jpg"
+		"preview": "fisheye.jpg",
+		"link": "https://timothegonin.github.io/TimotheGonin_6_30092021/"
 	},
 	{
 		"id": 4,
 		"title": "Les petits plats",
-		"preview": "lespetitsplats.jpg"
+		"preview": "lespetitsplats.jpg",
+		"link": "https://timothegonin.github.io/TimotheGonin_7_20012022/"
 	}
 ]

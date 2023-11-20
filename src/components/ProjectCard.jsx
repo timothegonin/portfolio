@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
-const ProjectCard = ({ title, image }) => {
+const ProjectCard = ({ title, image, link }) => {
 	return (
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
@@ -28,7 +28,7 @@ const ProjectCard = ({ title, image }) => {
 						Infos
 					</Button>
 					<Button
-						href="https://timothegonin.github.io/TimotheGonin_2_10052021/"
+						href={link}
 						target="_blank"
 						variant="outline-primary"
 						size="sm"

@@ -36,6 +36,7 @@ const Projects = () => {
 						key={project.id}
 						title={project.title}
 						image={project.preview}
+						link={project.link}
 					/>
 				))}
 			</Stack>
