@@ -3,15 +3,23 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
 const ProjectCard = ({ title, image, link }) => {
+	console.log(image);
 	return (
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
 			<Card.Header className="p-1">
-				<Card.Img
+				{image.map((img, index) => (
+					<Card.Img
+						key={index}
+						variant="top"
+						src={require(`../assets/preview/${img}`)}
+					/>
+				))}
+				{/* <Card.Img
 					variant="top"
 					src={require(`../assets/preview/${image}`)}
 					alt={`Preview picture of ${title} project`}
-				/>
+				/> */}
 			</Card.Header>
 			{/* BODY */}
 			<Card.Body>
