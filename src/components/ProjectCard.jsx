@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import Carousel from "react-bootstrap/Carousel";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 
@@ -8,13 +9,16 @@ const ProjectCard = ({ title, image, link }) => {
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
 			<Card.Header className="p-1">
-				{image.map((img, index) => (
-					<Card.Img
-						key={index}
-						variant="top"
-						src={require(`../assets/preview/${img}`)}
-					/>
-				))}
+				<Carousel fade data-bs-theme="dark">
+					{image.map((img, index) => (
+						<Carousel.Item key={index}>
+							<Card.Img
+								variant="top"
+								src={require(`../assets/preview/${img}`)}
+							/>
+						</Carousel.Item>
+					))}
+				</Carousel>
 				{/* <Card.Img
 					variant="top"
 					src={require(`../assets/preview/${image}`)}
