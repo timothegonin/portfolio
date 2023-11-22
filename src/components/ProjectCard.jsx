@@ -11,10 +11,11 @@ const ProjectCard = ({ title, image, link }) => {
 			<Card.Header className="p-1">
 				<Carousel fade data-bs-theme="dark">
 					{image.map((img, index) => (
-						<Carousel.Item key={index}>
+						<Carousel.Item key={index} className="px-5 pt-1 pb-4">
 							<Card.Img
 								variant="top"
 								src={require(`../assets/preview/${img}`)}
+								style={{ objectFit: "scale-down", height: "18rem" }}
 							/>
 						</Carousel.Item>
 					))}
