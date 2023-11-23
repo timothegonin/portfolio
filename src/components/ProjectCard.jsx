@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
-const ProjectCard = ({ title, image, link }) => {
+const ProjectCard = ({ title, medias, link }) => {
 	//OFFCANVAS CONTROLS
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -50,7 +50,7 @@ const ProjectCard = ({ title, image, link }) => {
 							onSelect={handleSelect}
 							data-bs-theme="dark"
 						>
-							{image.map((img, index) => (
+							{medias.preview.map((img, index) => (
 								<Carousel.Item key={index} className="px-5 pt-1 pb-4">
 									<Card.Img
 										variant="top"

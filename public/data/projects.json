@@ -2,21 +2,29 @@
 	{
 		"id": 1,
 		"title": "Reservia",
-		"preview": [
-			"reservia/reservia_home-top.jpg",
-			"reservia/reservia_home-middle.jpg",
-			"reservia/reservia_home-bottom.jpg"
-		],
+		"medias": {
+			"techIcons": ["html5.svg", "css3.svg"],
+			"preview": [
+				"reservia/reservia_home-top.jpg",
+				"reservia/reservia_home-middle.jpg",
+				"reservia/reservia_home-bottom.jpg"
+			]
+		},
+
 		"link": "https://timothegonin.github.io/TimotheGonin_2_10052021/"
 	},
 	{
 		"id": 2,
 		"title": "Ohmyfood",
-		"preview": [
-			"ohmyfood/ohmyfood_home-top.jpg",
-			"ohmyfood/ohmyfood_restaurant.jpg",
-			"ohmyfood/ohmyfood_home-bottom.jpg"
-		],
+		"medias": {
+			"techIcons": ["html5.svg", "css3.svg", "sass.svg"],
+			"preview": [
+				"ohmyfood/ohmyfood_home-top.jpg",
+				"ohmyfood/ohmyfood_restaurant.jpg",
+				"ohmyfood/ohmyfood_home-bottom.jpg"
+			]
+		},
+
 		"link": "https://timothegonin.github.io/TimotheGonin_3_17062021/"
 	}
 ]
