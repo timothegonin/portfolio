@@ -4,6 +4,7 @@
 		"title": "Reservia",
 		"medias": {
 			"techIcons": ["html5.svg", "css3.svg"],
+			"thumbnail": "reservia_thumbnail.jpg",
 			"preview": [
 				"reservia/reservia_home-top.jpg",
 				"reservia/reservia_home-middle.jpg",
@@ -18,6 +19,7 @@
 		"title": "Ohmyfood",
 		"medias": {
 			"techIcons": ["html5.svg", "css3.svg", "sass.svg"],
+			"thumbnail": "ohmyfood_thumbnail.jpg",
 			"preview": [
 				"ohmyfood/ohmyfood_home-top.jpg",
 				"ohmyfood/ohmyfood_restaurant.jpg",

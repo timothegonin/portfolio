@@ -19,23 +19,16 @@ const ProjectCard = ({ title, medias, link }) => {
 	return (
 		<Card style={{ width: "18rem" }}>
 			{/* HEAD */}
-			<Card.Header className="p-1">
-				{/* <Card.Img
+			<Card.Header className="p-0">
+				<Card.Img
 					variant="top"
-					src={require(`../assets/preview/${image}`)}
-					alt={`Preview picture of ${title} project`}
-				/> */}
+					src={require(`../assets/thumbnails/${medias.thumbnail}`)}
+					alt={`Thumbnail of ${title} project`}
+				/>
 			</Card.Header>
+
 			{/* BODY */}
-			<Card.Body>
-				<Card.Title className="mb-0">{title}</Card.Title>
-				{/* <Card.Text>
-					Some quick example text to build on the card title and make up the
-					bulk of the card's content.
-				</Card.Text> */}
-			</Card.Body>
-			{/* FOOTER */}
-			<Card.Footer>
+			<Card.Body className="p-2">
 				<Button variant="outline-primary" onClick={handleShow}>
 					Explorer
 				</Button>
@@ -82,7 +75,7 @@ const ProjectCard = ({ title, medias, link }) => {
 						</Stack>
 					</Offcanvas.Body>
 				</Offcanvas>
-			</Card.Footer>
+			</Card.Body>
 		</Card>
 	);
 };
