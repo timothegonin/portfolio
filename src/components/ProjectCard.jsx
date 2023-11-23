@@ -29,6 +29,16 @@ const ProjectCard = ({ title, medias, link }) => {
 
 			{/* BODY */}
 			<Card.Body className="p-2">
+				<Stack direction="horizontal" gap={2} className="justify-content-end">
+					{medias.techIcons.map((icon, index) => (
+						<img
+							key={index}
+							src={require(`../assets/icons/tech/${icon}`)}
+							alt="Bostrap icon"
+						/>
+					))}
+				</Stack>
+
 				<Button variant="outline-primary" onClick={handleShow}>
 					Explorer
 				</Button>
