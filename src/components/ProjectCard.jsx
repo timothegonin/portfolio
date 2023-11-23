@@ -30,18 +30,13 @@ const ProjectCard = ({ infos, medias, link }) => {
 
 			{/* BODY */}
 			<Card.Body className="p-2">
-				<Stack direction="horizontal" gap={2} className="justify-content-start">
+				<Stack
+					direction="horizontal"
+					gap={2}
+					className="justify-content-start mb-2"
+				>
 					{infos.tags.map((tag) => (
 						<Badge bg="light" text="dark">{`#${tag}`}</Badge>
-					))}
-				</Stack>
-				<Stack direction="horizontal" gap={2} className="justify-content-end">
-					{medias.techIcons.map((icon, index) => (
-						<img
-							key={index}
-							src={require(`../assets/icons/tech/${icon}`)}
-							alt="Bostrap icon"
-						/>
 					))}
 				</Stack>
 
@@ -71,6 +66,15 @@ const ProjectCard = ({ infos, medias, link }) => {
 						</Carousel>
 						<Stack gap={2}>
 							<p>{infos.description}</p>
+							<Stack direction="horizontal" gap={2}>
+								{medias.techIcons.map((icon, index) => (
+									<img
+										key={index}
+										src={require(`../assets/icons/tech/${icon}`)}
+										alt="Bostrap icon"
+									/>
+								))}
+							</Stack>
 							<hr />
 							<div>
 								<Button
