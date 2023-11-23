@@ -36,5 +36,25 @@
 		},
 
 		"link": "https://timothegonin.github.io/TimotheGonin_3_17062021/"
+	},
+	{
+		"id": 3,
+		"infos": {
+			"title": "FishEye",
+			"description": "Site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux.",
+			"tags": ["vanilla JS", "lightbox", "router"]
+		},
+		"medias": {
+			"techIcons": ["html5.svg", "css3.svg", "sass.svg", "javascript.svg"],
+			"thumbnail": "fisheye_thumbnail.jpg",
+			"preview": [
+				"fisheye/fisheye_home.jpg",
+				"fisheye/fisheye_profil.jpg",
+				"fisheye/fisheye_profil-modal.jpg",
+				"fisheye/fisheye_profil-lightbox.jpg"
+			]
+		},
+
+		"link": "https://timothegonin.github.io/TimotheGonin_6_30092021/"
 	}
 ]
