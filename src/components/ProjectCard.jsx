@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
-const ProjectCard = ({ title, medias, link }) => {
+const ProjectCard = ({ infos, medias, link }) => {
 	//OFFCANVAS CONTROLS
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -23,7 +23,7 @@ const ProjectCard = ({ title, medias, link }) => {
 				<Card.Img
 					variant="top"
 					src={require(`../assets/thumbnails/${medias.thumbnail}`)}
-					alt={`Thumbnail of ${title} project`}
+					alt={`Thumbnail of ${infos.title} project`}
 				/>
 			</Card.Header>
 
@@ -45,7 +45,7 @@ const ProjectCard = ({ title, medias, link }) => {
 
 				<Offcanvas show={show} onHide={handleClose} placement="end">
 					<Offcanvas.Header closeButton className="pb-0">
-						<Offcanvas.Title>{title}</Offcanvas.Title>
+						<Offcanvas.Title>{infos.title}</Offcanvas.Title>
 					</Offcanvas.Header>
 					<Offcanvas.Body>
 						<Carousel
@@ -64,12 +64,7 @@ const ProjectCard = ({ title, medias, link }) => {
 							))}
 						</Carousel>
 						<Stack gap={2}>
-							<p>
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-								Debitis esse inventore facilis repellat ex iusto voluptatum
-								numquam natus commodi cupiditate error eius ullam, sit in,
-								consectetur, ab modi reprehenderit voluptatibus?
-							</p>
+							<p>{infos.description}</p>
 							<hr />
 							<div>
 								<Button
