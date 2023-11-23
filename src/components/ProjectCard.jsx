@@ -35,8 +35,8 @@ const ProjectCard = ({ infos, medias, link }) => {
 					gap={2}
 					className="justify-content-start mb-2"
 				>
-					{infos.tags.map((tag) => (
-						<Badge bg="light" text="dark">{`#${tag}`}</Badge>
+					{infos.tags.map((tag, index) => (
+						<Badge key={index} bg="light" text="dark">{`#${tag}`}</Badge>
 					))}
 				</Stack>
 
