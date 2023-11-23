@@ -56,5 +56,23 @@
 		},
 
 		"link": "https://timothegonin.github.io/TimotheGonin_6_30092021/"
+	},
+	{
+		"id": 4,
+		"infos": {
+			"title": "Les petits plats",
+			"description": "Site de recettes de cuisine à l’instar de Marmiton ou 750g, qui fait la faire la différence avec la fluidité du moteur de recherche, presque instantanée",
+			"tags": ["vanilla JS", "algorithme", "recherche"]
+		},
+		"medias": {
+			"techIcons": ["html5.svg", "css3.svg", "javascript.svg"],
+			"thumbnail": "les-petits-plats_thumbnail.jpg",
+			"preview": [
+				"les-petits-plats/les-petits-plats_home.jpg",
+				"les-petits-plats/les-petits-plats_search-bar.jpg",
+				"les-petits-plats/les-petits-plats_search-filters.jpg"
+			]
+		},
+		"link": "https://timothegonin.github.io/TimotheGonin_7_20012022/"
 	}
 ]
