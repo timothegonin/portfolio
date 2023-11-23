@@ -3,7 +3,8 @@
 		"id": 1,
 		"infos": {
 			"title": "Reservia",
-			"description": "Page statique d'une entreprise proposant un outil de planification de vacances."
+			"description": "Page statique d'une entreprise proposant un outil de planification de vacances.",
+			"tags": ["statique", "de maquette à page web"]
 		},
 		"medias": {
 			"techIcons": ["html5.svg", "css3.svg"],
@@ -21,7 +22,8 @@
 		"id": 2,
 		"infos": {
 			"title": "Ohmyfood",
-			"description": "Page dynamique d'une jeune startup sur le marché de la restauration."
+			"description": "Page dynamique d'une jeune startup sur le marché de la restauration.",
+			"tags": ["animations CSS", "interactions"]
 		},
 		"medias": {
 			"techIcons": ["html5.svg", "css3.svg", "sass.svg"],

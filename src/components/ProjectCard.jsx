@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Card from "react-bootstrap/Card";
+import Badge from "react-bootstrap/Badge";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -29,6 +30,11 @@ const ProjectCard = ({ infos, medias, link }) => {
 
 			{/* BODY */}
 			<Card.Body className="p-2">
+				<Stack direction="horizontal" gap={2} className="justify-content-start">
+					{infos.tags.map((tag) => (
+						<Badge bg="light" text="dark">{`#${tag}`}</Badge>
+					))}
+				</Stack>
 				<Stack direction="horizontal" gap={2} className="justify-content-end">
 					{medias.techIcons.map((icon, index) => (
 						<img
