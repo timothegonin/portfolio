@@ -6,7 +6,7 @@ import TechIcons from "./Icons";
 const Contact = () => {
 	return (
 		<Container fluid className="p-3 mb-3">
-			{/* <h3>Contact</h3> */}
+			<h3 class="visually-hidden">Contact me :</h3>
 			<Stack direction="horizontal" gap={3} className="justify-content-center">
 				<img
 					src={TechIcons.GitHubIcon}

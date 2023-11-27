@@ -32,8 +32,8 @@ const TechIconsWrapper = styled(Container)`
 
 const Jumbotron = () => {
 	return (
-		// <div className="p-5 mb-4 bg-body-tertiary h-100">
 		<div className="p-5 h-100">
+			{/* PRESENTATION */}
 			<PresentationWrapper fluid>
 				<Row className="justify-content-center">
 					<PictureBox xs={6} md={4} className="d-flex align-items-center">
@@ -53,10 +53,12 @@ const Jumbotron = () => {
 					</Col>
 				</Row>
 			</PresentationWrapper>
-
+			{/* CONTATCT */}
 			<Contact />
 			<hr />
+			{/* TECHNOLOGIES */}
 			<TechIconsWrapper className="d-flex flex-column flex-md-row gap-md-3 justify-content-center">
+				{/* --TECH */}
 				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-6">
 					<h3 className="text-start fs-5">Technologies</h3>
 					<hr className="border border-success border-1 opacity-50 m-0"></hr>
@@ -69,7 +71,7 @@ const Jumbotron = () => {
 						<img src={TechIcons.SassIcon} alt="Sass icon" />
 					</Stack>
 				</section>
-
+				{/* --TOOLS */}
 				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-6">
 					<h3 className="text-start fs-5">Outils</h3>
 					<hr className="border border-success border-1 opacity-50 m-0"></hr>
