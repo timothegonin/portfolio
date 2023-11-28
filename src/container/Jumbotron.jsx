@@ -8,6 +8,8 @@ import Stack from "react-bootstrap/Stack";
 import devPicture from "../assets/pictures/devPicture.jpg";
 import TechIcons from "../components/Icons";
 import Contact from "../components/Contact";
+import Helper from "../components/Helper";
+import arrowDown from "../assets/icons/arrow-down-short.svg";
 
 const PresentationWrapper = styled(Container)`
 	max-width: 550px;
@@ -88,6 +90,11 @@ const Jumbotron = () => {
 					</Stack>
 				</section>
 			</TechIconsWrapper>
+			<Helper
+				text="Voir mes projets"
+				media={arrowDown}
+				alt="flêche vers le bas"
+			/>
 		</div>
 	);
 };
