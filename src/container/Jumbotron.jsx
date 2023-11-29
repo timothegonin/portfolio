@@ -34,7 +34,7 @@ const TechIconsWrapper = styled(Container)`
 
 const Jumbotron = () => {
 	return (
-		<div className="p-5 h-100 d-flex flex-column justify-content-between">
+		<div className="p-2 h-100 d-flex flex-column">
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid>
 				<Row className="justify-content-center">
@@ -62,7 +62,7 @@ const Jumbotron = () => {
 
 			<hr />
 			{/* TECHNOLOGIES */}
-			<TechIconsWrapper className="d-flex flex-column flex-md-row gap-md-3 justify-content-center">
+			<TechIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 mt-3 mb-auto ">
 				{/* --TECH */}
 				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-6">
 					<h3 className="text-start fs-5">Technologies</h3>

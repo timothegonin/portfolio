@@ -5,7 +5,7 @@ import TechIcons from "./Icons";
 
 const Contact = () => {
 	return (
-		<Container fluid className="p-3 mb-3">
+		<Container fluid className="p-3">
 			<h3 className="visually-hidden">Contact me :</h3>
 			<Stack direction="horizontal" gap={3} className="justify-content-end">
 				<a
