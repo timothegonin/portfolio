@@ -28,9 +28,13 @@ const Projects = () => {
 			<span className="visually-hidden">Chargement...</span>
 		</Spinner>
 	) : (
-		<section className="mb-4">
+		<section className="mb-4 h-100">
 			<h3 className="py-4">Projets</h3>
-			<Stack className="align-items-center" gap={3}>
+			<Stack
+				className="flex-wrap justify-content-center"
+				direction="horizontal"
+				gap={3}
+			>
 				{projectsData.map((project) => (
 					<ProjectCard
 						key={project.id}
