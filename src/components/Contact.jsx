@@ -6,17 +6,17 @@ import TechIcons from "./Icons";
 const Contact = () => {
 	return (
 		<Container fluid className="p-3 mb-3">
-			<h3 class="visually-hidden">Contact me :</h3>
+			<h3 className="visually-hidden">Contact me :</h3>
 			<Stack direction="horizontal" gap={3} className="justify-content-center">
 				<img
 					src={TechIcons.GitHubIcon}
 					alt="Github icon"
-					className="border border-1 p-2 rounded bg-white"
+					className="border border-1 border-dark p-2 rounded bg-white"
 				/>
 				<img
 					src={TechIcons.LinkedInIcon}
 					alt="Linkedin icon"
-					className="border border-1 p-2 rounded bg-white"
+					className="border border-1 border-dark p-2 rounded bg-white"
 				/>
 			</Stack>
 		</Container>
