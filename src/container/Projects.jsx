@@ -11,7 +11,7 @@ const Projects = () => {
 		async function fetchData() {
 			try {
 				const response = await fetch(
-					`http://localhost:3000/data/projects.json`
+					`data/projects.json`
 				);
 				const resultData = await response.json();
 				setProjectsData(resultData);
