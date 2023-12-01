@@ -4,12 +4,12 @@ import Jumbotron from "./container/Jumbotron";
 import Projects from "./container/Projects";
 import Footer from "./components/Footer";
 
-function App() {
+function App({data}) {
 	return (
 		<div className="App">
 			<ParticlesBackground />
 			<Jumbotron />
-			<Projects />
+			<Projects data={data}/>
 			<Footer />
 		</div>
 	);

@@ -3,27 +3,14 @@ import Spinner from "react-bootstrap/Spinner";
 import ProjectCard from "../components/ProjectCard";
 import Stack from "react-bootstrap/Stack";
 
-const Projects = () => {
+const Projects = ({data}) => {
 	const [projectsData, setProjectsData] = useState([]);
-	const [isDataLoaded, setIsDataLoaded] = useState(false);
 
 	useEffect(() => {
-		async function fetchData() {
-			try {
-				const response = await fetch(
-					`data/projects.json`
-				);
-				const resultData = await response.json();
-				setProjectsData(resultData);
-				setIsDataLoaded(false);
-			} catch (err) {
-				console.log(err);
-			}
-		}
-		fetchData();
-	}, []);
+		setProjectsData(data);		
+	}, [data]);
 
-	return isDataLoaded ? (
+	return projectsData.length === 0 ? (
 		<Spinner animation="border" role="status">
 			<span className="visually-hidden">Chargement...</span>
 		</Spinner>
