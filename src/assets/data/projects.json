@@ -74,5 +74,23 @@
 			]
 		},
 		"link": "https://timothegonin.github.io/TimotheGonin_7_20012022/"
+	},
+	{
+		"id": 5,
+		"infos": {
+			"title": "Kasa",
+			"description": "Plateforme web de location d’appartements entre particuliers.",
+			"tags": ["react", "react-router", "SPA"]
+		},
+		"medias": {
+			"techIcons": ["html5.svg", "css3.svg", "javascript.svg", "react.svg"],
+			"thumbnail": "kasa_thumbnail.jpg",
+			"preview": [
+				"kasa/kasa_home.jpg",
+				"kasa/kasa_rental.jpg",
+				"kasa/kasa_about.jpg"
+			]
+		},
+		"link": "https://timothegonin.github.io/timothegonin_11_052022/"
 	}
 ]
