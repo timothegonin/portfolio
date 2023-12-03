@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
@@ -76,7 +77,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 								))}
 							</Stack>
 							<hr />
-							<div>
+							<ButtonGroup size="sm">
 								<Button
 									href={links && links.page ? links.page : "#"}
 									target="_blank"
@@ -106,7 +107,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 										<path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"></path>
 									</svg>
 								</Button>
-							</div>
+							</ButtonGroup>
 						</Stack>
 					</Offcanvas.Body>
 				</Offcanvas>
