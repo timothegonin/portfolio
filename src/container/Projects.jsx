@@ -3,11 +3,11 @@ import Spinner from "react-bootstrap/Spinner";
 import ProjectCard from "../components/ProjectCard";
 import Stack from "react-bootstrap/Stack";
 
-const Projects = ({data}) => {
+const Projects = ({ data }) => {
 	const [projectsData, setProjectsData] = useState([]);
 
 	useEffect(() => {
-		setProjectsData(data);		
+		setProjectsData(data);
 	}, [data]);
 
 	return projectsData.length === 0 ? (
@@ -27,7 +27,7 @@ const Projects = ({data}) => {
 						key={project.id}
 						infos={project.infos}
 						medias={project.medias}
-						link={project.link}
+						links={project.links}
 					/>
 				))}
 			</Stack>

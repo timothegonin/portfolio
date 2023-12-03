@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
-const ProjectCard = ({ infos, medias, link }) => {
+const ProjectCard = ({ infos, medias, links }) => {
 	//OFFCANVAS CONTROLS
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -78,13 +78,33 @@ const ProjectCard = ({ infos, medias, link }) => {
 							<hr />
 							<div>
 								<Button
-									href={link}
+									href={links && links.page ? links.page : "#"}
 									target="_blank"
 									variant="outline-primary"
 									size="sm"
 									role="button"
 								>
 									Accéder
+								</Button>
+
+								<Button
+									href={links && links.repo ? links.repo : "#"}
+									target="_blank"
+									variant="outline-primary"
+									size="sm"
+									role="button"
+								>
+									Consulter{" "}
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										fill="currentColor"
+										className="bi bi-code-slash"
+										viewBox="0 0 16 16"
+									>
+										<path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"></path>
+									</svg>
 								</Button>
 							</div>
 						</Stack>
