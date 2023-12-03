@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
-const ProjectCard = ({ infos, medias, link }) => {
+const ProjectCard = ({ infos, medias, links }) => {
 	//OFFCANVAS CONTROLS
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -78,7 +78,7 @@ const ProjectCard = ({ infos, medias, link }) => {
 							<hr />
 							<div>
 								<Button
-									href={link}
+									href={links && links.page ? links.page : "#"}
 									target="_blank"
 									variant="outline-primary"
 									size="sm"
@@ -88,7 +88,7 @@ const ProjectCard = ({ infos, medias, link }) => {
 								</Button>
 
 								<Button
-									// href={link}
+									href={links && links.repo ? links.repo : "#"}
 									target="_blank"
 									variant="outline-primary"
 									size="sm"

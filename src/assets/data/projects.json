@@ -15,8 +15,10 @@
 				"reservia/reservia_home-bottom.jpg"
 			]
 		},
-
-		"link": "https://timothegonin.github.io/TimotheGonin_2_10052021/"
+		"links": {
+			"page": "https://timothegonin.github.io/TimotheGonin_2_10052021/",
+			"repo": "https://github.com/timothegonin/TimotheGonin_2_10052021"
+		}
 	},
 	{
 		"id": 2,
@@ -34,8 +36,10 @@
 				"ohmyfood/ohmyfood_restaurant.jpg"
 			]
 		},
-
-		"link": "https://timothegonin.github.io/TimotheGonin_3_17062021/"
+		"links": {
+			"page": "https://timothegonin.github.io/TimotheGonin_3_17062021/",
+			"repo": "https://github.com/timothegonin/TimotheGonin_3_17062021"
+		}
 	},
 	{
 		"id": 3,
@@ -54,8 +58,10 @@
 				"fisheye/fisheye_profil-lightbox.jpg"
 			]
 		},
-
-		"link": "https://timothegonin.github.io/TimotheGonin_6_30092021/"
+		"links": {
+			"page": "https://timothegonin.github.io/TimotheGonin_6_30092021/",
+			"repo": "https://github.com/timothegonin/TimotheGonin_6_30092021"
+		}
 	},
 	{
 		"id": 4,
@@ -73,7 +79,10 @@
 				"les-petits-plats/les-petits-plats_search-filters.jpg"
 			]
 		},
-		"link": "https://timothegonin.github.io/TimotheGonin_7_20012022/"
+		"links": {
+			"page": "https://timothegonin.github.io/TimotheGonin_7_20012022/",
+			"repo": "https://github.com/timothegonin/TimotheGonin_7_20012022"
+		}
 	},
 	{
 		"id": 5,
@@ -91,6 +100,9 @@
 				"kasa/kasa_about.jpg"
 			]
 		},
-		"link": "https://timothegonin.github.io/timothegonin_11_052022/"
+		"links": {
+			"page": "https://timothegonin.github.io/timothegonin_11_052022/",
+			"repo": "https://github.com/timothegonin/timothegonin_11_052022"
+		}
 	}
 ]
