@@ -14,13 +14,14 @@ const Projects = ({ data }) => {
 
 	const toogleSort = () => {
 		setSortMode(sortMode === "desc" ? "asc" : "desc");
-		handleSort();
+		handleSort(sortMode);
 	};
 
-	const handleSort = () => {
-		const sortedData = [...projectsData].sort((a, b) => {
-			return a > b ? a : -1;
-		});
+	const handleSort = (sortMode) => {
+		let sortedData = [...projectsData];
+		sortMode === "desc"
+			? sortedData.sort((a, b) => b.id - a.id)
+			: sortedData.sort((a, b) => a.id - b.id);
 		setProjectsData(sortedData);
 	};
 
