@@ -4,6 +4,14 @@ import Button from "react-bootstrap/Button";
 import ProjectCard from "../components/ProjectCard";
 import Stack from "react-bootstrap/Stack";
 
+/**
+ * The `Projects` component displays a list of projects with sorting functionality.
+ *
+ * @component
+ * @param {object} props - The component's properties.
+ * @param {Array} props.data - The array of project data.
+ * @returns {JSX.Element} - The rendered Projects component.
+ */
 const Projects = ({ data }) => {
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
@@ -17,6 +25,10 @@ const Projects = ({ data }) => {
 		handleSort(sortMode);
 	};
 
+	/**
+	 * Sorts the projects data based on the sorting mode.
+	 * @param {string} sortMode - The sorting mode (asc or desc).
+	 */
 	const handleSort = (sortMode) => {
 		let sortedData = [...projectsData];
 		sortMode === "desc"
