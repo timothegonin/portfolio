@@ -14,6 +14,14 @@ const Projects = ({ data }) => {
 
 	const toogleSort = () => {
 		setSortMode(sortMode === "desc" ? "asc" : "desc");
+		handleSort();
+	};
+
+	const handleSort = () => {
+		const sortedData = [...projectsData].sort((a, b) => {
+			return a > b ? a : -1;
+		});
+		setProjectsData(sortedData);
 	};
 
 	const listOfProjectCards = projectsData.map((project) => (
