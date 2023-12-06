@@ -8,13 +8,22 @@ const Projects = ({ data }) => {
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
 
+	useEffect(() => {
+		setProjectsData(data);
+	}, [data]);
+
 	const toogleSort = () => {
 		setSortMode(sortMode === "desc" ? "asc" : "desc");
 	};
 
-	useEffect(() => {
-		setProjectsData(data);
-	}, [data]);
+	const listOfProjectCards = projectsData.map((project) => (
+		<ProjectCard
+			key={project.id}
+			infos={project.infos}
+			medias={project.medias}
+			links={project.links}
+		/>
+	));
 
 	return projectsData.length === 0 ? (
 		<Spinner animation="border" role="status">
@@ -63,14 +72,7 @@ const Projects = ({ data }) => {
 				direction="horizontal"
 				gap={3}
 			>
-				{projectsData.map((project) => (
-					<ProjectCard
-						key={project.id}
-						infos={project.infos}
-						medias={project.medias}
-						links={project.links}
-					/>
-				))}
+				{listOfProjectCards}
 			</Stack>
 		</section>
 	);
