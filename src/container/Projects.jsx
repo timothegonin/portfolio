@@ -52,8 +52,8 @@ const Projects = ({ data }) => {
 			<span className="visually-hidden">Chargement...</span>
 		</Spinner>
 	) : (
-		<section className="mb-4" style={{ minHeight: "100vh" }}>
-			<Container fluid className="p-2">
+		<section className="mb-4 p-2" style={{ minHeight: "100vh" }}>
+			<Container fluid className="p-2" style={{ maxWidth: "1000px" }}>
 				<Stack
 					direction="vertical"
 					gap={2}
