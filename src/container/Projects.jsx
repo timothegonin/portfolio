@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -12,6 +13,40 @@ import Stack from "react-bootstrap/Stack";
  * @param {object} props - The component's properties.
  * @param {Array} props.data - The array of project data.
  * @returns {JSX.Element} - The rendered Projects component.
+ */
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                                                          │
+  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+ */
+
+const CardsWrapper = styled.div`
+	--grid-layout-gap: 20px;
+	--grid-column-count: 3; /* This gets overridden by an inline style. */
+	--grid-item--min-width: 17rem; /* This gets overridden by an inline style. */
+
+	/**
+   * Calculated values.
+   */
+	--gap-count: calc(var(--grid-column-count) - 1);
+	--total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+	--grid-item--max-width: calc(
+		(100% - var(--total-gap-width)) / var(--grid-column-count)
+	);
+
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+	);
+	grid-gap: var(--grid-layout-gap);
+`;
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                                                             │
+  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 const Projects = ({ data }) => {
 	const [projectsData, setProjectsData] = useState([]);
@@ -52,8 +87,8 @@ const Projects = ({ data }) => {
 			<span className="visually-hidden">Chargement...</span>
 		</Spinner>
 	) : (
-		<section className="mb-4 h-100">
-			<Container fluid className="p-2">
+		<section className="mb-4 p-2" style={{ minHeight: "100vh" }}>
+			<Container fluid className="p-2" style={{ maxWidth: "1000px" }}>
 				<Stack
 					direction="vertical"
 					gap={2}
@@ -90,13 +125,7 @@ const Projects = ({ data }) => {
 					</div>
 				</Stack>
 
-				<Stack
-					className="flex-wrap justify-content-center"
-					direction="horizontal"
-					gap={3}
-				>
-					{listOfProjectCards}
-				</Stack>
+				<CardsWrapper>{listOfProjectCards}</CardsWrapper>
 			</Container>
 		</section>
 	);
