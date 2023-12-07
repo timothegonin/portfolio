@@ -19,7 +19,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 	};
 
 	return (
-		<Card style={{ width: "18rem" }}>
+		<Card className="w-100">
 			{/* HEAD */}
 			<Card.Header className="p-0">
 				<Card.Img
