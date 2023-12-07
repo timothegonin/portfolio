@@ -52,7 +52,7 @@ const Projects = ({ data }) => {
 			<span className="visually-hidden">Chargement...</span>
 		</Spinner>
 	) : (
-		<section className="mb-4 h-100">
+		<section className="mb-4" style={{ minHeight: "100vh" }}>
 			<Container fluid className="p-2">
 				<Stack
 					direction="vertical"
