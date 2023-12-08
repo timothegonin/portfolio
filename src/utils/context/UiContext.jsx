@@ -4,6 +4,7 @@ export const UiContext = createContext();
 
 export const UiProvider = ({ children }) => {
 	const [uiDirection, setUiDirection] = useState("right");
+	console.log(uiDirection);
 
 	const toogleUiDirection = () => {
 		uiDirection === "right" ? setUiDirection("left") : setUiDirection("right");
