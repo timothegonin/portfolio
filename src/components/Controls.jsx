@@ -5,12 +5,11 @@ import { UiContext } from "../utils/context/UiContext";
 import Form from "react-bootstrap/Form";
 
 const Controls = () => {
-	const { uiDirection, toogleUiDirection } = useContext(UiContext);
-	console.log(uiDirection);
+	const { toogleUiDirection } = useContext(UiContext);
 
-	// const handleUiDirection = (e) => {
-	// 	console.log(e.currentTarget.checked);
-	// };
+	const handleUiDirection = (e) => {
+		toogleUiDirection(e.currentTarget.checked);
+	};
 
 	return (
 		<>
@@ -21,7 +20,7 @@ const Controls = () => {
 					id="custom-switch"
 					aria-label="Enable left-handed mode"
 					label="Check this switch"
-					// onClick={handleUiDirection}
+					onClick={handleUiDirection}
 				/>
 			</Form>
 

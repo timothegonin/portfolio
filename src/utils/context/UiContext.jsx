@@ -3,15 +3,14 @@ import React, { createContext, useState } from "react";
 export const UiContext = createContext();
 
 export const UiProvider = ({ children }) => {
-	const [uiDirection, setUiDirection] = useState("right");
-	console.log(uiDirection);
+	const [leftHandedMode, setLeftHandedMode] = useState(false);
 
-	const toogleUiDirection = () => {
-		uiDirection === "right" ? setUiDirection("left") : setUiDirection("right");
+	const toogleUiDirection = (toogleButtonValue) => {
+		setLeftHandedMode(toogleButtonValue);
 	};
 
 	return (
-		<UiContext.Provider value={{ uiDirection, toogleUiDirection }}>
+		<UiContext.Provider value={{ leftHandedMode, toogleUiDirection }}>
 			{children}
 		</UiContext.Provider>
 	);
