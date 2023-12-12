@@ -8,6 +8,7 @@ import Stack from "react-bootstrap/Stack";
 import devPicture from "../assets/pictures/devPicture.jpg";
 import TechIcons from "../components/Icons";
 import Contact from "../components/Contact";
+import Controls from "../components/Controls";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
 
@@ -93,6 +94,7 @@ const Jumbotron = () => {
 					</Stack>
 				</section>
 			</TechIconsWrapper>
+			<Controls />
 			<Helper
 				text="Voir mes projets"
 				media={arrowDown}
