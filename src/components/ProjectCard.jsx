@@ -21,6 +21,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 	};
 
 	const offcanvasPlacement = !leftHandedMode ? "end" : "start";
+	const offcanvasControlsPlacement = leftHandedMode && "flex-row-reverse";
 
 	return (
 		<Card className="w-100">
@@ -54,7 +55,10 @@ const ProjectCard = ({ infos, medias, links }) => {
 					onHide={handleClose}
 					placement={offcanvasPlacement}
 				>
-					<Offcanvas.Header closeButton className="pb-0">
+					<Offcanvas.Header
+						closeButton
+						className={`"pb-0 ${offcanvasControlsPlacement}`}
+					>
 						<Offcanvas.Title>{infos.title}</Offcanvas.Title>
 					</Offcanvas.Header>
 					<Offcanvas.Body>
