@@ -35,7 +35,10 @@ const TechIconsWrapper = styled(Container)`
 
 const Jumbotron = () => {
 	return (
-		<div className="p-2 h-100 d-flex flex-column">
+		<div
+			className="p-2 h-100 d-flex flex-column justify-content-between"
+			style={{ maxHeight: "100vh" }}
+		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid>
 				<Row className="justify-content-center">
@@ -61,9 +64,9 @@ const Jumbotron = () => {
 			</PresentationWrapper>
 			{/* CONTATCT */}
 
-			<hr />
+			<hr className="my-2" />
 			{/* TECHNOLOGIES */}
-			<TechIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 mt-3 mb-auto ">
+			<TechIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 my-0">
 				{/* --TECH */}
 				<section className="p-2 border border-1 rounded my-2 bg-white col-12 col-md-6">
 					<h3 className="text-start fs-5">Technologies</h3>
@@ -94,6 +97,7 @@ const Jumbotron = () => {
 					</Stack>
 				</section>
 			</TechIconsWrapper>
+			<hr className="my-2" />
 			<Controls />
 			<Helper
 				text="Voir mes projets"

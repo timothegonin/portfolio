@@ -11,7 +11,7 @@ const Contact = () => {
 		: "justify-content-start";
 
 	return (
-		<Container fluid className="p-3">
+		<Container fluid className="px-3 py-2">
 			<h3 className="visually-hidden">Contact me :</h3>
 			<Stack direction="horizontal" gap={3} className={contactIconsClass}>
 				<a
