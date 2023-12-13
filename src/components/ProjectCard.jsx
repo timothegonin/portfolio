@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UiContext } from "../utils/context/UiContext";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Carousel from "react-bootstrap/Carousel";
@@ -8,6 +9,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
 const ProjectCard = ({ infos, medias, links }) => {
+	const { leftHandedMode } = useContext(UiContext);
 	//OFFCANVAS CONTROLS
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -17,6 +19,9 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const handleSelect = (selectedIndex) => {
 		setIndex(selectedIndex);
 	};
+
+	const offcanvasPlacement = !leftHandedMode ? "end" : "start";
+	const offcanvasControlsPlacement = leftHandedMode && "flex-row-reverse";
 
 	return (
 		<Card className="w-100">
@@ -45,8 +50,15 @@ const ProjectCard = ({ infos, medias, links }) => {
 					Explorer
 				</Button>
 
-				<Offcanvas show={show} onHide={handleClose} placement="end">
-					<Offcanvas.Header closeButton className="pb-0">
+				<Offcanvas
+					show={show}
+					onHide={handleClose}
+					placement={offcanvasPlacement}
+				>
+					<Offcanvas.Header
+						closeButton
+						className={`"pb-0 ${offcanvasControlsPlacement}`}
+					>
 						<Offcanvas.Title>{infos.title}</Offcanvas.Title>
 					</Offcanvas.Header>
 					<Offcanvas.Body>
