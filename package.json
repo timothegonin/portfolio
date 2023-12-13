@@ -1,7 +1,7 @@
 {
 	"homepage": "https://timothegonin.github.io/portfolio",
 	"name": "portfolio",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.17.0",

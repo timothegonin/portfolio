@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
-import projects from './assets/data/projects.json'
+import projects from "./assets/data/projects.json";
 import App from "./App";
+import { UiProvider } from "./utils/context/UiContext";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<App data={projects}/>
+		<UiProvider>
+			<App data={projects} />
+		</UiProvider>
 	</React.StrictMode>
 );
 

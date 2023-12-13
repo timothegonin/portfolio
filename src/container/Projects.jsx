@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UiContext } from "../utils/context/UiContext";
 import styled from "styled-components";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -49,12 +50,15 @@ const CardsWrapper = styled.div`
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 const Projects = ({ data }) => {
+	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
 
 	useEffect(() => {
 		setProjectsData(data);
 	}, [data]);
+
+	const toggleSortClass = !leftHandedMode ? "ms-auto" : "me-auto";
 
 	const toogleSort = () => {
 		setSortMode(sortMode === "desc" ? "asc" : "desc");
@@ -95,7 +99,7 @@ const Projects = ({ data }) => {
 					className="justify-content-center mb-4"
 				>
 					<h3 className="pt-4">Projets</h3>
-					<div className="ms-auto">
+					<div className={toggleSortClass}>
 						<Button
 							role="button"
 							variant="primary"
