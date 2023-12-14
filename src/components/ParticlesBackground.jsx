@@ -2,6 +2,7 @@ import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
 const ParticlesBackground = () => {
+	const screenWidthParticles = window.screen.width / 40;
 	async function loadParticles(main) {
 		await loadFull(main);
 	}
@@ -19,7 +20,7 @@ const ParticlesBackground = () => {
 						value: "#fff",
 					},
 				},
-				fpsLimit: 120,
+				fpsLimit: 60,
 				interactivity: {
 					events: {
 						onClick: {
@@ -34,19 +35,19 @@ const ParticlesBackground = () => {
 					},
 					modes: {
 						repulse: {
-							distance: 200,
+							distance: 125,
 							duration: 0.4,
-							factor: 100,
+							factor: 1,
 							speed: 1,
-							maxSpeed: 50,
+							maxSpeed: 10,
 							easing: "ease-out-quad",
 						},
 						attract: {
-							distance: 200,
+							distance: 150,
 							duration: 0.4,
 							easing: "ease-out-quad",
 							factor: 1,
-							maxSpeed: 50,
+							maxSpeed: 10,
 							speed: 1,
 						},
 					},
@@ -74,22 +75,22 @@ const ParticlesBackground = () => {
 					},
 					number: {
 						density: {
-							enable: true,
-							area: 800,
+							enable: false,
+							area: 50,
 						},
-						value: 100,
+						value: screenWidthParticles,
 					},
 					opacity: {
 						value: 0.7,
 					},
 					shape: {
-						close: true,
+						close: false,
 						fill: true,
 						options: {},
 						type: "circle",
 					},
 					size: {
-						value: { min: 1, max: 4 },
+						value: { min: 1, max: 3 },
 					},
 				},
 				detectRetina: true,
