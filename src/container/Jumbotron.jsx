@@ -28,6 +28,21 @@ const scaleUpCenter = keyframes`
 }
 `;
 
+const scaleUpRight = keyframes`
+	0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+  }
+`;
+
 const PresentationWrapper = styled(Container)`
 	max-width: 550px;
 `;
@@ -47,6 +62,10 @@ const Picture = styled(Image)`
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+`;
+
+const ContactWrapper = styled(Row)`
+	animation: ${scaleUpRight} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
 `;
 
 const TechIconsWrapper = styled(Container)`
@@ -83,9 +102,9 @@ const Jumbotron = () => {
 						</h2>
 					</Col>
 				</PictureAndInfos>
-				<Row>
+				<ContactWrapper>
 					<Contact />
-				</Row>
+				</ContactWrapper>
 			</PresentationWrapper>
 			{/* CONTATCT */}
 
