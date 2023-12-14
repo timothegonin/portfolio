@@ -2,6 +2,7 @@ import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
 const ParticlesBackground = () => {
+	const screenWidthParticles = window.screen.width / 40;
 	async function loadParticles(main) {
 		await loadFull(main);
 	}
@@ -34,7 +35,7 @@ const ParticlesBackground = () => {
 					},
 					modes: {
 						repulse: {
-							distance: 150,
+							distance: 125,
 							duration: 0.4,
 							factor: 1,
 							speed: 1,
@@ -77,7 +78,7 @@ const ParticlesBackground = () => {
 							enable: false,
 							area: 50,
 						},
-						value: 25,
+						value: screenWidthParticles,
 					},
 					opacity: {
 						value: 0.7,
@@ -89,7 +90,7 @@ const ParticlesBackground = () => {
 						type: "circle",
 					},
 					size: {
-						value: { min: 1, max: 4 },
+						value: { min: 1, max: 3 },
 					},
 				},
 				detectRetina: true,
