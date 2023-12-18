@@ -1,38 +1,68 @@
 import React from "react";
-import styled from "styled-components";
-import Col from "react-bootstrap/Col";
+import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Stack from "react-bootstrap/Stack";
-import devPicture from "../assets/pictures/devPicture.jpg";
 import TechIcons from "../components/Icons";
+import Presentation from "../components/Presentation";
 import Contact from "../components/Contact";
 import Controls from "../components/Controls";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
+const scaleUpCenter = keyframes`
+0% {
+	-webkit-transform: scale(0.5);
+					transform: scale(0.5);
+}
+100% {
+	-webkit-transform: scale(1);
+					transform: scale(1);
+}
+`;
+
+const scaleUpRight = keyframes`
+	0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+  }
+`;
+
 const PresentationWrapper = styled(Container)`
 	max-width: 550px;
 `;
 
-const PictureBox = styled(Col)`
-	height: 100px;
-	width: 100px;
-	padding: 0;
+const PictureAndInfosWrapper = styled(Row)`
+	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
 `;
 
-const Picture = styled(Image)`
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
+const ContactWrapper = styled(Row)`
+	animation: ${scaleUpRight} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
 `;
 
 const TechIconsWrapper = styled(Container)`
 	max-width: 650px;
 `;
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const Jumbotron = () => {
 	return (
 		<div
@@ -41,26 +71,12 @@ const Jumbotron = () => {
 		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid>
-				<Row className="justify-content-center">
-					<PictureBox xs={6} md={4} className="d-flex align-items-center">
-						<Picture
-							src={devPicture}
-							className="image"
-							roundedCircle
-							thumbnail
-						/>
-					</PictureBox>
-					<Col className="d-flex flex-column align-items-center justify-content-center">
-						<h1 className="fw-bold text-nowrap">Timothé Gonin</h1>
-						<h2 className="fs-4 text-break">
-							Développeur{" "}
-							<span className="text-nowrap">Front-End | React JS</span>
-						</h2>
-					</Col>
-				</Row>
-				<Row>
+				<PictureAndInfosWrapper className="justify-content-center">
+					<Presentation />
+				</PictureAndInfosWrapper>
+				<ContactWrapper>
 					<Contact />
-				</Row>
+				</ContactWrapper>
 			</PresentationWrapper>
 			{/* CONTATCT */}
 
