@@ -17,6 +17,15 @@ import arrowDown from "../assets/icons/arrow-down-short.svg";
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+const animateBlob = keyframes`
+0% {
+	border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+}
+100% {
+	border-radius: 40% 60%;
+}
+`;
+
 const scaleUpCenter = keyframes`
 0% {
 	-webkit-transform: scale(0.5);
@@ -55,6 +64,10 @@ const PictureBox = styled(Col)`
 	height: 100px;
 	width: 100px;
 	padding: 0;
+
+	background-image: linear-gradient(45deg, #fff 0%, #000 100%);
+	box-shadow: -10vmin 10vmin 10vmin rgba(255, 255, 255, 0.07);
+	animation: ${animateBlob} 0.7s linear infinite alternate;
 `;
 
 const Picture = styled(Image)`
@@ -87,12 +100,7 @@ const Jumbotron = () => {
 			<PresentationWrapper fluid>
 				<PictureAndInfos className="justify-content-center">
 					<PictureBox xs={6} md={4} className="d-flex align-items-center">
-						<Picture
-							src={devPicture}
-							className="image"
-							roundedCircle
-							thumbnail
-						/>
+						<Picture src={devPicture} className="image" roundedCircle />
 					</PictureBox>
 					<Col className="d-flex flex-column align-items-center justify-content-center">
 						<h1 className="fw-bold text-nowrap">Timothé Gonin</h1>
