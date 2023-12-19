@@ -47,11 +47,11 @@ const PresentationWrapper = styled(Container)`
 `;
 
 const PictureAndInfosWrapper = styled(Row)`
-	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
+	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 const ContactWrapper = styled(Row)`
-	animation: ${scaleUpRight} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
+	animation: ${scaleUpRight} 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) 0s both;
 `;
 
 const StackIconsWrapper = styled(Container)`
@@ -66,7 +66,7 @@ const StackIconsWrapper = styled(Container)`
 const Jumbotron = () => {
 	return (
 		<div
-			className="p-2 h-100 d-flex flex-column justify-content-between"
+			className="p-2 py-md-3 h-100 d-flex flex-column justify-content-between"
 			style={{ maxHeight: "100vh" }}
 		>
 			{/* PRESENTATION */}
