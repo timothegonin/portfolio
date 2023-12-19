@@ -7,15 +7,9 @@ const ToolIcons = () => {
 			<h3 className="text-start fs-5">Outils</h3>
 			<hr className="border border-success border-1 opacity-50 m-0"></hr>
 			<Stack direction="horizontal" gap={2} className="flex-wrap my-2">
-				<img src={Icons.BootstrapIcon} alt="Bostrap icon" />
-				<img src={Icons.FigmaIcon} alt="Figma icon" />
-				<img src={Icons.GitIcon} alt="Git icon" />
-				<img src={Icons.GitHubIcon} alt="Github icon" />
-				<img src={Icons.GitKrakenIcon} alt="GitKraken icon" />
-				<img src={Icons.NpmIcon} alt="Npm icon" />
-				<img src={Icons.PostmanIcon} alt="Postman icon" />
-				<img src={Icons.VsCodeIcon} alt="Visial studio code icon" />
-				<img src={Icons.YarnIcon} alt="Yarn icon" />
+				{Icons.map((icon, index) => (
+					<img key={index} src={icon.svg} alt={icon.altText} />
+				))}
 			</Stack>
 		</section>
 	);

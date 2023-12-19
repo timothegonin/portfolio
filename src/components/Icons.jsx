@@ -20,26 +20,47 @@ import YarnIcon from "../assets//icons/tools/yarn.svg";
 //CONTACT ICONS
 import LinkedInIcon from "../assets/icons/contact/linkedin.svg";
 
-const Icons = {
-	//-TECH
-	CssIcon,
-	HtmlIcon,
-	JavaScriptIcon,
-	ReactIcon,
-	ReduxIcon,
-	SassIcon,
-	//-TOOLS
-	BootstrapIcon,
-	FigmaIcon,
-	GitIcon,
-	GitHubIcon,
-	GitKrakenIcon,
-	NpmIcon,
-	PostmanIcon,
-	VsCodeIcon,
-	YarnIcon,
-	//-CONTACT
-	LinkedInIcon,
-};
+// const Icons = {
+// 	//-TECH
+// 	CssIcon,
+// 	HtmlIcon,
+// 	JavaScriptIcon,
+// 	ReactIcon,
+// 	ReduxIcon,
+// 	SassIcon,
+// 	//-TOOLS
+// 	BootstrapIcon,
+// 	FigmaIcon,
+// 	GitIcon,
+// 	GitHubIcon,
+// 	GitKrakenIcon,
+// 	NpmIcon,
+// 	PostmanIcon,
+// 	VsCodeIcon,
+// 	YarnIcon,
+// 	//-CONTACT
+// 	LinkedInIcon,
+// };
+const Icons = [
+	//Technologies
+	{ svg: CssIcon, altText: "Css icon" },
+	{ svg: HtmlIcon, altText: "Html5 icon" },
+	{ svg: JavaScriptIcon, altText: "Javascript icon" },
+	{ svg: ReactIcon, altText: "React icon" },
+	{ svg: ReduxIcon, altText: "Redux icon" },
+	{ svg: SassIcon, altText: "Sass icon" },
+	//Tools
+	{ svg: BootstrapIcon, altText: "Bostrap icon" },
+	{ svg: FigmaIcon, altText: "Figma icon" },
+	{ svg: GitIcon, altText: "Git icon" },
+	{ svg: GitHubIcon, altText: "Github icon" },
+	{ svg: GitKrakenIcon, altText: "GitKraken icon" },
+	{ svg: NpmIcon, altText: "Npm icon" },
+	{ svg: PostmanIcon, altText: "Postman icon" },
+	{ svg: VsCodeIcon, altText: "Visual studio code icon" },
+	{ svg: YarnIcon, altText: "Yarn icon" },
+	//Contact
+	{ svg: LinkedInIcon, altText: "Bostrap icon" },
+];
 
 export default Icons;
