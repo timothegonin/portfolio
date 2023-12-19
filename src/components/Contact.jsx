@@ -3,7 +3,7 @@ import { UiContext } from "../utils/context/UiContext";
 import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
-import TechIcons from "./Icons";
+import Icons from "./Icons";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -43,6 +43,8 @@ const IconLink = styled.a`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Contact = () => {
+	const linkedInIcon = Icons.contact[0];
+	const gitHubIcon = Icons.tools[3];
 	const { leftHandedMode } = useContext(UiContext);
 	const contactIconsClass = !leftHandedMode
 		? "justify-content-end"
@@ -58,8 +60,8 @@ const Contact = () => {
 					rel="noopener noreferrer"
 				>
 					<img
-						src={TechIcons.GitHubIcon}
-						alt="Github icon"
+						src={gitHubIcon.svg}
+						alt={gitHubIcon.atlText}
 						className="border border-1 border-dark p-2 rounded bg-white"
 					/>
 				</IconLink>
@@ -70,8 +72,8 @@ const Contact = () => {
 					rel="noopener noreferrer"
 				>
 					<img
-						src={TechIcons.LinkedInIcon}
-						alt="Linkedin icon"
+						src={linkedInIcon.svg}
+						alt={linkedInIcon.altText}
 						className="border border-1 border-dark p-2 rounded bg-white"
 					/>
 				</IconLink>
