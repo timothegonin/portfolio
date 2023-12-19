@@ -42,6 +42,21 @@ const scaleUpRight = keyframes`
   }
 `;
 
+const scaleUpBottom = keyframes`
+	0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+`;
+
 const PresentationWrapper = styled(Container)`
 	max-width: 550px;
 `;
@@ -56,6 +71,11 @@ const ContactWrapper = styled(Row)`
 
 const StackIconsWrapper = styled(Container)`
 	max-width: 650px;
+	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+`;
+
+const JumbotronFooter = styled.div`
+	animation: ${scaleUpBottom} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 /* 
@@ -89,12 +109,14 @@ const Jumbotron = () => {
 				<ToolIcons />
 			</StackIconsWrapper>
 			<hr className="my-2" />
-			<Controls />
-			<Helper
-				text="Voir mes projets"
-				media={arrowDown}
-				alt="flêche vers le bas"
-			/>
+			<JumbotronFooter>
+				<Controls />
+				<Helper
+					text="Voir mes projets"
+					media={arrowDown}
+					alt="flêche vers le bas"
+				/>
+			</JumbotronFooter>
 		</div>
 	);
 };
