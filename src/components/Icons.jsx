@@ -20,7 +20,7 @@ import YarnIcon from "../assets//icons/tools/yarn.svg";
 //CONTACT ICONS
 import LinkedInIcon from "../assets/icons/contact/linkedin.svg";
 
-const TechIcons = {
+const Icons = {
 	//-TECH
 	CssIcon,
 	HtmlIcon,
@@ -42,4 +42,4 @@ const TechIcons = {
 	LinkedInIcon,
 };
 
-export default TechIcons;
+export default Icons;
