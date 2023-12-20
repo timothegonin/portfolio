@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
 import ZoomModal from "./ZoomModal";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -15,11 +15,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	//CAROUSEL CONTROLS
-	const [index, setIndex] = useState(0);
-	const handleSelect = (selectedIndex) => {
-		setIndex(selectedIndex);
-	};
+
 	// MODAL CONTROLS
 	const [modalShow, setModalShow] = useState(false);
 
@@ -65,7 +61,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 						<Offcanvas.Title>{infos.title}</Offcanvas.Title>
 					</Offcanvas.Header>
 					<Offcanvas.Body>
-						<Carousel
+						{/* <Carousel
 							activeIndex={index}
 							onSelect={handleSelect}
 							data-bs-theme="dark"
@@ -79,12 +75,16 @@ const ProjectCard = ({ infos, medias, links }) => {
 									/>
 								</Carousel.Item>
 							))}
-						</Carousel>
+						</Carousel> */}
 						{/* MODAL - start */}
 						<Button variant="primary" onClick={() => setModalShow(true)}>
 							Launch vertically centered modal
 						</Button>
-						<ZoomModal show={modalShow} onHide={() => setModalShow(false)} />
+						<ZoomModal
+							show={modalShow}
+							onHide={() => setModalShow(false)}
+							medias={medias.preview}
+						/>
 						{/* MODAL - end */}
 						<Stack gap={2}>
 							<p>{infos.description}</p>
