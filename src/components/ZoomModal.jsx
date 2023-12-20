@@ -17,9 +17,8 @@ const ZoomModal = ({ show, onHide, medias }) => {
 			size="lg"
 			aria-labelledby="contained-modal-title-vcenter"
 			centered
-			onClick={onHide}
 		>
-			<Modal.Header closeButton>
+			<Modal.Header closeButton onClick={onHide}>
 				<Modal.Title id="contained-modal-title-vcenter">
 					Modal heading
 				</Modal.Title>
