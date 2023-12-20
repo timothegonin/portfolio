@@ -76,7 +76,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 								</Carousel.Item>
 							))}
 						</Carousel> */}
-						<div className="d-flex flex-row flex-wrap" gap={2}>
+						<div className="d-flex flex-row flex-wrap">
 							{medias.preview.map((img, index) => (
 								<img
 									key={index}
@@ -86,17 +86,34 @@ const ProjectCard = ({ infos, medias, links }) => {
 									className="border border-2"
 								/>
 							))}
+							<Button
+								variant="outline-primary"
+								size="sm"
+								role="button"
+								onClick={() => setModalShow(true)}
+								className="w-100"
+							>
+								Agrandir{" "}
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									class="bi bi-arrows-fullscreen"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"
+									/>
+								</svg>
+							</Button>
+							<ZoomModal
+								show={modalShow}
+								onHide={() => setModalShow(false)}
+								medias={medias.preview}
+							/>
 						</div>
-						{/* MODAL - start */}
-						<Button variant="primary" onClick={() => setModalShow(true)}>
-							Launch vertically centered modal
-						</Button>
-						<ZoomModal
-							show={modalShow}
-							onHide={() => setModalShow(false)}
-							medias={medias.preview}
-						/>
-						{/* MODAL - end */}
 						<Stack gap={2}>
 							<p>{infos.description}</p>
 							<Stack direction="horizontal" gap={2}>
