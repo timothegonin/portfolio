@@ -3,6 +3,7 @@ import { UiContext } from "../utils/context/UiContext";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Carousel from "react-bootstrap/Carousel";
+import ZoomModal from "./ZoomModal";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -19,6 +20,8 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const handleSelect = (selectedIndex) => {
 		setIndex(selectedIndex);
 	};
+	// MODAL CONTROLS
+	const [modalShow, setModalShow] = useState(false);
 
 	const offcanvasPlacement = !leftHandedMode ? "end" : "start";
 	const offcanvasControlsPlacement = leftHandedMode && "flex-row-reverse";
@@ -77,6 +80,12 @@ const ProjectCard = ({ infos, medias, links }) => {
 								</Carousel.Item>
 							))}
 						</Carousel>
+						{/* MODAL - start */}
+						<Button variant="primary" onClick={() => setModalShow(true)}>
+							Launch vertically centered modal
+						</Button>
+						<ZoomModal show={modalShow} onHide={() => setModalShow(false)} />
+						{/* MODAL - end */}
 						<Stack gap={2}>
 							<p>{infos.description}</p>
 							<Stack direction="horizontal" gap={2}>
