@@ -76,6 +76,17 @@ const ProjectCard = ({ infos, medias, links }) => {
 								</Carousel.Item>
 							))}
 						</Carousel> */}
+						<div className="d-flex flex-row flex-wrap" gap={2}>
+							{medias.preview.map((img, index) => (
+								<img
+									key={index}
+									src={require(`../assets/preview/${img}`)}
+									style={{ objectFit: "scale-down", width: "50%" }}
+									alt="test"
+									className="border border-2"
+								/>
+							))}
+						</div>
 						{/* MODAL - start */}
 						<Button variant="primary" onClick={() => setModalShow(true)}>
 							Launch vertically centered modal
