@@ -17,6 +17,8 @@ const ProjectCard = ({ infos, medias, links }) => {
 
 	// MODAL CONTROLS
 	const [modalShow, setModalShow] = useState(false);
+	const handleCloseModal = () => setModalShow(false);
+	const handleShowModal = () => setModalShow(true);
 
 	const offcanvasPlacement = !leftHandedMode ? "end" : "start";
 	const offcanvasControlsPlacement = leftHandedMode && "flex-row-reverse";
@@ -78,7 +80,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 									variant="outline-primary"
 									size="sm"
 									role="button"
-									onClick={() => setModalShow(true)}
+									onClick={handleShowModal}
 									className="w-100"
 								>
 									Agrandir{" "}
@@ -98,7 +100,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 								</Button>
 								<ZoomModal
 									show={modalShow}
-									onHide={() => setModalShow(false)}
+									handler={handleCloseModal}
 									medias={medias.preview}
 									title={infos.title}
 								/>

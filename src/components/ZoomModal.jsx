@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 
-const ZoomModal = ({ show, onHide, medias, title }) => {
+const ZoomModal = ({ show, handler, medias, title }) => {
 	//CAROUSEL CONTROLS
 	const [index, setIndex] = useState(0);
 	const handleSelect = (selectedIndex) => {
@@ -14,15 +14,12 @@ const ZoomModal = ({ show, onHide, medias, title }) => {
 	return (
 		<Modal
 			show={show}
+			onHide={handler}
 			size="lg"
 			aria-labelledby="contained-modal-title-vcenter"
 			centered
 		>
-			<Modal.Header
-				closeButton
-				onClick={onHide}
-				className="justify-content-center"
-			>
+			<Modal.Header onClick={handler} className="justify-content-center">
 				<Modal.Title id="contained-modal-title-vcenter">{title}</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
@@ -44,7 +41,7 @@ const ZoomModal = ({ show, onHide, medias, title }) => {
 				</Carousel>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button onClick={onHide}>Close</Button>
+				<Button onClick={handler}>Fermer</Button>
 			</Modal.Footer>
 		</Modal>
 	);
