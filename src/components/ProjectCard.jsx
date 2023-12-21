@@ -11,9 +11,9 @@ import Stack from "react-bootstrap/Stack";
 const ProjectCard = ({ infos, medias, links }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	//OFFCANVAS CONTROLS
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	const [show, setOffcanvasShow] = useState(false);
+	const handleCloseOffcanvas = () => setOffcanvasShow(false);
+	const handleShowOffcanvas = () => setOffcanvasShow(true);
 
 	// MODAL CONTROLS
 	const [modalShow, setModalShow] = useState(false);
@@ -46,13 +46,13 @@ const ProjectCard = ({ infos, medias, links }) => {
 					))}
 				</Stack>
 
-				<Button variant="outline-primary" onClick={handleShow}>
+				<Button variant="outline-primary" onClick={handleShowOffcanvas}>
 					Explorer
 				</Button>
 
 				<Offcanvas
 					show={show}
-					onHide={handleClose}
+					onHide={handleCloseOffcanvas}
 					placement={offcanvasPlacement}
 				>
 					<Offcanvas.Header
