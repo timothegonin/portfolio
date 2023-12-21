@@ -100,6 +100,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 									show={modalShow}
 									onHide={() => setModalShow(false)}
 									medias={medias.preview}
+									title={infos.title}
 								/>
 							</Stack>
 							{/* DESCRIPTION AND WEB-REPO */}
