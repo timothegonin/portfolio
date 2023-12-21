@@ -36,11 +36,12 @@ const ZoomModal = ({ show, onHide, medias }) => {
 					data-bs-theme="dark"
 				>
 					{medias.map((img, index) => (
-						<Carousel.Item key={index} className="px-5 pt-1 pb-4">
+						<Carousel.Item key={index}>
 							<Card.Img
 								variant="top"
 								src={require(`../assets/preview/${img}`)}
-								style={{ objectFit: "scale-down", height: "18rem" }}
+								style={{ objectFit: "scale-down", height: "12rem" }}
+								className="pb-4 pb-md-5 px-3"
 							/>
 						</Carousel.Item>
 					))}
