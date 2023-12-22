@@ -33,8 +33,8 @@ const ZoomModal = ({ show, handler, medias, title }) => {
 							<Card.Img
 								variant="top"
 								src={require(`../assets/preview/${img}`)}
-								style={{ objectFit: "scale-down", height: "12rem" }}
-								className="pb-4 pb-md-5 px-3"
+								style={{ objectFit: "scale-down", height: "100%" }}
+								className="pb-5 px-4 px-md-5"
 							/>
 						</Carousel.Item>
 					))}
