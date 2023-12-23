@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
+import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import ZoomModal from "./ZoomModal";
@@ -8,6 +9,24 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const PreviewsWrapper = styled.div`
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(auto-fill);
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+`;
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const ProjectCard = ({ infos, medias, links }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	//OFFCANVAS CONTROLS
@@ -65,17 +84,21 @@ const ProjectCard = ({ infos, medias, links }) => {
 						<Stack gap={4}>
 							{/* PREVIEWS AND MODAL */}
 							<Stack gap={2}>
-								<div className="flex-row flex-wrap">
+								<PreviewsWrapper>
 									{medias.preview.map((img, index) => (
 										<img
 											key={index}
 											src={require(`../assets/preview/${img}`)}
-											style={{ objectFit: "scale-down", width: "50%" }}
+											style={{
+												objectFit: "scale-down",
+												width: "100%",
+												height: "100%",
+											}}
 											alt="test"
-											className="border border-2 border-dark-subtle"
+											className="border border-1 border-dark-subtle rounded"
 										/>
 									))}
-								</div>
+								</PreviewsWrapper>
 								<Button
 									variant="outline-primary"
 									size="sm"
