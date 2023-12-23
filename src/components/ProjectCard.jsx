@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
+import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import ZoomModal from "./ZoomModal";
@@ -8,15 +9,35 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLES                                                                  │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const PreviewsWrapper = styled.div`
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(auto-fill);
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+`;
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const ProjectCard = ({ infos, medias, links }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	//OFFCANVAS CONTROLS
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	const [show, setOffcanvasShow] = useState(false);
+	const handleCloseOffcanvas = () => setOffcanvasShow(false);
+	const handleShowOffcanvas = () => setOffcanvasShow(true);
 
 	// MODAL CONTROLS
 	const [modalShow, setModalShow] = useState(false);
+	const handleCloseModal = () => setModalShow(false);
+	const handleShowModal = () => setModalShow(true);
 
 	const offcanvasPlacement = !leftHandedMode ? "end" : "start";
 	const offcanvasControlsPlacement = leftHandedMode && "flex-row-reverse";
@@ -44,13 +65,13 @@ const ProjectCard = ({ infos, medias, links }) => {
 					))}
 				</Stack>
 
-				<Button variant="outline-primary" onClick={handleShow}>
+				<Button variant="outline-primary" onClick={handleShowOffcanvas}>
 					Explorer
 				</Button>
 
 				<Offcanvas
 					show={show}
-					onHide={handleClose}
+					onHide={handleCloseOffcanvas}
 					placement={offcanvasPlacement}
 				>
 					<Offcanvas.Header
@@ -63,22 +84,26 @@ const ProjectCard = ({ infos, medias, links }) => {
 						<Stack gap={4}>
 							{/* PREVIEWS AND MODAL */}
 							<Stack gap={2}>
-								<div className="flex-row flex-wrap">
+								<PreviewsWrapper>
 									{medias.preview.map((img, index) => (
 										<img
 											key={index}
 											src={require(`../assets/preview/${img}`)}
-											style={{ objectFit: "scale-down", width: "50%" }}
+											style={{
+												objectFit: "scale-down",
+												width: "100%",
+												height: "100%",
+											}}
 											alt="test"
-											className="border border-2 border-dark-subtle"
+											className="border border-1 border-dark-subtle rounded"
 										/>
 									))}
-								</div>
+								</PreviewsWrapper>
 								<Button
 									variant="outline-primary"
 									size="sm"
 									role="button"
-									onClick={() => setModalShow(true)}
+									onClick={handleShowModal}
 									className="w-100"
 								>
 									Agrandir{" "}
@@ -87,19 +112,20 @@ const ProjectCard = ({ infos, medias, links }) => {
 										width="16"
 										height="16"
 										fill="currentColor"
-										class="bi bi-arrows-fullscreen"
+										className="bi bi-arrows-fullscreen"
 										viewBox="0 0 16 16"
 									>
 										<path
-											fill-rule="evenodd"
+											fillRule="evenodd"
 											d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"
 										/>
 									</svg>
 								</Button>
 								<ZoomModal
 									show={modalShow}
-									onHide={() => setModalShow(false)}
+									handler={handleCloseModal}
 									medias={medias.preview}
+									title={infos.title}
 								/>
 							</Stack>
 							{/* DESCRIPTION AND WEB-REPO */}

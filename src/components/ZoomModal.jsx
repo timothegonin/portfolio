@@ -1,35 +1,32 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UiContext } from "../utils/context/UiContext";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 
-const ZoomModal = ({ show, onHide, medias }) => {
+const ZoomModal = ({ show, handler, medias, title }) => {
+	const { leftHandedMode } = useContext(UiContext);
+
 	//CAROUSEL CONTROLS
 	const [index, setIndex] = useState(0);
 	const handleSelect = (selectedIndex) => {
 		setIndex(selectedIndex);
 	};
+	const closeButtonPlacement = !leftHandedMode ? "end" : "start";
 
 	return (
 		<Modal
 			show={show}
+			onHide={handler}
 			size="lg"
 			aria-labelledby="contained-modal-title-vcenter"
 			centered
 		>
-			<Modal.Header closeButton onClick={onHide}>
-				<Modal.Title id="contained-modal-title-vcenter">
-					Modal heading
-				</Modal.Title>
+			<Modal.Header onClick={handler} className="justify-content-center">
+				<Modal.Title id="contained-modal-title-vcenter">{title}</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				{/* <h4>Centered Modal</h4>
-				<p>
-					Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-					dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-					consectetur ac, vestibulum at eros.
-				</p> */}
 				<Carousel
 					activeIndex={index}
 					onSelect={handleSelect}
@@ -40,15 +37,15 @@ const ZoomModal = ({ show, onHide, medias }) => {
 							<Card.Img
 								variant="top"
 								src={require(`../assets/preview/${img}`)}
-								style={{ objectFit: "scale-down", height: "12rem" }}
-								className="pb-4 pb-md-5 px-3"
+								style={{ objectFit: "scale-down", height: "100%" }}
+								className="pb-5 px-4 px-md-5"
 							/>
 						</Carousel.Item>
 					))}
 				</Carousel>
 			</Modal.Body>
-			<Modal.Footer>
-				<Button onClick={onHide}>Close</Button>
+			<Modal.Footer className={`justify-content-${closeButtonPlacement}`}>
+				<Button onClick={handler}>Fermer</Button>
 			</Modal.Footer>
 		</Modal>
 	);
