@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.4bd7ce78.css",
-    "main.js": "/portfolio/static/js/main.7b4869c4.js",
+    "main.js": "/portfolio/static/js/main.2eb30542.js",
     "static/js/787.7da95b79.chunk.js": "/portfolio/static/js/787.7da95b79.chunk.js",
     "static/media/kasa_rental.jpg": "/portfolio/static/media/kasa_rental.a03cee8e05ff1613564e.jpg",
     "static/media/ohmyfood_restaurant.jpg": "/portfolio/static/media/ohmyfood_restaurant.f3a2e35da2de1828977e.jpg",
@@ -44,11 +44,11 @@
     "static/media/figma.svg": "/portfolio/static/media/figma.a3075f784a06fea8962b4e43c1669813.svg",
     "static/media/arrow-down-short.svg": "/portfolio/static/media/arrow-down-short.44e943253a1f89dc242f802e4527cd4d.svg",
     "main.4bd7ce78.css.map": "/portfolio/static/css/main.4bd7ce78.css.map",
-    "main.7b4869c4.js.map": "/portfolio/static/js/main.7b4869c4.js.map",
+    "main.2eb30542.js.map": "/portfolio/static/js/main.2eb30542.js.map",
     "787.7da95b79.chunk.js.map": "/portfolio/static/js/787.7da95b79.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4bd7ce78.css",
-    "static/js/main.7b4869c4.js"
+    "static/js/main.2eb30542.js"
   ]
 }
