@@ -66,21 +66,11 @@ const Projects = ({ data }) => {
 
 	const toggleSortClass = !leftHandedMode ? "ms-auto" : "me-auto";
 
-	const toogleSort = () => {
+	const handleSort = () => {
 		setSortMode(sortMode === "desc" ? "asc" : "desc");
-		handleSort(sortMode);
-	};
-
-	/**
-	 * Sorts the projects data based on the sorting mode.
-	 * @param {string} sortMode - The sorting mode (asc or desc).
-	 */
-	const handleSort = (sortMode) => {
-		let sortedData = [...projectsData];
 		sortMode === "desc"
-			? sortedData.sort((a, b) => b.id - a.id)
-			: sortedData.sort((a, b) => a.id - b.id);
-		setProjectsData(sortedData);
+			? setProjectsData(projectsData.sort((a, b) => b.id - a.id))
+			: setProjectsData(projectsData.sort((a, b) => a.id - b.id));
 	};
 
 	const listOfProjectCards = projectsData.map((project) => (
@@ -110,7 +100,7 @@ const Projects = ({ data }) => {
 							role="button"
 							variant="primary"
 							size="sm"
-							onClick={() => toogleSort()}
+							onClick={handleSort}
 						>
 							Trier par{" "}
 							<svg
