@@ -2,7 +2,7 @@ import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
 const ParticlesBackground = () => {
-	const screenWidthParticles = window.screen.width / 40;
+	const screenWidthParticles = window.screen.width / 50;
 	async function loadParticles(main) {
 		await loadFull(main);
 	}
@@ -39,15 +39,15 @@ const ParticlesBackground = () => {
 							duration: 0.4,
 							factor: 1,
 							speed: 1,
-							maxSpeed: 10,
+							maxSpeed: 1,
 							easing: "ease-out-quad",
 						},
 						attract: {
-							distance: 150,
+							distance: 160,
 							duration: 0.4,
 							easing: "ease-out-quad",
 							factor: 1,
-							maxSpeed: 10,
+							maxSpeed: 1,
 							speed: 1,
 						},
 					},

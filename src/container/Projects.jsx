@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -21,6 +21,10 @@ import Stack from "react-bootstrap/Stack";
   │ STYLES                                                                                                          │
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
+const opcatity = keyframes`
+	0%{opacity:0}
+	100%{opacity:1}
+`;
 
 const CardsWrapper = styled.div`
 	--grid-layout-gap: 20px;
@@ -42,6 +46,10 @@ const CardsWrapper = styled.div`
 		minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
 	);
 	grid-gap: var(--grid-layout-gap);
+
+	&.animated {
+		animation: ${opcatity} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	}
 `;
 
 /* 
@@ -53,6 +61,7 @@ const Projects = ({ data }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
+	const [animationClass, setAnimationClass] = useState("");
 
 	useEffect(() => {
 		setProjectsData(data);
@@ -60,21 +69,16 @@ const Projects = ({ data }) => {
 
 	const toggleSortClass = !leftHandedMode ? "ms-auto" : "me-auto";
 
-	const toogleSort = () => {
+	const handleSort = () => {
 		setSortMode(sortMode === "desc" ? "asc" : "desc");
-		handleSort(sortMode);
-	};
-
-	/**
-	 * Sorts the projects data based on the sorting mode.
-	 * @param {string} sortMode - The sorting mode (asc or desc).
-	 */
-	const handleSort = (sortMode) => {
-		let sortedData = [...projectsData];
 		sortMode === "desc"
-			? sortedData.sort((a, b) => b.id - a.id)
-			: sortedData.sort((a, b) => a.id - b.id);
-		setProjectsData(sortedData);
+			? setProjectsData(projectsData.sort((a, b) => b.id - a.id))
+			: setProjectsData(projectsData.sort((a, b) => a.id - b.id));
+
+		setAnimationClass("animated");
+		setTimeout(() => {
+			setAnimationClass("");
+		}, 300);
 	};
 
 	const listOfProjectCards = projectsData.map((project) => (
@@ -104,7 +108,7 @@ const Projects = ({ data }) => {
 							role="button"
 							variant="primary"
 							size="sm"
-							onClick={() => toogleSort()}
+							onClick={handleSort}
 						>
 							Trier par{" "}
 							<svg
@@ -129,7 +133,9 @@ const Projects = ({ data }) => {
 					</div>
 				</Stack>
 
-				<CardsWrapper>{listOfProjectCards}</CardsWrapper>
+				<CardsWrapper className={animationClass}>
+					{listOfProjectCards}
+				</CardsWrapper>
 			</Container>
 		</section>
 	);
