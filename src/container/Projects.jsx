@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -21,6 +21,10 @@ import Stack from "react-bootstrap/Stack";
   │ STYLES                                                                                                          │
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
+const opcatity = keyframes`
+	0%{opacity:0}
+	100%{opacity:1}
+`;
 
 const CardsWrapper = styled.div`
 	--grid-layout-gap: 20px;
@@ -42,6 +46,8 @@ const CardsWrapper = styled.div`
 		minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
 	);
 	grid-gap: var(--grid-layout-gap);
+
+	animation: ${opcatity} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 /* 
