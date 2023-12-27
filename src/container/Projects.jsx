@@ -47,7 +47,9 @@ const CardsWrapper = styled.div`
 	);
 	grid-gap: var(--grid-layout-gap);
 
-	animation: ${opcatity} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	&.animated {
+		animation: ${opcatity} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	}
 `;
 
 /* 
@@ -59,6 +61,7 @@ const Projects = ({ data }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
+	const [animationClass, setAnimationClass] = useState("");
 
 	useEffect(() => {
 		setProjectsData(data);
@@ -71,6 +74,11 @@ const Projects = ({ data }) => {
 		sortMode === "desc"
 			? setProjectsData(projectsData.sort((a, b) => b.id - a.id))
 			: setProjectsData(projectsData.sort((a, b) => a.id - b.id));
+
+		setAnimationClass("animated");
+		setTimeout(() => {
+			setAnimationClass("");
+		}, 300);
 	};
 
 	const listOfProjectCards = projectsData.map((project) => (
@@ -125,7 +133,9 @@ const Projects = ({ data }) => {
 					</div>
 				</Stack>
 
-				<CardsWrapper>{listOfProjectCards}</CardsWrapper>
+				<CardsWrapper className={animationClass}>
+					{listOfProjectCards}
+				</CardsWrapper>
 			</Container>
 		</section>
 	);
