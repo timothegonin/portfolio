@@ -4,7 +4,6 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import ZoomModal from "./ZoomModal";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -79,12 +78,13 @@ const ProjectOffcanvas = ({ children }) => {
 							</svg>
 						</Button>
 						{/* ZOOM MODAL--start */}
-						<ZoomModal
+						{/* <ZoomModal
 							show={modalShow}
 							handler={handleCloseModal}
 							medias={medias.preview}
 							title={infos.title}
-						/>
+						/> */}
+						{children}
 						{/* ZOOM MODAL--end */}
 					</Stack>
 					{/* DESCRIPTION AND WEB-REPO */}
