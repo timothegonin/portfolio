@@ -1,33 +1,11 @@
 import { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
-import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-import ZoomModal from "./ZoomModal";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import Stack from "react-bootstrap/Stack";
 import ProjectOffcanvas from "./ProjectOffcanvas";
+import ZoomModal from "./ZoomModal";
+import Stack from "react-bootstrap/Stack";
 
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ STYLES                                                                  │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
-const PreviewsWrapper = styled.div`
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(auto-fill);
-	grid-column-gap: 5px;
-	grid-row-gap: 5px;
-`;
-
-/* 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │ JSX                                                                     │
-  └─────────────────────────────────────────────────────────────────────────┘
- */
 const ProjectCard = ({ infos, medias, links }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	//OFFCANVAS CONTROLS
@@ -53,7 +31,6 @@ const ProjectCard = ({ infos, medias, links }) => {
 					alt={`Thumbnail of ${infos.title} project`}
 				/>
 			</Card.Header>
-
 			{/* BODY */}
 			<Card.Body className="p-2">
 				<Stack
@@ -65,11 +42,6 @@ const ProjectCard = ({ infos, medias, links }) => {
 						<Badge key={index} bg="light" text="dark">{`#${tag}`}</Badge>
 					))}
 				</Stack>
-
-				{/* <Button variant="outline-primary" onClick={handleShowOffcanvas}>
-					Explorer
-				</Button> */}
-				{/* OFFCANVAS-start */}
 				<ProjectOffcanvas
 					show={offcanvasShow}
 					handleShow={handleShowOffcanvas}
@@ -88,8 +60,6 @@ const ProjectCard = ({ infos, medias, links }) => {
 						title={infos.title}
 					/>
 				</ProjectOffcanvas>
-
-				{/* OFFCANVAS--end */}
 			</Card.Body>
 		</Card>
 	);
