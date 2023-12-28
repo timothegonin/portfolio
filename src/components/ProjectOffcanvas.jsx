@@ -28,19 +28,28 @@ const ProjectOffcanvas = ({
 	handleShow,
 	handleClose,
 	placement,
-	controlsPlacement,
 	infos,
 	medias,
 	links,
 	children,
 }) => {
+	const offcanvasPlacement = !placement ? "end" : "start";
+	const offcanvasControlsPlacement = placement && "flex-row-reverse";
+
 	return (
 		<React.Fragment>
 			<Button variant="outline-primary" onClick={handleShow}>
 				Explorer
 			</Button>
-			<Offcanvas show={show} onHide={handleClose} placement={placement}>
-				<Offcanvas.Header closeButton className={`"pb-0 ${controlsPlacement}`}>
+			<Offcanvas
+				show={show}
+				onHide={handleClose}
+				placement={offcanvasPlacement}
+			>
+				<Offcanvas.Header
+					closeButton
+					className={`"pb-0 ${offcanvasControlsPlacement}`}
+				>
 					<Offcanvas.Title>{infos.title}</Offcanvas.Title>
 				</Offcanvas.Header>
 				<Offcanvas.Body>

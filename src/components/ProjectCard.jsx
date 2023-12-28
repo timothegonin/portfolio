@@ -18,9 +18,6 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const handleCloseModal = () => setModalShow(false);
 	const handleShowModal = () => setModalShow(true);
 
-	const offcanvasPlacement = !leftHandedMode ? "end" : "start";
-	const offcanvasControlsPlacement = leftHandedMode && "flex-row-reverse";
-
 	return (
 		<Card className="w-100">
 			{/* HEAD */}
@@ -46,8 +43,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 					show={offcanvasShow}
 					handleShow={handleShowOffcanvas}
 					handleClose={handleCloseOffcanvas}
-					placement={offcanvasPlacement}
-					controlsPlacement={offcanvasControlsPlacement}
+					placement={leftHandedMode}
 					infos={infos.title}
 					medias={medias}
 					links={links}
