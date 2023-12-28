@@ -68,7 +68,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 				<Button variant="outline-primary" onClick={handleShowOffcanvas}>
 					Explorer
 				</Button>
-
+				{/* OFFCANVAS-start */}
 				<Offcanvas
 					show={show}
 					onHide={handleCloseOffcanvas}
@@ -99,6 +99,8 @@ const ProjectCard = ({ infos, medias, links }) => {
 										/>
 									))}
 								</PreviewsWrapper>
+
+								{/* ZOOM MODAL--start */}
 								<Button
 									variant="outline-primary"
 									size="sm"
@@ -127,6 +129,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 									medias={medias.preview}
 									title={infos.title}
 								/>
+								{/* ZOOM MODAL--end */}
 							</Stack>
 							{/* DESCRIPTION AND WEB-REPO */}
 							<Stack gap={2}>
@@ -186,6 +189,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 						</Stack>
 					</Offcanvas.Body>
 				</Offcanvas>
+				{/* OFFCANVAS--end */}
 			</Card.Body>
 		</Card>
 	);
