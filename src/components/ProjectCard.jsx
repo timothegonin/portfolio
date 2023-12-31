@@ -44,7 +44,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 					handleShow={handleShowOffcanvas}
 					handleClose={handleCloseOffcanvas}
 					placement={leftHandedMode}
-					infos={infos.title}
+					infos={infos}
 					medias={medias}
 					links={links}
 				>
