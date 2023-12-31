@@ -1,15 +1,14 @@
-import "./App.css";
 import ParticlesBackground from "./components/ParticlesBackground";
 import Jumbotron from "./container/Jumbotron";
 import Projects from "./container/Projects";
 import Footer from "./components/Footer";
 
-function App({data}) {
+function App({ data }) {
 	return (
-		<div className="App">
+		<div className="App text-center" style={{ height: "100vh" }}>
 			<ParticlesBackground />
 			<Jumbotron />
-			<Projects data={data}/>
+			<Projects data={data} />
 			<Footer />
 		</div>
 	);
