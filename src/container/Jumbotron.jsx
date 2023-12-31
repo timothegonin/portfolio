@@ -85,12 +85,12 @@ const JumbotronFooter = styled.div`
  */
 const Jumbotron = () => {
 	return (
-		<div
-			className="p-2 py-md-3 h-100 d-flex flex-column justify-content-between"
+		<header
+			className="p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between"
 			style={{ maxHeight: "100vh" }}
 		>
 			{/* PRESENTATION */}
-			<PresentationWrapper fluid>
+			<PresentationWrapper fluid className="px-2">
 				<PictureAndInfosWrapper className="justify-content-center">
 					<Presentation />
 				</PictureAndInfosWrapper>
@@ -117,7 +117,7 @@ const Jumbotron = () => {
 					alt="flêche vers le bas"
 				/>
 			</JumbotronFooter>
-		</div>
+		</header>
 	);
 };
 

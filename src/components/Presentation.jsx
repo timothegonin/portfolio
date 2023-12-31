@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import devPicture from "../assets/pictures/devPicture.jpg";
+import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
@@ -41,9 +42,9 @@ const Picture = styled(Image)`
  */
 const Presentation = () => {
 	return (
-		<>
-			<PictureBox xs={6} md={4} className="d-flex align-items-center">
-				<Picture src={devPicture} className="image" roundedCircle />
+		<Row className="px-3">
+			<PictureBox xs={5} md={4} className="d-flex align-items-center">
+				<Picture src={devPicture} roundedCircle />
 			</PictureBox>
 			<Col className="d-flex flex-column align-items-center justify-content-center">
 				<h1 className="fw-bold text-nowrap">Timothé Gonin</h1>
@@ -51,7 +52,7 @@ const Presentation = () => {
 					Développeur <span className="text-nowrap">Front-End | React JS</span>
 				</h2>
 			</Col>
-		</>
+		</Row>
 	);
 };
 
