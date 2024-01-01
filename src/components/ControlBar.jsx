@@ -5,7 +5,7 @@ import Controls from "./Controls";
 function ControlBar() {
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary" fixed="bottom">
-			<Container style={{ maxWidth: "1000px" }} className="flex-row-reverse ">
+			<Container style={{ maxWidth: "1000px" }}>
 				<Controls />
 			</Container>
 		</Navbar>

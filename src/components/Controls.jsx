@@ -18,18 +18,15 @@ const Controls = () => {
 		: "Désactiver le mode gaucher";
 
 	return (
-		<>
-			<h4 className="invisible">Préférence de navigation :</h4>
-			<Form className="d-flex justify-content-center">
-				<Form.Check
-					type="switch"
-					id="custom-switch"
-					aria-label={toogleButtonAriaLabel}
-					label={toogleButtonLabel}
-					onClick={handleUiDirection}
-				/>
-			</Form>
-		</>
+		<Form>
+			<Form.Check
+				type="switch"
+				id="custom-switch"
+				aria-label={toogleButtonAriaLabel}
+				label={toogleButtonLabel}
+				onClick={handleUiDirection}
+			/>
+		</Form>
 	);
 };
 
