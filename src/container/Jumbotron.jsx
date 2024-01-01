@@ -10,6 +10,8 @@ import Controls from "../components/Controls";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
 
+import ControlBar from "../components/ControlBar";
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
@@ -117,6 +119,7 @@ const Jumbotron = () => {
 					alt="flêche vers le bas"
 				/>
 			</JumbotronFooter>
+			<ControlBar />
 		</header>
 	);
 };
