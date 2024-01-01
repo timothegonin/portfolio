@@ -1,11 +1,12 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Controls from "./Controls";
 
 function ControlBar() {
 	return (
-		<Navbar expand="lg" className="bg-body-tertiary">
-			<Container>
-				<Navbar.Brand href="#">Navbar</Navbar.Brand>
+		<Navbar expand="lg" className="bg-body-tertiary" fixed="bottom">
+			<Container style={{ maxWidth: "1000px" }}>
+				<Controls />
 			</Container>
 		</Navbar>
 	);

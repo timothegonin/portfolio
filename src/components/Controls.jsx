@@ -19,7 +19,7 @@ const Controls = () => {
 
 	return (
 		<>
-			<h4>Préférence de navigation :</h4>
+			{/* <h4>Préférence de navigation :</h4> */}
 			<Form className="d-flex justify-content-center">
 				<Form.Check
 					type="switch"
