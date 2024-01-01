@@ -6,10 +6,8 @@ import Presentation from "../components/Presentation";
 import Contact from "../components/Contact";
 import TechIcons from "../components/TechIcons";
 import ToolIcons from "../components/ToolIcons";
-import Controls from "../components/Controls";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
-
 import ControlBar from "../components/ControlBar";
 
 /* 
@@ -112,7 +110,6 @@ const Jumbotron = () => {
 			</StackIconsWrapper>
 			<hr className="my-2" />
 			<JumbotronFooter>
-				<Controls />
 				<Helper
 					text="Voir mes projets"
 					media={arrowDown}
