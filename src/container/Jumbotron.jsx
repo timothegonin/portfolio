@@ -87,7 +87,7 @@ const Jumbotron = () => {
 	return (
 		<header
 			className="p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between"
-			style={{ maxHeight: "100vh" }}
+			style={{ maxHeight: "92vh" }}
 		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid className="px-2">
