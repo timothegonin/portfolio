@@ -6,9 +6,9 @@ import Presentation from "../components/Presentation";
 import Contact from "../components/Contact";
 import TechIcons from "../components/TechIcons";
 import ToolIcons from "../components/ToolIcons";
-import Controls from "../components/Controls";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
+import ControlBar from "../components/ControlBar";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -87,7 +87,7 @@ const Jumbotron = () => {
 	return (
 		<header
 			className="p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between"
-			style={{ maxHeight: "100vh" }}
+			style={{ maxHeight: "92vh" }}
 		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid className="px-2">
@@ -110,13 +110,13 @@ const Jumbotron = () => {
 			</StackIconsWrapper>
 			<hr className="my-2" />
 			<JumbotronFooter>
-				<Controls />
 				<Helper
 					text="Voir mes projets"
 					media={arrowDown}
 					alt="flêche vers le bas"
 				/>
 			</JumbotronFooter>
+			<ControlBar />
 		</header>
 	);
 };
