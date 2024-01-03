@@ -7,7 +7,7 @@ const Footer = () => {
 		fontFamily: "Roboto",
 	};
 	return (
-		<footer className="p-3 bg-light">
+		<footer className="py-5 bg-light">
 			<Copyright nameEntry="Timothé Gonin" customStyles={customStyle} />
 		</footer>
 	);
