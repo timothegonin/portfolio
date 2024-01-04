@@ -8,20 +8,16 @@ const Theme = () => {
 	const toogleButtonAriaLabel =
 		theme === "light" ? "Enable dark mode" : "Disable dark mode";
 
-	const toogleButtonLabel =
-		theme === "light"
-			? "Activer le mode sombre 🌙"
-			: "Désactiver le mode mode sombre ☀️";
-
 	return (
-		<Form>
+		<Form className="d-flex">
+			<span>☀️</span>
 			<Form.Check
 				type="switch"
 				id="custom-switch"
 				aria-label={toogleButtonAriaLabel}
-				label={toogleButtonLabel}
 				onClick={toogleTheme}
 			/>
+			<span>🌙</span>
 		</Form>
 	);
 };
