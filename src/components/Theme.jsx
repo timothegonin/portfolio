@@ -3,12 +3,7 @@ import { ThemeContext } from "../utils/context/ThemeContext";
 import Form from "react-bootstrap/Form";
 
 const Theme = () => {
-	const { theme } = useContext(ThemeContext);
-	console.log(theme);
-
-	// const handleUiDirection = (e) => {
-	// 	toogleUiDirection(e.currentTarget.checked);
-	// };
+	const { theme, toogleTheme } = useContext(ThemeContext);
 
 	const toogleButtonAriaLabel =
 		theme === "light" ? "Enable dark mode" : "Disable dark mode";
@@ -25,7 +20,7 @@ const Theme = () => {
 				id="custom-switch"
 				aria-label={toogleButtonAriaLabel}
 				label={toogleButtonLabel}
-				// onClick={handleUiDirection}
+				onClick={toogleTheme}
 			/>
 		</Form>
 	);

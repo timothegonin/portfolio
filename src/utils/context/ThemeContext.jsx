@@ -5,11 +5,13 @@ export const ThemeContext = createContext("light");
 export const ThemeProvider = ({ children }) => {
 	const [theme, setTheme] = useState("light");
 
-	// const toogleUiDirection = (toogleButtonValue) => {
-	// 	setLeftHandedMode(toogleButtonValue);
-	// };
+	const toogleTheme = () => {
+		setTheme(theme === "light" ? "dark" : "light");
+	};
 
 	return (
-		<ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
+		<ThemeContext.Provider value={{ theme, toogleTheme }}>
+			{children}
+		</ThemeContext.Provider>
 	);
 };
