@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -85,9 +86,12 @@ const JumbotronFooter = styled.div`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Jumbotron = () => {
+	const { theme } = useContext(ThemeContext);
+	const textColorClass = theme === "light" ? "text-black" : "text-white";
+
 	return (
 		<header
-			className="p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between"
+			className={`p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between ${textColorClass}`}
 			style={{ maxHeight: "92vh" }}
 		>
 			<Theme />
