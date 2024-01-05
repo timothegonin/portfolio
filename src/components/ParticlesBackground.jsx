@@ -1,7 +1,13 @@
+import { useContext } from "react";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
 const ParticlesBackground = () => {
+	const { theme } = useContext(ThemeContext);
+	console.log(theme);
+	const backgroundColor = theme === "light" ? "#fff" : "#212529";
+	const particlesColor = theme === "light" ? "#212529" : "#fff";
 	const screenWidthParticles = window.screen.width / 50;
 	async function loadParticles(main) {
 		await loadFull(main);
@@ -17,7 +23,7 @@ const ParticlesBackground = () => {
 				},
 				background: {
 					color: {
-						value: "#fff",
+						value: backgroundColor,
 					},
 				},
 				fpsLimit: 60,
@@ -54,10 +60,10 @@ const ParticlesBackground = () => {
 				},
 				particles: {
 					color: {
-						value: "#000",
+						value: particlesColor,
 					},
 					links: {
-						color: "#000",
+						color: particlesColor,
 						distance: 150,
 						enable: true,
 						opacity: 0.5,
