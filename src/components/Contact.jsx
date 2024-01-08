@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UiContext } from "../utils/context/UiContext";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
@@ -46,9 +47,12 @@ const Contact = () => {
 	const linkedInIcon = Icons.contact[0];
 	const gitHubIcon = Icons.tools[3];
 	const { leftHandedMode } = useContext(UiContext);
+	const { theme } = useContext(ThemeContext);
+
 	const contactIconsClass = !leftHandedMode
 		? "justify-content-end"
 		: "justify-content-start";
+	const contactIconColor = theme === "light" ? "invert(0%)" : "invert(85%)";
 
 	return (
 		<Container fluid className="py-2">
@@ -63,6 +67,7 @@ const Contact = () => {
 						src={gitHubIcon.svg}
 						alt={gitHubIcon.atlText}
 						className="border border-1 border-dark p-2 rounded bg-white"
+						style={{ filter: `${contactIconColor}` }}
 					/>
 				</IconLink>
 
@@ -75,6 +80,7 @@ const Contact = () => {
 						src={linkedInIcon.svg}
 						alt={linkedInIcon.altText}
 						className="border border-1 border-dark p-2 rounded bg-white"
+						style={{ filter: `${contactIconColor}` }}
 					/>
 				</IconLink>
 			</Stack>
