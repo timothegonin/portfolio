@@ -9,9 +9,13 @@ const Theme = () => {
 
 	const toogleButtonAriaLabel =
 		theme === "light" ? "Enable dark mode" : "Disable dark mode";
+	const themeBarClassName =
+		theme === "light"
+			? "bg-body-tertiary"
+			: "bg-dark border-bottom border-secondary";
 
 	return (
-		<Navbar expand="lg" className="bg-body-tertiary" fixed="top">
+		<Navbar expand="lg" className={themeBarClassName} fixed="top">
 			<Container
 				style={{ maxWidth: "900px" }}
 				className="justify-content-center "
