@@ -24,7 +24,6 @@ const Theme = () => {
 					<span>☀️</span>
 					<Form.Check
 						type="switch"
-						id="custom-switch"
 						aria-label={toogleButtonAriaLabel}
 						onClick={toogleTheme}
 					/>

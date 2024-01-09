@@ -21,7 +21,6 @@ const Controls = () => {
 		<Form>
 			<Form.Check
 				type="switch"
-				id="custom-switch"
 				aria-label={toogleButtonAriaLabel}
 				label={toogleButtonLabel}
 				onClick={handleUiDirection}
