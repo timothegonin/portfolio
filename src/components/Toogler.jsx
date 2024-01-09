@@ -15,7 +15,7 @@ const TooglerWrapper = styled(Container)`
 `;
 
 const TooglerComponent = styled.div`
-	padding: 0.8rem;
+	padding: 0.35rem 0.5rem;
 	background-color: #f8f9fa;
 	border-radius: 0% 0% 1rem 1rem;
 `;
