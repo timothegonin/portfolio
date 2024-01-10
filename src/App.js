@@ -9,7 +9,7 @@ function App({ data }) {
 	return (
 		<div className="App text-center" style={{ height: "100vh" }}>
 			<ParticlesBackground />
-			<Toogler>
+			<Toogler alignment="center">
 				<Theme />
 			</Toogler>
 			<Jumbotron />

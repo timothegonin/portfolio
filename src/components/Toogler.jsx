@@ -12,7 +12,7 @@ const TooglerWrapper = styled(Container)`
 	right: 0;
 	z-index: 1;
 	display: flex;
-	justify-content: center;
+	justify-content: ${(props) => props.$alignment};
 `;
 
 const TooglerComponent = styled.div`
@@ -20,12 +20,12 @@ const TooglerComponent = styled.div`
 	border-radius: 0% 0% 1rem 1rem;
 `;
 
-const Toogler = ({ children }) => {
+const Toogler = ({ children, alignment }) => {
 	const { theme } = useContext(ThemeContext);
 	const tooglerClassName = theme === "light" ? "bg-light" : "bg-secondary";
 
 	return (
-		<TooglerWrapper style={{ maxWidth: "900px" }}>
+		<TooglerWrapper style={{ maxWidth: "900px" }} $alignment={alignment}>
 			<TooglerComponent className={tooglerClassName}>
 				{children}
 			</TooglerComponent>
