@@ -9,8 +9,6 @@ import TechIcons from "../components/TechIcons";
 import ToolIcons from "../components/ToolIcons";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
-import ControlBar from "../components/ControlBar";
-import Theme from "../components/Theme";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -94,7 +92,6 @@ const Jumbotron = () => {
 			className={`p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between ${textColorClass}`}
 			style={{ maxHeight: "92vh" }}
 		>
-			<Theme />
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid className="px-2">
 				<PictureAndInfosWrapper className="justify-content-center">
@@ -122,7 +119,6 @@ const Jumbotron = () => {
 					alt="flêche vers le bas"
 				/>
 			</JumbotronFooter>
-			<ControlBar />
 		</header>
 	);
 };
