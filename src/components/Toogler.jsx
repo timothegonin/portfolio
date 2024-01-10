@@ -18,7 +18,8 @@ const TooglerWrapper = styled(Container)`
 
 const TooglerComponent = styled.div`
 	padding: 0.35rem 0.5rem;
-	border-radius: 0% 0% 1rem 1rem;
+	border-radius: ${(props) =>
+		props.$position === "top" ? "0% 0% 1rem 1rem" : "1rem 1rem 0% 0%"};
 `;
 
 const Toogler = ({ children, alignment, position }) => {
@@ -31,7 +32,7 @@ const Toogler = ({ children, alignment, position }) => {
 			$alignment={alignment}
 			$position={position}
 		>
-			<TooglerComponent className={tooglerClassName}>
+			<TooglerComponent className={tooglerClassName} $position={position}>
 				{children}
 			</TooglerComponent>
 		</TooglerWrapper>
