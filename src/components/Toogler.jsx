@@ -22,10 +22,7 @@ const TooglerComponent = styled.div`
 
 const Toogler = ({ children }) => {
 	const { theme } = useContext(ThemeContext);
-	const tooglerClassName =
-		theme === "light"
-			? "bg-light"
-			: "bg-secondary border-bottom border-secondary";
+	const tooglerClassName = theme === "light" ? "bg-light" : "bg-secondary";
 
 	return (
 		<TooglerWrapper style={{ maxWidth: "900px" }}>
