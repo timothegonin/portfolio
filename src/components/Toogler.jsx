@@ -7,7 +7,8 @@ import styled from "styled-components";
 const TooglerWrapper = styled(Container)`
 	overflow: hidden;
 	position: fixed;
-	top: 0;
+	top: ${(props) => (props.$position === "top" ? "0" : "inherit")};
+	bottom: ${(props) => (props.$position === "bottom" ? "0" : "inherit")};
 	left: 0;
 	right: 0;
 	z-index: 1;
@@ -20,12 +21,16 @@ const TooglerComponent = styled.div`
 	border-radius: 0% 0% 1rem 1rem;
 `;
 
-const Toogler = ({ children, alignment }) => {
+const Toogler = ({ children, alignment, position }) => {
 	const { theme } = useContext(ThemeContext);
 	const tooglerClassName = theme === "light" ? "bg-light" : "bg-secondary";
 
 	return (
-		<TooglerWrapper style={{ maxWidth: "900px" }} $alignment={alignment}>
+		<TooglerWrapper
+			style={{ maxWidth: "900px" }}
+			$alignment={alignment}
+			$position={position}
+		>
 			<TooglerComponent className={tooglerClassName}>
 				{children}
 			</TooglerComponent>
