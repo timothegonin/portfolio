@@ -1,12 +1,51 @@
 import React, { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
+import { ThemeContext } from "../utils/context/ThemeContext";
+import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ STYLE                                                                   │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+const ModalWrapper = styled(Modal)`
+	.modal-content {
+		background-color: ${(props) =>
+			props.$theme === "light" ? "white" : "#212529"};
+		color: ${(props) => (props.$theme === "light" ? "#212529" : "white")};
+	}
+	.carousel-indicators {
+		button {
+			background-color: white !important;
+		}
+	}
+`;
+
+const ModalHeader = styled(Modal.Header)`
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: ${(props) =>
+		props.$theme === "light" ? "#C7C8C9" : "rgba(199,200,201,0.25)"};
+`;
+const ModalFooter = styled(Modal.Footer)`
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: ${(props) =>
+		props.$theme === "light" ? "#C7C8C9" : "rgba(199,226,201,0.25)"};
+`;
+
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ JSX                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 	const { leftHandedMode } = useContext(UiContext);
+	const { theme } = useContext(ThemeContext);
 
 	//CAROUSEL CONTROLS
 	const [index, setIndex] = useState(0);
@@ -14,11 +53,13 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 		setIndex(selectedIndex);
 	};
 	const closeButtonPlacement = !leftHandedMode ? "end" : "start";
+	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
+	const closeButtonVariant = theme === "light" ? "primary" : "secondary";
 
 	return (
 		<React.Fragment>
 			<Button
-				variant="outline-primary"
+				variant={buttonVariant}
 				size="sm"
 				role="button"
 				onClick={handleShow}
@@ -39,16 +80,22 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 					/>
 				</svg>
 			</Button>
-			<Modal
+			<ModalWrapper
 				show={show}
 				onHide={handleClose}
 				size="lg"
 				aria-labelledby="contained-modal-title-vcenter"
 				centered
+				$theme={theme}
 			>
-				<Modal.Header onClick={handleClose} className="justify-content-center">
+				{" "}
+				<ModalHeader
+					onClick={handleClose}
+					className="justify-content-center"
+					$theme={theme}
+				>
 					<Modal.Title id="contained-modal-title-vcenter">{title}</Modal.Title>
-				</Modal.Header>
+				</ModalHeader>
 				<Modal.Body>
 					<Carousel
 						activeIndex={index}
@@ -67,10 +114,15 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 						))}
 					</Carousel>
 				</Modal.Body>
-				<Modal.Footer className={`justify-content-${closeButtonPlacement}`}>
-					<Button onClick={handleClose}>Fermer</Button>
-				</Modal.Footer>
-			</Modal>
+				<ModalFooter
+					className={`justify-content-${closeButtonPlacement}`}
+					$theme={theme}
+				>
+					<Button variant={closeButtonVariant} onClick={handleClose}>
+						Fermer
+					</Button>
+				</ModalFooter>
+			</ModalWrapper>
 		</React.Fragment>
 	);
 };

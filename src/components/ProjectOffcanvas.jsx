@@ -4,6 +4,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import CloseButton from "react-bootstrap/CloseButton";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -24,33 +25,41 @@ const PreviewsWrapper = styled.div`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const ProjectOffcanvas = ({
-	show,
-	handleShow,
-	handleClose,
-	placement,
-	infos,
-	medias,
-	links,
 	children,
+	handleClose,
+	handleShow,
+	infos,
+	links,
+	medias,
+	placement,
+	show,
+	theme,
 }) => {
 	const offcanvasPlacement = !placement ? "end" : "start";
 	const offcanvasControlsPlacement = placement && "flex-row-reverse";
+	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
+	const closeButtonVariant = theme === "light" ? "" : "white";
 
 	return (
 		<React.Fragment>
-			<Button variant="outline-primary" onClick={handleShow}>
+			<Button variant={buttonVariant} onClick={handleShow}>
 				Explorer
 			</Button>
 			<Offcanvas
 				show={show}
 				onHide={handleClose}
 				placement={offcanvasPlacement}
+				className={`${
+					theme === "light" ? "bg-white" : "bg-dark text-white-50"
+				}  `}
 			>
 				<Offcanvas.Header
-					closeButton
-					className={`"pb-0 ${offcanvasControlsPlacement}`}
+					className={`"pb-0 ${offcanvasControlsPlacement} btn-close-white`}
 				>
-					<Offcanvas.Title>{infos.title}</Offcanvas.Title>
+					<Offcanvas.Title className={theme === "light" ? "" : "text-white"}>
+						{infos.title}
+					</Offcanvas.Title>
+					<CloseButton onClick={handleClose} variant={closeButtonVariant} />
 				</Offcanvas.Header>
 				<Offcanvas.Body>
 					<Stack gap={4}>
@@ -91,7 +100,7 @@ const ProjectOffcanvas = ({
 								<Button
 									href={links && links.page ? links.page : "#"}
 									target="_blank"
-									variant="outline-primary"
+									variant={buttonVariant}
 									size="sm"
 									role="button"
 								>
@@ -110,7 +119,7 @@ const ProjectOffcanvas = ({
 								<Button
 									href={links && links.repo ? links.repo : "#"}
 									target="_blank"
-									variant="outline-primary"
+									variant={buttonVariant}
 									size="sm"
 									role="button"
 								>
