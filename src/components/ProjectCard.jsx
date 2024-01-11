@@ -57,13 +57,14 @@ const ProjectCard = ({ infos, medias, links }) => {
 					))}
 				</Stack>
 				<ProjectOffcanvas
-					show={offcanvasShow}
-					handleShow={handleShowOffcanvas}
 					handleClose={handleCloseOffcanvas}
-					placement={leftHandedMode}
+					handleShow={handleShowOffcanvas}
 					infos={infos}
-					medias={medias}
 					links={links}
+					medias={medias}
+					placement={leftHandedMode}
+					show={offcanvasShow}
+					theme={theme}
 				>
 					<ZoomModal
 						show={modalShow}
