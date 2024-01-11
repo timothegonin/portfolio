@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -59,6 +60,7 @@ const CardsWrapper = styled.div`
  */
 const Projects = ({ data }) => {
 	const { leftHandedMode } = useContext(UiContext);
+	const { theme } = useContext(ThemeContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
 	const [animationClass, setAnimationClass] = useState("");
@@ -80,6 +82,8 @@ const Projects = ({ data }) => {
 			setAnimationClass("");
 		}, 300);
 	};
+
+	const sortButtonVariant = theme === "light" ? "primary" : "secondary";
 
 	const listOfProjectCards = projectsData.map((project) => (
 		<ProjectCard
@@ -106,7 +110,7 @@ const Projects = ({ data }) => {
 					<div className={toggleSortClass}>
 						<Button
 							role="button"
-							variant="primary"
+							variant={sortButtonVariant}
 							size="sm"
 							onClick={handleSort}
 						>
