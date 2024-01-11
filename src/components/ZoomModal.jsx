@@ -26,16 +26,16 @@ const ModalWrapper = styled(Modal)`
 `;
 
 const ModalHeader = styled(Modal.Header)`
-	border-bottom-width: 0.8px;
+	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: ${(props) =>
-		props.$theme === "light" ? "#dee2e6" : "rgba(222,226,230,0.25)"};
+		props.$theme === "light" ? "#C7C8C9" : "rgba(199,200,201,0.25)"};
 `;
 const ModalFooter = styled(Modal.Footer)`
-	border-top-width: 0.8px;
+	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: ${(props) =>
-		props.$theme === "light" ? "#dee2e6" : "rgba(222,226,230,0.25)"};
+		props.$theme === "light" ? "#C7C8C9" : "rgba(199,226,201,0.25)"};
 `;
 
 /* 
@@ -89,7 +89,11 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 				$theme={theme}
 			>
 				{" "}
-				<ModalHeader onClick={handleClose} className="justify-content-center">
+				<ModalHeader
+					onClick={handleClose}
+					className="justify-content-center"
+					$theme={theme}
+				>
 					<Modal.Title id="contained-modal-title-vcenter">{title}</Modal.Title>
 				</ModalHeader>
 				<Modal.Body>
@@ -110,7 +114,10 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 						))}
 					</Carousel>
 				</Modal.Body>
-				<ModalFooter className={`justify-content-${closeButtonPlacement}`}>
+				<ModalFooter
+					className={`justify-content-${closeButtonPlacement}`}
+					$theme={theme}
+				>
 					<Button variant={closeButtonVariant} onClick={handleClose}>
 						Fermer
 					</Button>
