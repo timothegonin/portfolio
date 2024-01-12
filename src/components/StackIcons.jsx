@@ -5,13 +5,13 @@ import Stack from "react-bootstrap/Stack";
 
 const TechIcons = () => {
 	const { theme } = useContext(ThemeContext);
-	console.log(theme);
 	const { technologies, tools } = Icons;
-	const backgroundClass = theme === "light" ? "bg-white" : "bg-dark";
+	const darkModeStylesClass =
+		theme === "light" ? "bg-white" : "bg-dark border-secondary";
 	return (
 		<>
 			<section
-				className={`p-2 border border-1  rounded my-2 col-12 col-md-6 ${backgroundClass}`}
+				className={`p-2 border border-1  rounded my-2 col-12 col-md-6 ${darkModeStylesClass}`}
 			>
 				<h3 className="text-start fs-5">Technologies</h3>
 				<hr className="border border-success border-1 opacity-50 m-0"></hr>
@@ -22,7 +22,7 @@ const TechIcons = () => {
 				</Stack>
 			</section>
 			<section
-				className={`p-2 border border-1  rounded my-2 col-12 col-md-6 ${backgroundClass}`}
+				className={`p-2 border border-1 rounded my-2 col-12 col-md-6 ${darkModeStylesClass}`}
 			>
 				<h3 className="text-start fs-5">Outils</h3>
 				<hr className="border border-success border-1 opacity-50 m-0"></hr>
