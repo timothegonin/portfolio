@@ -18,10 +18,22 @@ const ModalWrapper = styled(Modal)`
 			props.$theme === "light" ? "white" : "#212529"};
 		color: ${(props) => (props.$theme === "light" ? "#212529" : "white")};
 	}
+
+	/* Carousel controls */
 	.carousel-indicators {
-		button {
-			background-color: white !important;
-		}
+		margin-bottom: 0.25rem;
+	}
+	a.carousel-control-prev {
+		justify-content: flex-start;
+		margin-left: 0.5rem;
+	}
+	a.carousel-control-next {
+		justify-content: flex-end;
+		margin-left: 0.5rem;
+	}
+	a.carousel-control-prev,
+	a.carousel-control-next {
+		align-items: flex-end;
 	}
 `;
 
@@ -100,7 +112,7 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 					<Carousel
 						activeIndex={index}
 						onSelect={handleSelect}
-						data-bs-theme="dark"
+						data-bs-theme={theme === "light" && "dark"}
 					>
 						{medias.map((img, index) => (
 							<Carousel.Item key={index}>
@@ -108,7 +120,7 @@ const ZoomModal = ({ show, handleShow, handleClose, medias, title }) => {
 									variant="top"
 									src={require(`../assets/preview/${img}`)}
 									style={{ objectFit: "scale-down", height: "100%" }}
-									className="pb-5 px-4 px-md-5"
+									className="pb-5"
 								/>
 							</Carousel.Item>
 						))}

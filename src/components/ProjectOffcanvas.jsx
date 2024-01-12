@@ -17,6 +17,9 @@ const PreviewsWrapper = styled.div`
 	grid-template-rows: repeat(auto-fill);
 	grid-column-gap: 5px;
 	grid-row-gap: 5px;
+	img.dark {
+		filter: brightness(0.95);
+	}
 `;
 
 /* 
@@ -38,7 +41,7 @@ const ProjectOffcanvas = ({
 	const offcanvasPlacement = !placement ? "end" : "start";
 	const offcanvasControlsPlacement = placement && "flex-row-reverse";
 	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
-	const closeButtonVariant = theme === "light" ? "" : "white";
+	const closeButtonVariant = theme === "dark" && "dark";
 
 	return (
 		<React.Fragment>
@@ -54,12 +57,16 @@ const ProjectOffcanvas = ({
 				}  `}
 			>
 				<Offcanvas.Header
-					className={`"pb-0 ${offcanvasControlsPlacement} btn-close-white`}
+					className={`"pb-0 ${offcanvasControlsPlacement}`}
+					data-bs-theme={closeButtonVariant}
 				>
 					<Offcanvas.Title className={theme === "light" ? "" : "text-white"}>
 						{infos.title}
 					</Offcanvas.Title>
-					<CloseButton onClick={handleClose} variant={closeButtonVariant} />
+					<CloseButton
+						onClick={handleClose}
+						data-bs-theme={closeButtonVariant}
+					/>
 				</Offcanvas.Header>
 				<Offcanvas.Body>
 					<Stack gap={4}>
@@ -76,7 +83,9 @@ const ProjectOffcanvas = ({
 											height: "100%",
 										}}
 										alt="test"
-										className="border border-1 border-dark-subtle rounded"
+										className={`border border-1 border-dark-subtle rounded ${
+											theme === "dark" && "dark"
+										}`}
 									/>
 								))}
 							</PreviewsWrapper>

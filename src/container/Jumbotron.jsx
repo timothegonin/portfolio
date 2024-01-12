@@ -5,8 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Presentation from "../components/Presentation";
 import Contact from "../components/Contact";
-import TechIcons from "../components/TechIcons";
-import ToolIcons from "../components/ToolIcons";
+import StackIcons from "../components/StackIcons";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
 
@@ -106,10 +105,7 @@ const Jumbotron = () => {
 			<hr className="my-2" />
 			{/* TECHNOLOGIES */}
 			<StackIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 my-0">
-				{/* --TECH */}
-				<TechIcons />
-				{/* --TOOLS */}
-				<ToolIcons />
+				<StackIcons />
 			</StackIconsWrapper>
 			<hr className="my-2" />
 			<JumbotronFooter>
