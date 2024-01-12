@@ -10,7 +10,7 @@ import Stack from "react-bootstrap/Stack";
 
 const CardHeader = styled(Card.Header)`
 	img.dark {
-		filter: brightness(0.85);
+		filter: brightness(0.95);
 	}
 `;
 
@@ -28,10 +28,10 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const handleShowModal = () => setModalShow(true);
 
 	const stylesClassNames =
-		theme === "light" ? "bg-white " : "bg-dark border-light";
+		theme === "light" ? "bg-white" : "bg-dark border-secondary";
 
 	return (
-		<Card className={`w-100 ${stylesClassNames}`}>
+		<Card className={`w-100 ${stylesClassNames} `}>
 			{/* HEAD */}
 			<CardHeader className="p-0">
 				<Card.Img
@@ -52,7 +52,9 @@ const ProjectCard = ({ infos, medias, links }) => {
 						<Badge
 							key={index}
 							bg={theme === "light" ? "light" : "dark"}
-							text={theme === "light" ? "black" : "white"}
+							className={`fw-light ${
+								theme === "light" ? "text-black" : "text-white-50"
+							}`}
 						>{`#${tag}`}</Badge>
 					))}
 				</Stack>
