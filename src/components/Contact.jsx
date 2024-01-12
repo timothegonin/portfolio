@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UiContext } from "../utils/context/UiContext";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
@@ -35,6 +36,14 @@ const IconLink = styled.a`
 		backface-visibility: hidden;
 		perspective: 1000px;
 	}
+	img {
+		filter: ${(props) =>
+			props.$theme === "light" ? "invert(0%)" : "invert(85%)"};
+		transition: all 0.3s ease;
+		&:hover {
+			filter: invert(0%);
+		}
+	}
 `;
 
 /* 
@@ -46,6 +55,8 @@ const Contact = () => {
 	const linkedInIcon = Icons.contact[0];
 	const gitHubIcon = Icons.tools[3];
 	const { leftHandedMode } = useContext(UiContext);
+	const { theme } = useContext(ThemeContext);
+
 	const contactIconsClass = !leftHandedMode
 		? "justify-content-end"
 		: "justify-content-start";
@@ -58,11 +69,12 @@ const Contact = () => {
 					href="https://github.com/TimotheGonin"
 					target="_blank"
 					rel="noopener noreferrer"
+					$theme={theme}
 				>
 					<img
 						src={gitHubIcon.svg}
 						alt={gitHubIcon.atlText}
-						className="border border-1 border-dark p-2 rounded bg-white"
+						className="border border-2 p-2 rounded bg-white"
 					/>
 				</IconLink>
 
@@ -70,11 +82,12 @@ const Contact = () => {
 					href="https://www.linkedin.com/in/timothegonin/"
 					target="_blank"
 					rel="noopener noreferrer"
+					$theme={theme}
 				>
 					<img
 						src={linkedInIcon.svg}
 						alt={linkedInIcon.altText}
-						className="border border-1 border-dark p-2 rounded bg-white"
+						className="border border-2  p-2 rounded bg-white"
 					/>
 				</IconLink>
 			</Stack>

@@ -4,6 +4,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import CloseButton from "react-bootstrap/CloseButton";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -16,6 +17,9 @@ const PreviewsWrapper = styled.div`
 	grid-template-rows: repeat(auto-fill);
 	grid-column-gap: 5px;
 	grid-row-gap: 5px;
+	img.dark {
+		filter: brightness(0.95);
+	}
 `;
 
 /* 
@@ -24,33 +28,45 @@ const PreviewsWrapper = styled.div`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const ProjectOffcanvas = ({
-	show,
-	handleShow,
-	handleClose,
-	placement,
-	infos,
-	medias,
-	links,
 	children,
+	handleClose,
+	handleShow,
+	infos,
+	links,
+	medias,
+	placement,
+	show,
+	theme,
 }) => {
 	const offcanvasPlacement = !placement ? "end" : "start";
 	const offcanvasControlsPlacement = placement && "flex-row-reverse";
+	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
+	const closeButtonVariant = theme === "dark" && "dark";
 
 	return (
 		<React.Fragment>
-			<Button variant="outline-primary" onClick={handleShow}>
+			<Button variant={buttonVariant} onClick={handleShow}>
 				Explorer
 			</Button>
 			<Offcanvas
 				show={show}
 				onHide={handleClose}
 				placement={offcanvasPlacement}
+				className={`${
+					theme === "light" ? "bg-white" : "bg-dark text-white-50"
+				}  `}
 			>
 				<Offcanvas.Header
-					closeButton
 					className={`"pb-0 ${offcanvasControlsPlacement}`}
+					data-bs-theme={closeButtonVariant}
 				>
-					<Offcanvas.Title>{infos.title}</Offcanvas.Title>
+					<Offcanvas.Title className={theme === "light" ? "" : "text-white"}>
+						{infos.title}
+					</Offcanvas.Title>
+					<CloseButton
+						onClick={handleClose}
+						data-bs-theme={closeButtonVariant}
+					/>
 				</Offcanvas.Header>
 				<Offcanvas.Body>
 					<Stack gap={4}>
@@ -67,7 +83,9 @@ const ProjectOffcanvas = ({
 											height: "100%",
 										}}
 										alt="test"
-										className="border border-1 border-dark-subtle rounded"
+										className={`border border-1 border-dark-subtle rounded ${
+											theme === "dark" && "dark"
+										}`}
 									/>
 								))}
 							</PreviewsWrapper>
@@ -91,7 +109,7 @@ const ProjectOffcanvas = ({
 								<Button
 									href={links && links.page ? links.page : "#"}
 									target="_blank"
-									variant="outline-primary"
+									variant={buttonVariant}
 									size="sm"
 									role="button"
 								>
@@ -110,7 +128,7 @@ const ProjectOffcanvas = ({
 								<Button
 									href={links && links.repo ? links.repo : "#"}
 									target="_blank"
-									variant="outline-primary"
+									variant={buttonVariant}
 									size="sm"
 									role="button"
 								>

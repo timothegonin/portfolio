@@ -1,14 +1,13 @@
-import React from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Presentation from "../components/Presentation";
 import Contact from "../components/Contact";
-import TechIcons from "../components/TechIcons";
-import ToolIcons from "../components/ToolIcons";
+import StackIcons from "../components/StackIcons";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
-import ControlBar from "../components/ControlBar";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -84,9 +83,12 @@ const JumbotronFooter = styled.div`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Jumbotron = () => {
+	const { theme } = useContext(ThemeContext);
+	const textColorClass = theme === "light" ? "text-black" : "text-white";
+
 	return (
 		<header
-			className="p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between"
+			className={`p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between ${textColorClass}`}
 			style={{ maxHeight: "92vh" }}
 		>
 			{/* PRESENTATION */}
@@ -103,10 +105,7 @@ const Jumbotron = () => {
 			<hr className="my-2" />
 			{/* TECHNOLOGIES */}
 			<StackIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 my-0">
-				{/* --TECH */}
-				<TechIcons />
-				{/* --TOOLS */}
-				<ToolIcons />
+				<StackIcons />
 			</StackIconsWrapper>
 			<hr className="my-2" />
 			<JumbotronFooter>
@@ -116,7 +115,6 @@ const Jumbotron = () => {
 					alt="flêche vers le bas"
 				/>
 			</JumbotronFooter>
-			<ControlBar />
 		</header>
 	);
 };
