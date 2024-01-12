@@ -17,6 +17,9 @@ const PreviewsWrapper = styled.div`
 	grid-template-rows: repeat(auto-fill);
 	grid-column-gap: 5px;
 	grid-row-gap: 5px;
+	img.dark {
+		filter: brightness(0.95);
+	}
 `;
 
 /* 
@@ -80,7 +83,9 @@ const ProjectOffcanvas = ({
 											height: "100%",
 										}}
 										alt="test"
-										className="border border-1 border-dark-subtle rounded"
+										className={`border border-1 border-dark-subtle rounded ${
+											theme === "dark" && "dark"
+										}`}
 									/>
 								))}
 							</PreviewsWrapper>
