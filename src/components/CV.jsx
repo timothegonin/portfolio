@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UiContext } from "../utils/context/UiContext";
+import { ThemeContext } from "../utils/context/ThemeContext";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
 
 const CV = () => {
-	const [show, setShow] = useState(false);
+	const { leftHandedMode } = useContext(UiContext);
+	const { theme } = useContext(ThemeContext);
 
+	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+
+	const closeButtonPlacement = !leftHandedMode ? "end" : "start";
+	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
+	const closeButtonVariant = theme === "light" ? "primary" : "secondary";
+
 	return (
 		<React.Fragment>
-			<Button variant="outline-primary" onClick={handleShow}>
+			<Button variant={buttonVariant} onClick={handleShow}>
 				Afficher mon CV
 			</Button>
 			<Modal
@@ -24,8 +33,8 @@ const CV = () => {
 						CV FILE
 					</iframe>
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
+				<Modal.Footer className={`justify-content-${closeButtonPlacement}`}>
+					<Button variant={closeButtonVariant} onClick={handleClose}>
 						Fermer
 					</Button>
 				</Modal.Footer>
