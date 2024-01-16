@@ -28,6 +28,13 @@ const ModalFooter = styled(Modal.Footer)`
 		props.$theme === "light" ? "#C7C8C9" : "rgba(199,226,201,0.25)"};
 `;
 
+const PdfDocumentWrapper = styled(Document)`
+	canvas.react-pdf__Page__canvas {
+		height: 100% !important;
+		width: 100% !important;
+	}
+`;
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                     │
@@ -64,16 +71,17 @@ const CV = () => {
 				$theme={theme}
 			>
 				<Modal.Body>
-					<Document file={pdfFile} onLoadSuccess={onDocumentLoadSuccess}>
+					<PdfDocumentWrapper
+						file={pdfFile}
+						onLoadSuccess={onDocumentLoadSuccess}
+					>
 						<Page
 							pageNumber={numPages}
 							renderTextLayer={false}
 							renderAnnotationLayer={false}
+							loading={"LOADING"}
 						/>
-					</Document>
-					{/* <iframe title="CV" src={pdfFile} height="100%" width="100%">
-						CV FILE
-					</iframe> */}
+					</PdfDocumentWrapper>
 				</Modal.Body>
 				<ModalFooter
 					className={`justify-content-${closeButtonPlacement}`}
