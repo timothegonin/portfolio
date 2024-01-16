@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
+import { Document, Page } from "react-pdf";
 import styled from "styled-components";
 
 import Button from "react-bootstrap/Button";
@@ -33,6 +34,12 @@ const ModalFooter = styled(Modal.Footer)`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const CV = () => {
+	const [numPages, setNumPages] = useState();
+
+	function onDocumentLoadSuccess({ numPages }) {
+		setNumPages(numPages);
+	}
+
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
 
@@ -56,10 +63,17 @@ const CV = () => {
 				aria-labelledby="Modal containing a Curriculum Vitae in pdf format"
 				$theme={theme}
 			>
-				<Modal.Body style={{ height: "80vh" }}>
-					<iframe title="CV" src={pdfFile} height="100%" width="100%">
+				<Modal.Body>
+					<Document file={pdfFile} onLoadSuccess={onDocumentLoadSuccess}>
+						<Page
+							pageNumber={numPages}
+							renderTextLayer={false}
+							renderAnnotationLayer={false}
+						/>
+					</Document>
+					{/* <iframe title="CV" src={pdfFile} height="100%" width="100%">
 						CV FILE
-					</iframe>
+					</iframe> */}
 				</Modal.Body>
 				<ModalFooter
 					className={`justify-content-${closeButtonPlacement}`}
