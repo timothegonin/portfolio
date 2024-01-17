@@ -8,6 +8,7 @@ import Contact from "../components/Contact";
 import StackIcons from "../components/StackIcons";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
+import CV from "../components/CV";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -99,6 +100,7 @@ const Jumbotron = () => {
 				<ContactWrapper>
 					<Contact />
 				</ContactWrapper>
+				<CV />
 			</PresentationWrapper>
 			{/* CONTATCT */}
 

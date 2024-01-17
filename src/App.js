@@ -2,9 +2,15 @@ import ParticlesBackground from "./components/ParticlesBackground";
 import Toogler from "./components/Toogler";
 import Theme from "./components/Theme";
 import Controls from "./components/Controls";
+import { pdfjs } from "react-pdf";
 import Jumbotron from "./container/Jumbotron";
 import Projects from "./container/Projects";
 import Footer from "./components/Footer";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+	"pdfjs-dist/build/pdf.worker.min.js",
+	import.meta.url
+).toString();
 
 function App({ data }) {
 	return (
