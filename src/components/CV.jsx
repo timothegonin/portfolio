@@ -8,6 +8,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import CloseButton from "react-bootstrap/CloseButton";
 import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
 
 /* 
@@ -21,6 +22,12 @@ const ModalWrapper = styled(Modal)`
 			props.$theme === "light" ? "white" : "#212529"};
 		color: ${(props) => (props.$theme === "light" ? "#212529" : "white")};
 	}
+`;
+const ModalHeader = styled(Modal.Header)`
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: ${(props) =>
+		props.$theme === "light" ? "#C7C8C9" : "rgba(199,200,201,0.25)"};
 `;
 
 const ModalFooter = styled(Modal.Footer)`
@@ -72,6 +79,17 @@ const CV = () => {
 				aria-labelledby="Modal containing a Curriculum Vitae in pdf format"
 				$theme={theme}
 			>
+				<ModalHeader
+					onClick={handleClose}
+					data-bs-theme={theme === "dark" && "dark"}
+					className={leftHandedMode ? "d-block" : "d-flex"}
+				>
+					<CloseButton
+						onClick={handleClose}
+						aria-label="Hide"
+						$leftHandedMode
+					/>
+				</ModalHeader>
 				<Modal.Body>
 					<PdfDocumentWrapper
 						file={pdfFile}
@@ -100,7 +118,11 @@ const CV = () => {
 					className={`justify-content-${closeButtonPlacement}`}
 					$theme={theme}
 				>
-					<Button variant={closeButtonVariant} onClick={handleClose}>
+					<Button
+						variant={closeButtonVariant}
+						onClick={handleClose}
+						aria-label="Hide"
+					>
 						Fermer
 					</Button>
 				</ModalFooter>
