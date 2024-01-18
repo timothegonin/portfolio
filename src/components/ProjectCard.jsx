@@ -23,11 +23,6 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const handleCloseOffcanvas = () => setOffcanvasShow(false);
 	const handleShowOffcanvas = () => setOffcanvasShow(true);
 
-	// MODAL CONTROLS
-	const [modalShow, setModalShow] = useState(false);
-	const handleCloseModal = () => setModalShow(false);
-	const handleShowModal = () => setModalShow(true);
-
 	const stylesClassNames =
 		theme === "light" ? "bg-white" : "bg-dark border-secondary";
 
@@ -70,13 +65,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 					theme={theme}
 				>
 					<ModalComponent title="Agrandir">
-						<ProjectPreviews
-							show={modalShow}
-							handleShow={handleShowModal}
-							handleClose={handleCloseModal}
-							medias={medias.preview}
-							title={infos.title}
-						/>
+						<ProjectPreviews medias={medias.preview} title={infos.title} />
 					</ModalComponent>
 				</ProjectOffcanvas>
 			</Card.Body>

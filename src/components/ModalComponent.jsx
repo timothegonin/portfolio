@@ -1,15 +1,10 @@
 import React, { useContext, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
-import { Document, Page } from "react-pdf";
 import styled from "styled-components";
-
-import Spinner from "react-bootstrap/Spinner";
-import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import CloseButton from "react-bootstrap/CloseButton";
-// import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -52,13 +47,6 @@ const ModalFooter = styled(Modal.Footer)`
 	border-top-style: solid;
 	border-top-color: ${(props) =>
 		props.$theme === "light" ? "#C7C8C9" : "rgba(199,226,201,0.25)"};
-`;
-
-const PdfDocumentWrapper = styled(Document)`
-	canvas.react-pdf__Page__canvas {
-		height: 100% !important;
-		width: 100% !important;
-	}
 `;
 
 /* 
