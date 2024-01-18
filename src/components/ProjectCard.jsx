@@ -5,7 +5,8 @@ import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import ProjectOffcanvas from "./ProjectOffcanvas";
-import ZoomModal from "./ZoomModal";
+import ModalComponent from "./ModalComponent";
+import ProjectPreviews from "./ProjectPreviews";
 import Stack from "react-bootstrap/Stack";
 
 const CardHeader = styled(Card.Header)`
@@ -68,13 +69,15 @@ const ProjectCard = ({ infos, medias, links }) => {
 					show={offcanvasShow}
 					theme={theme}
 				>
-					<ZoomModal
-						show={modalShow}
-						handleShow={handleShowModal}
-						handleClose={handleCloseModal}
-						medias={medias.preview}
-						title={infos.title}
-					/>
+					<ModalComponent title="Agrandir">
+						<ProjectPreviews
+							show={modalShow}
+							handleShow={handleShowModal}
+							handleClose={handleCloseModal}
+							medias={medias.preview}
+							title={infos.title}
+						/>
+					</ModalComponent>
 				</ProjectOffcanvas>
 			</Card.Body>
 		</Card>
