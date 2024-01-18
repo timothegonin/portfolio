@@ -89,11 +89,7 @@ const ModalComponent = ({ title, children }) => {
 					data-bs-theme={theme === "dark" && "dark"}
 					className={leftHandedMode ? "d-block" : "d-flex"}
 				>
-					<CloseButton
-						onClick={handleClose}
-						aria-label="Hide"
-						$leftHandedMode
-					/>
+					<CloseButton onClick={handleClose} aria-label="Hide" />
 				</ModalHeader>
 				<Modal.Body>{children}</Modal.Body>
 				<ModalFooter
