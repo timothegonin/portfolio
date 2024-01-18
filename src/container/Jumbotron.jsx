@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Presentation from "../components/Presentation";
 import Contact from "../components/Contact";
+import ModalComponent from "../components/ModalComponent";
 import StackIcons from "../components/StackIcons";
 import Helper from "../components/Helper";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
@@ -100,7 +101,9 @@ const Jumbotron = () => {
 				<ContactWrapper>
 					<Contact />
 				</ContactWrapper>
-				<CV />
+				<ModalComponent title="Afficher mon cv">
+					<CV />
+				</ModalComponent>
 			</PresentationWrapper>
 			{/* CONTATCT */}
 

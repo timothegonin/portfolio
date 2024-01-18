@@ -1,14 +1,8 @@
-import React, { useContext, useState } from "react";
-import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
+import { useState } from "react";
 import { Document, Page } from "react-pdf";
 import styled from "styled-components";
-
 import Spinner from "react-bootstrap/Spinner";
 import Stack from "react-bootstrap/Stack";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import CloseButton from "react-bootstrap/CloseButton";
 import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
 
 /* 
@@ -16,26 +10,6 @@ import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
   │ STYLE                                                                   │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ModalWrapper = styled(Modal)`
-	.modal-content {
-		background-color: ${(props) =>
-			props.$theme === "light" ? "white" : "#212529"};
-		color: ${(props) => (props.$theme === "light" ? "#212529" : "white")};
-	}
-`;
-const ModalHeader = styled(Modal.Header)`
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: ${(props) =>
-		props.$theme === "light" ? "#C7C8C9" : "rgba(199,200,201,0.25)"};
-`;
-
-const ModalFooter = styled(Modal.Footer)`
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: ${(props) =>
-		props.$theme === "light" ? "#C7C8C9" : "rgba(199,226,201,0.25)"};
-`;
 
 const PdfDocumentWrapper = styled(Document)`
 	canvas.react-pdf__Page__canvas {
@@ -56,78 +30,29 @@ const CV = () => {
 		setNumPages(numPages);
 	}
 
-	const { leftHandedMode } = useContext(UiContext);
-	const { theme } = useContext(ThemeContext);
-
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
-
-	const closeButtonPlacement = !leftHandedMode ? "end" : "start";
-	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
-	const closeButtonVariant = theme === "light" ? "primary" : "secondary";
-
 	return (
-		<React.Fragment>
-			<Button variant={buttonVariant} onClick={handleShow}>
-				Afficher mon CV
-			</Button>
-			<ModalWrapper
-				show={show}
-				onHide={handleClose}
-				size="lg"
-				aria-labelledby="Modal containing a Curriculum Vitae in pdf format"
-				$theme={theme}
-			>
-				<ModalHeader
-					onClick={handleClose}
-					data-bs-theme={theme === "dark" && "dark"}
-					className={leftHandedMode ? "d-block" : "d-flex"}
-				>
-					<CloseButton
-						onClick={handleClose}
-						aria-label="Hide"
-						$leftHandedMode
+		<PdfDocumentWrapper
+			file={pdfFile}
+			onLoadSuccess={onDocumentLoadSuccess}
+			loading={
+				<Stack className=" flex-column align-items-center">
+					<Spinner
+						as="span"
+						animation="border"
+						role="status"
+						aria-hidden="true"
+						className="mb-3"
 					/>
-				</ModalHeader>
-				<Modal.Body>
-					<PdfDocumentWrapper
-						file={pdfFile}
-						onLoadSuccess={onDocumentLoadSuccess}
-						loading={
-							<Stack className=" flex-column align-items-center">
-								<Spinner
-									as="span"
-									animation="border"
-									role="status"
-									aria-hidden="true"
-									className="mb-3"
-								/>
-								Chargement du ficher
-							</Stack>
-						}
-					>
-						<Page
-							pageNumber={numPages}
-							renderTextLayer={false}
-							renderAnnotationLayer={false}
-						/>
-					</PdfDocumentWrapper>
-				</Modal.Body>
-				<ModalFooter
-					className={`justify-content-${closeButtonPlacement}`}
-					$theme={theme}
-				>
-					<Button
-						variant={closeButtonVariant}
-						onClick={handleClose}
-						aria-label="Hide"
-					>
-						Fermer
-					</Button>
-				</ModalFooter>
-			</ModalWrapper>
-		</React.Fragment>
+					Chargement du ficher
+				</Stack>
+			}
+		>
+			<Page
+				pageNumber={numPages}
+				renderTextLayer={false}
+				renderAnnotationLayer={false}
+			/>
+		</PdfDocumentWrapper>
 	);
 };
 
