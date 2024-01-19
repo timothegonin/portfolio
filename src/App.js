@@ -1,7 +1,7 @@
 import ParticlesBackground from "./components/ParticlesBackground";
 import Toogler from "./components/Toogler";
 import Theme from "./components/Theme";
-import Controls from "./components/Controls";
+import LeftHandMode from "./components/LeftHandMode";
 import { pdfjs } from "react-pdf";
 import Jumbotron from "./container/Jumbotron";
 import Projects from "./container/Projects";
@@ -20,7 +20,7 @@ function App({ data }) {
 				<Theme />
 			</Toogler>
 			<Toogler alignment="start" position="bottom">
-				<Controls />
+				<LeftHandMode />
 			</Toogler>
 			<Jumbotron />
 			<Projects data={data} />

@@ -1,11 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UiContext } from "../utils/context/UiContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-import ProjectOffcanvas from "./ProjectOffcanvas";
-import ZoomModal from "./ZoomModal";
+import ProjectDetails from "./ProjectDetails";
+import ModalComponent from "./ModalComponent";
+import ProjectPreviews from "./ProjectPreviews";
 import Stack from "react-bootstrap/Stack";
 
 const CardHeader = styled(Card.Header)`
@@ -17,15 +18,6 @@ const CardHeader = styled(Card.Header)`
 const ProjectCard = ({ infos, medias, links }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
-	//OFFCANVAS CONTROLS
-	const [offcanvasShow, setOffcanvasShow] = useState(false);
-	const handleCloseOffcanvas = () => setOffcanvasShow(false);
-	const handleShowOffcanvas = () => setOffcanvasShow(true);
-
-	// MODAL CONTROLS
-	const [modalShow, setModalShow] = useState(false);
-	const handleCloseModal = () => setModalShow(false);
-	const handleShowModal = () => setModalShow(true);
 
 	const stylesClassNames =
 		theme === "light" ? "bg-white" : "bg-dark border-secondary";
@@ -58,24 +50,17 @@ const ProjectCard = ({ infos, medias, links }) => {
 						>{`#${tag}`}</Badge>
 					))}
 				</Stack>
-				<ProjectOffcanvas
-					handleClose={handleCloseOffcanvas}
-					handleShow={handleShowOffcanvas}
+				<ProjectDetails
 					infos={infos}
 					links={links}
 					medias={medias}
 					placement={leftHandedMode}
-					show={offcanvasShow}
 					theme={theme}
 				>
-					<ZoomModal
-						show={modalShow}
-						handleShow={handleShowModal}
-						handleClose={handleCloseModal}
-						medias={medias.preview}
-						title={infos.title}
-					/>
-				</ProjectOffcanvas>
+					<ModalComponent title="Agrandir">
+						<ProjectPreviews medias={medias.preview} title={infos.title} />
+					</ModalComponent>
+				</ProjectDetails>
 			</Card.Body>
 		</Card>
 	);

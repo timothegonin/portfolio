@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UiContext } from "../utils/context/UiContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
-import Spinner from "react-bootstrap/Spinner";
+import Loader from "../components/Loader";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import ProjectCard from "../components/ProjectCard";
@@ -95,9 +95,7 @@ const Projects = ({ data }) => {
 	));
 
 	return projectsData.length === 0 ? (
-		<Spinner animation="border" role="status">
-			<span className="visually-hidden">Chargement...</span>
-		</Spinner>
+		<Loader title="Chargement" />
 	) : (
 		<section className="mb-4 p-2" style={{ minHeight: "100vh" }}>
 			<Container fluid className="p-2" style={{ maxWidth: "1000px" }}>

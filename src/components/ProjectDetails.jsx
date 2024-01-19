@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stack from "react-bootstrap/Stack";
@@ -27,17 +27,18 @@ const PreviewsWrapper = styled.div`
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const ProjectOffcanvas = ({
+const ProjectDetails = ({
 	children,
-	handleClose,
-	handleShow,
 	infos,
 	links,
 	medias,
 	placement,
-	show,
 	theme,
 }) => {
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
 	const offcanvasPlacement = !placement ? "end" : "start";
 	const offcanvasControlsPlacement = placement && "flex-row-reverse";
 	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
@@ -153,4 +154,4 @@ const ProjectOffcanvas = ({
 	);
 };
 
-export default ProjectOffcanvas;
+export default ProjectDetails;
