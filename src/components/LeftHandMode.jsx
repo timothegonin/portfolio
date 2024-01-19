@@ -3,7 +3,7 @@ import { UiContext } from "../utils/context/UiContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import Form from "react-bootstrap/Form";
 
-const Controls = () => {
+const LeftHandMode = () => {
 	const { leftHandedMode, toogleUiDirection } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
 
@@ -33,4 +33,4 @@ const Controls = () => {
 	);
 };
 
-export default Controls;
+export default LeftHandMode;
