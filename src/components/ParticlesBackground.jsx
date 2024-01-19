@@ -5,7 +5,6 @@ import { loadFull } from "tsparticles";
 
 const ParticlesBackground = () => {
 	const { theme } = useContext(ThemeContext);
-	console.log(theme);
 	const backgroundColor = theme === "light" ? "#fff" : "#212529";
 	const particlesColor = theme === "light" ? "#212529" : "#fff";
 	const screenWidthParticles = window.screen.width / 50;
