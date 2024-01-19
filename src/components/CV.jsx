@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Document, Page } from "react-pdf";
+import { pdfjs } from "react-pdf";
 import styled from "styled-components";
 import Loader from "../components/Loader";
 import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
