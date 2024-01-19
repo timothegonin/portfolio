@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Document, Page } from "react-pdf";
 import styled from "styled-components";
-import Spinner from "react-bootstrap/Spinner";
-import Stack from "react-bootstrap/Stack";
+import Loader from "../components/Loader";
 import pdfFile from "../assets/document/CV_Gonin_Timothé-2023.pdf";
 
 /* 
@@ -34,18 +33,7 @@ const CV = () => {
 		<PdfDocumentWrapper
 			file={pdfFile}
 			onLoadSuccess={onDocumentLoadSuccess}
-			loading={
-				<Stack className=" flex-column align-items-center">
-					<Spinner
-						as="span"
-						animation="border"
-						role="status"
-						aria-hidden="true"
-						className="mb-3"
-					/>
-					Chargement du ficher
-				</Stack>
-			}
+			loading={<Loader title="Chargement du fichier" />}
 		>
 			<Page
 				pageNumber={numPages}
