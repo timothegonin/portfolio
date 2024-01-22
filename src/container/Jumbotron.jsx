@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Contact from "../components/Contact";
 import Presentation from "../components/Presentation";
@@ -62,14 +63,14 @@ const PictureAndInfosWrapper = styled(Row)`
 	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
-const ContactWrapper = styled(Row)`
-	animation: ${scaleUpRight} 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) 0s both;
-`;
-
-const StackIconsWrapper = styled(Container)`
-	max-width: 650px;
+const IconsWrapper = styled(Stack)`
 	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
+
+/* const StackIconsWrapper = styled(Col)`
+	max-width: 650px;
+	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+`; */
 
 // const JumbotronFooter = styled.div`
 // 	animation: ${scaleUpBottom} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -94,17 +95,13 @@ const Jumbotron = () => {
 				<PictureAndInfosWrapper className="justify-content-center">
 					<Presentation />
 				</PictureAndInfosWrapper>
-				<ContactWrapper>
+				<IconsWrapper bsPrefix="hstack">
+					{/* TECHNOLOGIES */}
+					<StackIcons />
+					{/* CONTATCT */}
 					<Contact />
-				</ContactWrapper>
+				</IconsWrapper>
 			</PresentationWrapper>
-			{/* CONTATCT */}
-
-			<hr className="my-2" />
-			{/* TECHNOLOGIES */}
-			<StackIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 my-0">
-				<StackIcons />
-			</StackIconsWrapper>
 			<hr className="my-2" />
 		</header>
 	);
