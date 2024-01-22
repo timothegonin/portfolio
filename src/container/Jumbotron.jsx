@@ -1,15 +1,13 @@
 import { useContext } from "react";
-import { ThemeContext } from "../utils/context/ThemeContext";
-import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Presentation from "../components/Presentation";
-import Contact from "../components/Contact";
-import ModalComponent from "../components/ModalComponent";
-import StackIcons from "../components/StackIcons";
-import Helper from "../components/Helper";
+import styled, { keyframes } from "styled-components";
 import arrowDown from "../assets/icons/arrow-down-short.svg";
-import CV from "../components/CV";
+import Contact from "../components/Contact";
+import Helper from "../components/Helper";
+import Presentation from "../components/Presentation";
+import StackIcons from "../components/StackIcons";
+import { ThemeContext } from "../utils/context/ThemeContext";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -101,9 +99,6 @@ const Jumbotron = () => {
 				<ContactWrapper>
 					<Contact />
 				</ContactWrapper>
-				<ModalComponent title="Afficher mon cv">
-					<CV />
-				</ModalComponent>
 			</PresentationWrapper>
 			{/* CONTATCT */}
 
