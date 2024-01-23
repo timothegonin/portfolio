@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
-import styled, { keyframes } from "styled-components";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
+import styled, { keyframes } from "styled-components";
+import { ThemeContext } from "../utils/context/ThemeContext";
+import { UiContext } from "../utils/context/UiContext";
 import Icons from "./Icons";
 
 /* 
@@ -52,8 +52,8 @@ const IconLink = styled.a`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Contact = () => {
-	const linkedInIcon = Icons.contact[0];
-	const gitHubIcon = Icons.tools[3];
+	const linkedInIcon = Icons.contact[1];
+	const gitHubIcon = Icons.contact[0];
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
 
@@ -62,7 +62,7 @@ const Contact = () => {
 		: "justify-content-start";
 
 	return (
-		<Container fluid className="py-2">
+		<Container fluid as="section">
 			<h3 className="visually-hidden">Contact me :</h3>
 			<Stack direction="horizontal" gap={3} className={contactIconsClass}>
 				<IconLink

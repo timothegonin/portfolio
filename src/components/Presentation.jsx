@@ -1,9 +1,10 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import devPicture from "../assets/pictures/devPicture.jpg";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import styled, { keyframes } from "styled-components";
+import devPicture from "../assets/pictures/devPicture.jpg";
+import StackIcons from "./StackIcons";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -22,10 +23,17 @@ const PictureBox = styled(Col)`
 	height: 100px;
 	width: 100px;
 	padding: 0;
-
 	background-image: linear-gradient(45deg, #fff 0%, #000 100%);
 	box-shadow: -10vmin 10vmin 10vmin rgba(255, 255, 255, 0.07);
 	animation: ${animateBlob} 0.7s linear infinite alternate;
+
+	@media (max-width: 480px) {
+		height: 80px;
+		width: 80px;
+	}
+	@media (max-width: 377px) {
+		display: none !important;
+	}
 `;
 
 const Picture = styled(Image)`
@@ -51,6 +59,7 @@ const Presentation = () => {
 				<h2 className="fs-4 text-break">
 					Développeur <span className="text-nowrap">Front-End | React JS</span>
 				</h2>
+				<StackIcons />
 			</Col>
 		</Row>
 	);
