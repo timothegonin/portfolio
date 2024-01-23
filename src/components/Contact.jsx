@@ -62,7 +62,7 @@ const Contact = () => {
 		: "justify-content-start";
 
 	return (
-		<Container fluid className="py-2">
+		<Container fluid as="section">
 			<h3 className="visually-hidden">Contact me :</h3>
 			<Stack direction="horizontal" gap={3} className={contactIconsClass}>
 				<IconLink

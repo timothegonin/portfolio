@@ -23,10 +23,17 @@ const PictureBox = styled(Col)`
 	height: 100px;
 	width: 100px;
 	padding: 0;
-
 	background-image: linear-gradient(45deg, #fff 0%, #000 100%);
 	box-shadow: -10vmin 10vmin 10vmin rgba(255, 255, 255, 0.07);
 	animation: ${animateBlob} 0.7s linear infinite alternate;
+
+	@media (max-width: 480px) {
+		height: 80px;
+		width: 80px;
+	}
+	@media (max-width: 377px) {
+		display: none !important;
+	}
 `;
 
 const Picture = styled(Image)`

@@ -24,21 +24,6 @@ const scaleUpCenter = keyframes`
 }
 `;
 
-const scaleUpRight = keyframes`
-	0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
-  }
-`;
-
 const PresentationWrapper = styled(Container)`
 	max-width: 550px;
 `;
@@ -73,7 +58,7 @@ const Header = () => {
 					<Contact />
 				</ContactWrapper>
 			</PresentationWrapper>
-			<hr className="my-2" />
+			<hr className="my-3" />
 		</header>
 	);
 };

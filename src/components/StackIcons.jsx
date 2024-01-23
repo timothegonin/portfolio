@@ -13,11 +13,7 @@ const TechIcons = () => {
 			className={`${darkModeStylesClass} d-inline-flex align-content-center`}
 		>
 			<h3 className="visually-hidden">Technologies</h3>
-			<Stack
-				direction="horizontal"
-				gap={2}
-				className="py-2 d-inline-flex flex-wrap"
-			>
+			<Stack direction="horizontal" gap={2} className="py-2 d-inline-flex">
 				{technologies.map((icon, index) => (
 					<img key={index} src={icon.svg} alt={icon.altText} />
 				))}
