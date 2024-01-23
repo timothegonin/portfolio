@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
+import Button from "react-bootstrap/Button";
+import Carousel from "react-bootstrap/Carousel";
+import Container from "react-bootstrap/Container";
+import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Loader from "../components/Loader";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import ProjectCard from "../components/ProjectCard";
-import Stack from "react-bootstrap/Stack";
+import { ThemeContext } from "../utils/context/ThemeContext";
+import { UiContext } from "../utils/context/UiContext";
 
 /**
  * The `Projects` component displays a list of projects with sorting functionality.
@@ -65,6 +66,12 @@ const Projects = ({ data }) => {
 	const [sortMode, setSortMode] = useState("desc");
 	const [animationClass, setAnimationClass] = useState("");
 
+	//CAROUSEL CONTROLS
+	const [index, setIndex] = useState(0);
+	const handleSelect = (selectedIndex) => {
+		setIndex(selectedIndex);
+	};
+
 	useEffect(() => {
 		setProjectsData(data);
 	}, [data]);
@@ -85,13 +92,17 @@ const Projects = ({ data }) => {
 
 	const sortButtonVariant = theme === "light" ? "primary" : "secondary";
 
-	const listOfProjectCards = projectsData.map((project) => (
-		<ProjectCard
-			key={project.id}
-			infos={project.infos}
-			medias={project.medias}
-			links={project.links}
-		/>
+	const listOfProjectCards = projectsData.map((project, index) => (
+		<Carousel.Item key={index}>
+			<CardsWrapper className={animationClass}>
+				<ProjectCard
+					key={project.id}
+					infos={project.infos}
+					medias={project.medias}
+					links={project.links}
+				/>
+			</CardsWrapper>
+		</Carousel.Item>
 	));
 
 	return projectsData.length === 0 ? (
@@ -134,10 +145,13 @@ const Projects = ({ data }) => {
 						</Button>
 					</div>
 				</Stack>
-
-				<CardsWrapper className={animationClass}>
+				<Carousel
+					activeIndex={index}
+					onSelect={handleSelect}
+					data-bs-theme={theme === "light" && "dark"}
+				>
 					{listOfProjectCards}
-				</CardsWrapper>
+				</Carousel>
 			</Container>
 		</section>
 	);
