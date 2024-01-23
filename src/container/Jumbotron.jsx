@@ -5,7 +5,6 @@ import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Contact from "../components/Contact";
 import Presentation from "../components/Presentation";
-import StackIcons from "../components/StackIcons";
 import { ThemeContext } from "../utils/context/ThemeContext";
 
 /* 
@@ -96,9 +95,6 @@ const Jumbotron = () => {
 					<Presentation />
 				</PictureAndInfosWrapper>
 				<IconsWrapper bsPrefix="hstack">
-					{/* TECHNOLOGIES */}
-					<StackIcons />
-					{/* CONTATCT */}
 					<Contact />
 				</IconsWrapper>
 			</PresentationWrapper>

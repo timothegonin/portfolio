@@ -1,9 +1,10 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import devPicture from "../assets/pictures/devPicture.jpg";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import styled, { keyframes } from "styled-components";
+import devPicture from "../assets/pictures/devPicture.jpg";
+import StackIcons from "./StackIcons";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -51,6 +52,7 @@ const Presentation = () => {
 				<h2 className="fs-4 text-break">
 					Développeur <span className="text-nowrap">Front-End | React JS</span>
 				</h2>
+				<StackIcons />
 			</Col>
 		</Row>
 	);

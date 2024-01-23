@@ -52,8 +52,8 @@ const IconLink = styled.a`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Contact = () => {
-	const linkedInIcon = Icons.contact[0];
-	const gitHubIcon = Icons.tools[2];
+	const linkedInIcon = Icons.contact[1];
+	const gitHubIcon = Icons.contact[0];
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
 

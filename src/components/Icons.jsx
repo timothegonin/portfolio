@@ -26,9 +26,11 @@ const Icons = {
 	tools: [
 		{ svg: FigmaIcon, altText: "Figma icon" },
 		{ svg: GitIcon, altText: "Git icon" },
-		{ svg: GitHubIcon, altText: "Github icon" },
 	],
-	contact: [{ svg: LinkedInIcon, altText: "LinkedIn icon" }],
+	contact: [
+		{ svg: GitHubIcon, altText: "Github icon" },
+		{ svg: LinkedInIcon, altText: "LinkedIn icon" },
+	],
 };
 
 export default Icons;
