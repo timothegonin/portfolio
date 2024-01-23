@@ -3,7 +3,7 @@ import LeftHandMode from "./components/LeftHandMode";
 import ParticlesBackground from "./components/ParticlesBackground";
 import Theme from "./components/Theme";
 import Toogler from "./components/Toogler";
-import Jumbotron from "./container/Jumbotron";
+import Header from "./container/Header";
 import Projects from "./container/Projects";
 
 function App({ data }) {
@@ -16,7 +16,7 @@ function App({ data }) {
 			<Toogler alignment="start" position="bottom">
 				<LeftHandMode />
 			</Toogler>
-			<Jumbotron />
+			<Header />
 			<Projects data={data} />
 			<Footer />
 		</div>
