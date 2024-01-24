@@ -112,6 +112,7 @@ const Projects = ({ data }) => {
 	};
 
 	const sortButtonVariant = theme === "light" ? "primary" : "secondary";
+	const titleVariant = theme === "light" ? "black" : "light";
 
 	const listOfProjectCards = projectsData.map((project, index) => (
 		<Carousel.Item key={index}>
@@ -129,14 +130,14 @@ const Projects = ({ data }) => {
 	return projectsData.length === 0 ? (
 		<Loader title="Chargement" />
 	) : (
-		<section className="mb-4 p-2" style={{ minHeight: "100vh" }}>
-			<Container fluid className="p-2" style={{ maxWidth: "1000px" }}>
+		<section className="mb-4 p-2">
+			<Container fluid className="p-2 mb-4" style={{ maxWidth: "1000px" }}>
 				<Stack
 					direction="vertical"
 					gap={2}
 					className="justify-content-center mb-4"
 				>
-					<h3 className="pt-4">Projets</h3>
+					<h3 className={`m-0 text-${titleVariant}`}>Projets</h3>
 					<div className={toggleSortClass}>
 						<Button
 							role="button"
