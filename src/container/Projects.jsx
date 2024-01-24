@@ -54,6 +54,27 @@ const CardsWrapper = styled.div`
 	}
 `;
 
+const CarouselWrapper = styled(Carousel)`
+	/* Carousel controls */
+	.carousel-indicators {
+		margin-bottom: -2.25rem;
+	}
+	a.carousel-control-prev {
+		justify-content: flex-start;
+		margin-left: 0.5rem;
+	}
+	a.carousel-control-next {
+		justify-content: flex-end;
+		margin-left: 0.5rem;
+	}
+	a.carousel-control-prev,
+	a.carousel-control-next {
+		align-items: flex-end;
+		margin-bottom: -2.5rem;
+		margin-left: 0.5rem;
+	}
+`;
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                                                             │
@@ -145,13 +166,13 @@ const Projects = ({ data }) => {
 						</Button>
 					</div>
 				</Stack>
-				<Carousel
+				<CarouselWrapper
 					activeIndex={index}
 					onSelect={handleSelect}
 					data-bs-theme={theme === "light" && "dark"}
 				>
 					{listOfProjectCards}
-				</Carousel>
+				</CarouselWrapper>
 			</Container>
 		</section>
 	);
