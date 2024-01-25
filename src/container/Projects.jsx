@@ -29,26 +29,6 @@ const opcatity = keyframes`
 `;
 
 const CardsWrapper = styled.div`
-	--grid-layout-gap: 20px;
-	--grid-column-count: 3; /* This gets overridden by an inline style. */
-	--grid-item--min-width: 17rem; /* This gets overridden by an inline style. */
-
-	/**
-   * Calculated values.
-   */
-	--gap-count: calc(var(--grid-column-count) - 1);
-	--total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
-	--grid-item--max-width: calc(
-		(100% - var(--total-gap-width)) / var(--grid-column-count)
-	);
-
-	display: grid;
-	grid-template-columns: repeat(
-		auto-fill,
-		minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
-	);
-	grid-gap: var(--grid-layout-gap);
-
 	&.animated {
 		animation: ${opcatity} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	}
