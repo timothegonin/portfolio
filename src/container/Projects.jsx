@@ -113,9 +113,9 @@ const Projects = ({ data }) => {
 		<section className="mb-4 p-2">
 			<Container fluid className="p-2 mb-4" style={{ maxWidth: "1000px" }}>
 				<Stack
-					direction="vertical"
+					direction="horizontal"
 					gap={2}
-					className="justify-content-center mb-4"
+					className="justify-content-center mb-4 "
 				>
 					<h3 className={`m-0 text-${titleVariant}`}>Projets</h3>
 					<div className={toggleSortClass}>
