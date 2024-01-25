@@ -1,17 +1,24 @@
 import { useContext } from "react";
-import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
-import styled from "styled-components";
-import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-import ProjectDetails from "./ProjectDetails";
-import ModalComponent from "./ModalComponent";
-import ProjectPreviews from "./ProjectPreviews";
+import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
+import styled from "styled-components";
+import { ThemeContext } from "../utils/context/ThemeContext";
+import { UiContext } from "../utils/context/UiContext";
+import ModalComponent from "./ModalComponent";
+import ProjectDetails from "./ProjectDetails";
+import ProjectPreviews from "./ProjectPreviews";
 
 const CardHeader = styled(Card.Header)`
+	height: 11rem;
 	img.dark {
 		filter: brightness(0.95);
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
 	}
 `;
 
@@ -20,10 +27,13 @@ const ProjectCard = ({ infos, medias, links }) => {
 	const { theme } = useContext(ThemeContext);
 
 	const stylesClassNames =
-		theme === "light" ? "bg-white" : "bg-dark border-secondary";
+		theme === "light" ? "bg-white border-opacity-25" : "bg-dark";
 
 	return (
-		<Card className={`w-100 ${stylesClassNames} `}>
+		<Card
+			className={`${stylesClassNames} border-secondary`}
+			style={{ height: "18rem" }}
+		>
 			{/* HEAD */}
 			<CardHeader className="p-0">
 				<Card.Img
