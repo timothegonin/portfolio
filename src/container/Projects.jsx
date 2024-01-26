@@ -24,9 +24,25 @@ import { UiContext } from "../utils/context/UiContext";
   │ STYLES                                                                                                          │
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
+
 const fadeIn = keyframes`
 	0%{opacity:0}
 	100%{opacity:1}
+`;
+
+const slideTop = keyframes`
+0% {
+	-webkit-transform: translateY(100px);
+            transform: translateY(100px);
+}
+100% {
+	-webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+`;
+
+const ProjectsWrapper = styled(Container)`
+	animation: ${slideTop} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 const ListGroupItem = styled(ListGroup.Item)`
@@ -60,7 +76,7 @@ const Projects = ({ data }) => {
 	return projectsData.length === 0 ? (
 		<Loader title="Chargement" />
 	) : (
-		<Container
+		<ProjectsWrapper
 			fluid
 			className="p-4 mb-4"
 			style={{ maxWidth: "850px" }}
@@ -84,7 +100,7 @@ const Projects = ({ data }) => {
 					</Stack>
 				</Col>
 			</Row>
-		</Container>
+		</ProjectsWrapper>
 	);
 };
 
