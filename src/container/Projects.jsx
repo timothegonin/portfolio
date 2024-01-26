@@ -58,6 +58,7 @@ const Projects = ({ data }) => {
 	const { theme } = useContext(ThemeContext);
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
+	const [previewDisplayed, setPreviewDisplayed] = useState();
 
 	useEffect(() => {
 		setProjectsData(data);
@@ -67,8 +68,16 @@ const Projects = ({ data }) => {
 	const layoutVariant = !leftHandedMode ? "row" : "row-reverse";
 	const bordersVariant = !leftHandedMode ? "end" : "start";
 
+	const handlePreview = (id) => {
+		setPreviewDisplayed(data.filter((data) => data.id === id));
+	};
+
 	const listOfProjects = projectsData.map((project, index) => (
-		<ListGroupItem key={`${index}-${project.id}`} action>
+		<ListGroupItem
+			key={`${index}-${project.id}`}
+			action
+			onClick={() => handlePreview(project.id)}
+		>
 			{project.infos.title}
 		</ListGroupItem>
 	));
@@ -86,7 +95,17 @@ const Projects = ({ data }) => {
 				<Col
 					className={`d-none d-sm-block bg-secondary text-white rounded-3 rounded-${bordersVariant}-0`}
 				>
-					PREVIEW
+					{previewDisplayed !== undefined && (
+						<div>
+							<h4>Preview</h4>
+							<p>{previewDisplayed[0].id}</p>
+							<img
+								src={require(`../assets/thumbnails/${previewDisplayed[0].medias.thumbnail}`)}
+								alt=""
+								style={{ height: "100px" }}
+							/>
+						</div>
+					)}
 				</Col>
 				<Col sm={6}>
 					<Stack direction="verical" gap={3}>
