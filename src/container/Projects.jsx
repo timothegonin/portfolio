@@ -8,6 +8,7 @@ import styled, { keyframes } from "styled-components";
 import Loader from "../components/Loader";
 // import ProjectCard from "../components/ProjectCard";
 import { ThemeContext } from "../utils/context/ThemeContext";
+import { UiContext } from "../utils/context/UiContext";
 
 /**
  * The `Projects` component displays a list of projects with sorting functionality.
@@ -39,6 +40,7 @@ const ListGroupItem = styled(ListGroup.Item)`
  */
 const Projects = ({ data }) => {
 	const { theme } = useContext(ThemeContext);
+	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 
 	useEffect(() => {
@@ -46,6 +48,8 @@ const Projects = ({ data }) => {
 	}, [data]);
 
 	const titleVariant = theme === "light" ? "black" : "light";
+	const layoutVariant = !leftHandedMode ? "row" : "row-reverse";
+	const bordersVariant = !leftHandedMode ? "end" : "start";
 
 	const listOfProjects = projectsData.map((project, index) => (
 		<ListGroupItem key={`${index}-${project.id}`} action>
@@ -62,8 +66,10 @@ const Projects = ({ data }) => {
 			style={{ maxWidth: "850px" }}
 			as="section"
 		>
-			<Row>
-				<Col className="d-none d-sm-block bg-secondary text-white rounded-3 rounded-end-0 ">
+			<Row className={`flex-${layoutVariant}`}>
+				<Col
+					className={`d-none d-sm-block bg-secondary text-white rounded-3 rounded-${bordersVariant}-0`}
+				>
 					PREVIEW
 				</Col>
 				<Col sm={6}>
