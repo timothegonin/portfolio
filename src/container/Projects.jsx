@@ -2,10 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
+import ListGroup from "react-bootstrap/ListGroup";
 import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Loader from "../components/Loader";
-import ProjectCard from "../components/ProjectCard";
+// import ProjectCard from "../components/ProjectCard";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
 
@@ -23,15 +24,13 @@ import { UiContext } from "../utils/context/UiContext";
   │ STYLES                                                                                                          │
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
-const opcatity = keyframes`
+const fadeIn = keyframes`
 	0%{opacity:0}
 	100%{opacity:1}
 `;
 
-const CardsWrapper = styled.div`
-	&.animated {
-		animation: ${opcatity} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-	}
+const ListGroupItem = styled(ListGroup.Item)`
+	animation: ${fadeIn} 1s;
 `;
 
 const CarouselWrapper = styled(Carousel)`
@@ -94,17 +93,10 @@ const Projects = ({ data }) => {
 	const sortButtonVariant = theme === "light" ? "primary" : "secondary";
 	const titleVariant = theme === "light" ? "black" : "light";
 
-	const listOfProjectCards = projectsData.map((project, index) => (
-		<Carousel.Item key={index}>
-			<CardsWrapper className={animationClass}>
-				<ProjectCard
-					key={project.id}
-					infos={project.infos}
-					medias={project.medias}
-					links={project.links}
-				/>
-			</CardsWrapper>
-		</Carousel.Item>
+	const listOfProjects = projectsData.map((project, index) => (
+		<ListGroupItem key={`${index}-${project.id}`} action>
+			{project.infos.title}
+		</ListGroupItem>
 	));
 
 	return projectsData.length === 0 ? (
@@ -150,9 +142,15 @@ const Projects = ({ data }) => {
 				<CarouselWrapper
 					activeIndex={index}
 					onSelect={handleSelect}
-					data-bs-theme={theme === "light" && "dark"}
+					// data-bs-theme={theme === "light" && "dark"}
+					// className={`${animationClass}`}
 				>
-					{listOfProjectCards}
+					<ListGroup
+						data-bs-theme={theme === "dark" && "dark"}
+						className={`text-start `}
+					>
+						{listOfProjects}
+					</ListGroup>
 				</CarouselWrapper>
 			</Container>
 		</section>
