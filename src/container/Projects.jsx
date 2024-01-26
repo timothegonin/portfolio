@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Stack from "react-bootstrap/Stack";
@@ -33,27 +32,6 @@ const ListGroupItem = styled(ListGroup.Item)`
 	animation: ${fadeIn} 1s;
 `;
 
-const CarouselWrapper = styled(Carousel)`
-	/* Carousel controls */
-	.carousel-indicators {
-		margin-bottom: -2.25rem;
-	}
-	a.carousel-control-prev {
-		justify-content: flex-start;
-		margin-left: 0.5rem;
-	}
-	a.carousel-control-next {
-		justify-content: flex-end;
-		margin-left: 0.5rem;
-	}
-	a.carousel-control-prev,
-	a.carousel-control-next {
-		align-items: flex-end;
-		margin-bottom: -2.5rem;
-		margin-left: 0.5rem;
-	}
-`;
-
 /* 
   ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
   │ JSX                                                                                                             │
@@ -65,12 +43,6 @@ const Projects = ({ data }) => {
 	const [projectsData, setProjectsData] = useState([]);
 	const [sortMode, setSortMode] = useState("desc");
 	const [animationClass, setAnimationClass] = useState("");
-
-	//CAROUSEL CONTROLS
-	const [index, setIndex] = useState(0);
-	const handleSelect = (selectedIndex) => {
-		setIndex(selectedIndex);
-	};
 
 	useEffect(() => {
 		setProjectsData(data);
@@ -139,19 +111,13 @@ const Projects = ({ data }) => {
 						</Button>
 					</div>
 				</Stack>
-				<CarouselWrapper
-					activeIndex={index}
-					onSelect={handleSelect}
-					// data-bs-theme={theme === "light" && "dark"}
-					// className={`${animationClass}`}
+
+				<ListGroup
+					data-bs-theme={theme === "dark" && "dark"}
+					className={`text-start `}
 				>
-					<ListGroup
-						data-bs-theme={theme === "dark" && "dark"}
-						className={`text-start `}
-					>
-						{listOfProjects}
-					</ListGroup>
-				</CarouselWrapper>
+					{listOfProjects}
+				</ListGroup>
 			</Container>
 		</section>
 	);
