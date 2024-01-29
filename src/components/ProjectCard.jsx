@@ -14,11 +14,8 @@ const ProjectCard = ({ data }) => {
 	const { theme } = useContext(ThemeContext);
 	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
 
-	const stylesClassNames =
-		theme === "light" ? "bg-white border-opacity-25" : "bg-dark";
-
 	return (
-		<Card className={`${stylesClassNames} border-secondary`}>
+		<Card data-bs-theme={theme === "dark" && "dark"}>
 			{/* HEAD */}
 			<Card.Header className="p-0">
 				<h5 className="m-2 text-start">{projectCardData.infos.title}</h5>
@@ -40,9 +37,9 @@ const ProjectCard = ({ data }) => {
 						{projectCardData.infos.tags.map((tag, index) => (
 							<Badge
 								key={index}
-								bg={theme === "light" ? "light" : "dark"}
+								bg={theme === "light" ? "light" : "secondary"}
 								className={`fw-light ${
-									theme === "light" ? "text-black" : "text-white-50"
+									theme === "light" ? "text-black" : "text-white-25"
 								}`}
 							>{`#${tag}`}</Badge>
 						))}

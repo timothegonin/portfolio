@@ -82,8 +82,7 @@ const Projects = ({ data }) => {
 	}, [data]);
 
 	const titleVariant = theme === "light" ? "black" : "light";
-	const layoutVariant = !leftHandedMode ? "row" : "row-reverse";
-	const bordersVariant = !leftHandedMode ? "end" : "start";
+	const layoutVariant = leftHandedMode ? "row" : "row-reverse";
 
 	const handlePreview = (id) => {
 		setPreviewDisplayed(data.filter((data) => data.id === id));
@@ -110,9 +109,7 @@ const Projects = ({ data }) => {
 			>
 				<Row className={`justify-content-center flex-${layoutVariant}`}>
 					{previewDisplayed !== undefined && (
-						<ProjectCardColumn
-							className={`d-none d-sm-block text-white rounded-3 rounded-${bordersVariant}-0`}
-						>
+						<ProjectCardColumn className={`d-none d-sm-block`}>
 							<div>
 								<ProjectCard data={previewDisplayed} />
 							</div>
