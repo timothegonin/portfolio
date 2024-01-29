@@ -4,12 +4,12 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { ThemeContext } from "../utils/context/ThemeContext";
-import { UiContext } from "../utils/context/UiContext";
-import ModalComponent from "./ModalComponent";
-import ProjectDetails from "./ProjectDetails";
-import ProjectPreviews from "./ProjectPreviews";
+// import { UiContext } from "../utils/context/UiContext";
+// import ModalComponent from "./ModalComponent";
+// import ProjectDetails from "./ProjectDetails";
+// import ProjectPreviews from "./ProjectPreviews";
 
 // const CardHeader = styled(Card.Header)`
 /* height: 11rem;
@@ -30,8 +30,6 @@ const ProjectCard = ({ data }) => {
 	const { theme } = useContext(ThemeContext);
 	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
 
-	// console.log(projectCardData);
-
 	const stylesClassNames =
 		theme === "light" ? "bg-white border-opacity-25" : "bg-dark";
 
@@ -43,17 +41,10 @@ const ProjectCard = ({ data }) => {
 			{/* HEAD */}
 			<Card.Header className="p-0">
 				<h5 className="m-2 text-start">{projectCardData.infos.title}</h5>
-				{/* <Card.Img
-					variant="top"
-					src={require(`../assets/thumbnails/${projectCardData.medias.thumbnail}`)}
-					alt={`Thumbnail of ${projectCardData.infos.title} project`}
-					className={theme === "dark" && "dark"}
-				/> */}
 			</Card.Header>
 			{/* BODY */}
 			<Card.Body className="p-2">
 				<p className="text-start">{projectCardData.infos.description}</p>
-
 				<hr />
 				<Stack
 					direction="horizontal"
@@ -93,19 +84,25 @@ const ProjectCard = ({ data }) => {
 				{/* <hr /> */}
 				<ButtonGroup size="sm">
 					<Button
-						// href={links && links.page ? links.page : "#"}
+						href={
+							projectCardData.links && projectCardData.links.page
+								? projectCardData.links.page
+								: "#"
+						}
 						target="_blank"
 						variant={buttonVariant}
-						// size="xs"
 						role="button"
 					>
 						Voir le site{" "}
 					</Button>
 					<Button
-						// href={links && links.repo ? links.repo : "#"}
+						href={
+							projectCardData.links && projectCardData.links.repo
+								? projectCardData.links.repo
+								: "#"
+						}
 						target="_blank"
 						variant={buttonVariant}
-						// size="sm"
 						role="button"
 					>
 						Voir le code{" "}
