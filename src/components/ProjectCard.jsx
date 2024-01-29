@@ -36,7 +36,7 @@ const ProjectCard = ({ data }) => {
 	return (
 		<Card
 			className={`${stylesClassNames} border-secondary`}
-			style={{ height: "18rem" }}
+			// style={{ height: "18rem" }}
 		>
 			{/* HEAD */}
 			<Card.Header className="p-0">
@@ -46,68 +46,70 @@ const ProjectCard = ({ data }) => {
 			<Card.Body className="p-2">
 				<p className="text-start">{projectCardData.infos.description}</p>
 				<hr />
-				<Stack
-					direction="horizontal"
-					gap={2}
-					className="justify-content-start mb-2"
-				>
-					{projectCardData.infos.tags.map((tag, index) => (
-						<Badge
-							key={index}
-							bg={theme === "light" ? "light" : "dark"}
-							className={`fw-light ${
-								theme === "light" ? "text-black" : "text-white-50"
-							}`}
-						>{`#${tag}`}</Badge>
-					))}
-				</Stack>
-				<Stack direction="horizontal" gap={2}>
-					{projectCardData.medias.techIcons.map((icon, index) => (
-						<img
-							key={index}
-							src={require(`../assets/icons/tech/${icon}`)}
-							alt={"Bostrap icon"}
-						/>
-					))}
-				</Stack>
-				{/* <ProjectDetails
-					infos={infos}
-					links={links}
-					medias={medias}
-					placement={leftHandedMode}
-					theme={theme}
-				>
-					<ModalComponent title="Agrandir">
-						<ProjectPreviews medias={medias.preview} title={infos.title} />
-					</ModalComponent>
-				</ProjectDetails> */}
-				{/* <hr /> */}
-				<ButtonGroup size="sm">
-					<Button
-						href={
-							projectCardData.links && projectCardData.links.page
-								? projectCardData.links.page
-								: "#"
-						}
-						target="_blank"
-						variant={buttonVariant}
-						role="button"
+				<Stack direction="column" gap={3} className="pb-2">
+					<Stack
+						direction="horizontal"
+						gap={2}
+						className="justify-content-start"
 					>
-						Voir le site{" "}
-					</Button>
-					<Button
-						href={
-							projectCardData.links && projectCardData.links.repo
-								? projectCardData.links.repo
-								: "#"
-						}
-						target="_blank"
-						variant={buttonVariant}
-						role="button"
+						{projectCardData.infos.tags.map((tag, index) => (
+							<Badge
+								key={index}
+								bg={theme === "light" ? "light" : "dark"}
+								className={`fw-light ${
+									theme === "light" ? "text-black" : "text-white-50"
+								}`}
+							>{`#${tag}`}</Badge>
+						))}
+					</Stack>
+					<Stack direction="horizontal" gap={2} className="px-1">
+						{projectCardData.medias.techIcons.map((icon, index) => (
+							<img
+								key={index}
+								src={require(`../assets/icons/tech/${icon}`)}
+								alt={"Bostrap icon"}
+							/>
+						))}
+					</Stack>
+					{/* <ProjectDetails
+						infos={infos}
+						links={links}
+						medias={medias}
+						placement={leftHandedMode}
+						theme={theme}
 					>
-						Voir le code{" "}
-					</Button>
-				</ButtonGroup>
+						<ModalComponent title="Agrandir">
+							<ProjectPreviews medias={medias.preview} title={infos.title} />
+						</ModalComponent>
+					</ProjectDetails> */}
+					{/* <hr /> */}
+					<ButtonGroup size="sm">
+						<Button
+							href={
+								projectCardData.links && projectCardData.links.page
+									? projectCardData.links.page
+									: "#"
+							}
+							target="_blank"
+							variant={buttonVariant}
+							role="button"
+						>
+							Voir le site{" "}
+						</Button>
+						<Button
+							href={
+								projectCardData.links && projectCardData.links.repo
+									? projectCardData.links.repo
+									: "#"
+							}
+							target="_blank"
+							variant={buttonVariant}
+							role="button"
+						>
+							Voir le code{" "}
+						</Button>
+					</ButtonGroup>
+				</Stack>
 			</Card.Body>
 		</Card>
 	);
