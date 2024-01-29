@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Loader from "../components/Loader";
-// import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
 
@@ -59,6 +59,7 @@ const Projects = ({ data }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [previewDisplayed, setPreviewDisplayed] = useState();
+	// console.log(previewDisplayed);
 
 	useEffect(() => {
 		setProjectsData(data);
@@ -93,18 +94,12 @@ const Projects = ({ data }) => {
 			>
 				<Row className={`flex-${layoutVariant}`}>
 					<Col
-						className={`d-none d-sm-block bg-secondary text-white rounded-3 rounded-${bordersVariant}-0`}
+						className={`d-none d-sm-block text-white rounded-3 rounded-${bordersVariant}-0`}
 					>
 						{previewDisplayed !== undefined && (
-							<div>
-								<h4>Preview</h4>
-								<p>{previewDisplayed[0].id}</p>
-								<img
-									src={require(`../assets/thumbnails/${previewDisplayed[0].medias.thumbnail}`)}
-									alt=""
-									style={{ height: "100px" }}
-								/>
-							</div>
+							// <div>
+							<ProjectCard data={previewDisplayed} />
+							// </div>
 						)}
 					</Col>
 					<Col sm={6}>

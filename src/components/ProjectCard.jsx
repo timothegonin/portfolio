@@ -22,9 +22,11 @@ const CardHeader = styled(Card.Header)`
 	}
 `;
 
-const ProjectCard = ({ infos, medias, links }) => {
-	const { leftHandedMode } = useContext(UiContext);
+const ProjectCard = ({ data }) => {
+	const projectCardData = data[0];
+	// const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
+	// console.log(projectCardData);
 
 	const stylesClassNames =
 		theme === "light" ? "bg-white border-opacity-25" : "bg-dark";
@@ -38,8 +40,8 @@ const ProjectCard = ({ infos, medias, links }) => {
 			<CardHeader className="p-0">
 				<Card.Img
 					variant="top"
-					src={require(`../assets/thumbnails/${medias.thumbnail}`)}
-					alt={`Thumbnail of ${infos.title} project`}
+					src={require(`../assets/thumbnails/${projectCardData.medias.thumbnail}`)}
+					alt={`Thumbnail of ${projectCardData.infos.title} project`}
 					className={theme === "dark" && "dark"}
 				/>
 			</CardHeader>
@@ -50,7 +52,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 					gap={2}
 					className="justify-content-start mb-2"
 				>
-					{infos.tags.map((tag, index) => (
+					{projectCardData.infos.tags.map((tag, index) => (
 						<Badge
 							key={index}
 							bg={theme === "light" ? "light" : "dark"}
@@ -60,7 +62,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 						>{`#${tag}`}</Badge>
 					))}
 				</Stack>
-				<ProjectDetails
+				{/* <ProjectDetails
 					infos={infos}
 					links={links}
 					medias={medias}
@@ -70,7 +72,7 @@ const ProjectCard = ({ infos, medias, links }) => {
 					<ModalComponent title="Agrandir">
 						<ProjectPreviews medias={medias.preview} title={infos.title} />
 					</ModalComponent>
-				</ProjectDetails>
+				</ProjectDetails> */}
 			</Card.Body>
 		</Card>
 	);
