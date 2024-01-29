@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import Badge from "react-bootstrap/Badge";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
 import styled from "styled-components";
@@ -9,8 +11,8 @@ import ModalComponent from "./ModalComponent";
 import ProjectDetails from "./ProjectDetails";
 import ProjectPreviews from "./ProjectPreviews";
 
-const CardHeader = styled(Card.Header)`
-	height: 11rem;
+// const CardHeader = styled(Card.Header)`
+/* height: 11rem;
 	img.dark {
 		filter: brightness(0.95);
 	}
@@ -19,13 +21,15 @@ const CardHeader = styled(Card.Header)`
 		height: 100%;
 		object-fit: cover;
 		object-position: top;
-	}
-`;
+	} */
+// `;
 
 const ProjectCard = ({ data }) => {
 	const projectCardData = data[0];
 	// const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
+	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
+
 	// console.log(projectCardData);
 
 	const stylesClassNames =
@@ -37,16 +41,20 @@ const ProjectCard = ({ data }) => {
 			style={{ height: "18rem" }}
 		>
 			{/* HEAD */}
-			<CardHeader className="p-0">
-				<Card.Img
+			<Card.Header className="p-0">
+				<h5 className="m-2 text-start">{projectCardData.infos.title}</h5>
+				{/* <Card.Img
 					variant="top"
 					src={require(`../assets/thumbnails/${projectCardData.medias.thumbnail}`)}
 					alt={`Thumbnail of ${projectCardData.infos.title} project`}
 					className={theme === "dark" && "dark"}
-				/>
-			</CardHeader>
+				/> */}
+			</Card.Header>
 			{/* BODY */}
 			<Card.Body className="p-2">
+				<p className="text-start">{projectCardData.infos.description}</p>
+
+				<hr />
 				<Stack
 					direction="horizontal"
 					gap={2}
@@ -62,6 +70,15 @@ const ProjectCard = ({ data }) => {
 						>{`#${tag}`}</Badge>
 					))}
 				</Stack>
+				<Stack direction="horizontal" gap={2}>
+					{projectCardData.medias.techIcons.map((icon, index) => (
+						<img
+							key={index}
+							src={require(`../assets/icons/tech/${icon}`)}
+							alt={"Bostrap icon"}
+						/>
+					))}
+				</Stack>
 				{/* <ProjectDetails
 					infos={infos}
 					links={links}
@@ -73,6 +90,27 @@ const ProjectCard = ({ data }) => {
 						<ProjectPreviews medias={medias.preview} title={infos.title} />
 					</ModalComponent>
 				</ProjectDetails> */}
+				{/* <hr /> */}
+				<ButtonGroup size="sm">
+					<Button
+						// href={links && links.page ? links.page : "#"}
+						target="_blank"
+						variant={buttonVariant}
+						// size="xs"
+						role="button"
+					>
+						Voir le site{" "}
+					</Button>
+					<Button
+						// href={links && links.repo ? links.repo : "#"}
+						target="_blank"
+						variant={buttonVariant}
+						// size="sm"
+						role="button"
+					>
+						Voir le code{" "}
+					</Button>
+				</ButtonGroup>
 			</Card.Body>
 		</Card>
 	);
