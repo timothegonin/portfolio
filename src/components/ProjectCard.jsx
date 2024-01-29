@@ -7,22 +7,6 @@ import Stack from "react-bootstrap/Stack";
 // import styled from "styled-components";
 import { ThemeContext } from "../utils/context/ThemeContext";
 // import { UiContext } from "../utils/context/UiContext";
-// import ModalComponent from "./ModalComponent";
-// import ProjectDetails from "./ProjectDetails";
-// import ProjectPreviews from "./ProjectPreviews";
-
-// const CardHeader = styled(Card.Header)`
-/* height: 11rem;
-	img.dark {
-		filter: brightness(0.95);
-	}
-	img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: top;
-	} */
-// `;
 
 const ProjectCard = ({ data }) => {
 	const projectCardData = data[0];
@@ -34,19 +18,20 @@ const ProjectCard = ({ data }) => {
 		theme === "light" ? "bg-white border-opacity-25" : "bg-dark";
 
 	return (
-		<Card
-			className={`${stylesClassNames} border-secondary`}
-			// style={{ height: "18rem" }}
-		>
+		<Card className={`${stylesClassNames} border-secondary`}>
 			{/* HEAD */}
 			<Card.Header className="p-0">
 				<h5 className="m-2 text-start">{projectCardData.infos.title}</h5>
 			</Card.Header>
+
 			{/* BODY */}
 			<Card.Body className="p-2">
 				<p className="text-start">{projectCardData.infos.description}</p>
 				<hr />
+
+				{/* WRAPPER */}
 				<Stack direction="column" gap={3} className="pb-2">
+					{/* badges */}
 					<Stack
 						direction="horizontal"
 						gap={2}
@@ -62,6 +47,8 @@ const ProjectCard = ({ data }) => {
 							>{`#${tag}`}</Badge>
 						))}
 					</Stack>
+
+					{/* icons */}
 					<Stack direction="horizontal" gap={2} className="px-1">
 						{projectCardData.medias.techIcons.map((icon, index) => (
 							<img
@@ -71,18 +58,8 @@ const ProjectCard = ({ data }) => {
 							/>
 						))}
 					</Stack>
-					{/* <ProjectDetails
-						infos={infos}
-						links={links}
-						medias={medias}
-						placement={leftHandedMode}
-						theme={theme}
-					>
-						<ModalComponent title="Agrandir">
-							<ProjectPreviews medias={medias.preview} title={infos.title} />
-						</ModalComponent>
-					</ProjectDetails> */}
-					{/* <hr /> */}
+
+					{/* buttons */}
 					<ButtonGroup size="sm">
 						<Button
 							href={
