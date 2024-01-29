@@ -29,6 +29,18 @@ const fadeIn = keyframes`
 	0%{opacity:0}
 	100%{opacity:1}
 `;
+const scalInCenter = keyframes`
+0% {
+	-webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+}
+100% {
+	-webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+}
+`;
 
 const slideTop = keyframes`
 0% {
@@ -43,6 +55,10 @@ const slideTop = keyframes`
 
 const ProjectsWrapper = styled(Container)`
 	animation: ${slideTop} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+`;
+
+const ProjectCardColumn = styled(Col)`
+	animation: ${scalInCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 const ListGroupItem = styled(ListGroup.Item)`
@@ -89,19 +105,19 @@ const Projects = ({ data }) => {
 		<section className="p-2">
 			<ProjectsWrapper
 				fluid
-				className="px-2 mb-4"
+				className="px-2 mb-4 "
 				style={{ maxWidth: "850px" }}
 			>
-				<Row className={`flex-${layoutVariant}`}>
-					<Col
-						className={`d-none d-sm-block text-white rounded-3 rounded-${bordersVariant}-0`}
-					>
-						{previewDisplayed !== undefined && (
-							// <div>
-							<ProjectCard data={previewDisplayed} />
-							// </div>
-						)}
-					</Col>
+				<Row className={`justify-content-center flex-${layoutVariant}`}>
+					{previewDisplayed !== undefined && (
+						<ProjectCardColumn
+							className={`d-none d-sm-block text-white rounded-3 rounded-${bordersVariant}-0`}
+						>
+							<div>
+								<ProjectCard data={previewDisplayed} />
+							</div>
+						</ProjectCardColumn>
+					)}
 					<Col sm={6}>
 						<Stack direction="verical" gap={3}>
 							<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
