@@ -85,41 +85,42 @@ const Projects = ({ data }) => {
 	return projectsData.length === 0 ? (
 		<Loader title="Chargement" />
 	) : (
-		<ProjectsWrapper
-			fluid
-			className="p-4 mb-4"
-			style={{ maxWidth: "850px" }}
-			as="section"
-		>
-			<Row className={`flex-${layoutVariant}`}>
-				<Col
-					className={`d-none d-sm-block bg-secondary text-white rounded-3 rounded-${bordersVariant}-0`}
-				>
-					{previewDisplayed !== undefined && (
-						<div>
-							<h4>Preview</h4>
-							<p>{previewDisplayed[0].id}</p>
-							<img
-								src={require(`../assets/thumbnails/${previewDisplayed[0].medias.thumbnail}`)}
-								alt=""
-								style={{ height: "100px" }}
-							/>
-						</div>
-					)}
-				</Col>
-				<Col sm={6}>
-					<Stack direction="verical" gap={3}>
-						<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
-						<ListGroup
-							data-bs-theme={theme === "dark" && "dark"}
-							className={`text-start `}
-						>
-							{listOfProjects}
-						</ListGroup>
-					</Stack>
-				</Col>
-			</Row>
-		</ProjectsWrapper>
+		<section className="p-2">
+			<ProjectsWrapper
+				fluid
+				className="px-2 mb-4"
+				style={{ maxWidth: "850px" }}
+			>
+				<Row className={`flex-${layoutVariant}`}>
+					<Col
+						className={`d-none d-sm-block bg-secondary text-white rounded-3 rounded-${bordersVariant}-0`}
+					>
+						{previewDisplayed !== undefined && (
+							<div>
+								<h4>Preview</h4>
+								<p>{previewDisplayed[0].id}</p>
+								<img
+									src={require(`../assets/thumbnails/${previewDisplayed[0].medias.thumbnail}`)}
+									alt=""
+									style={{ height: "100px" }}
+								/>
+							</div>
+						)}
+					</Col>
+					<Col sm={6}>
+						<Stack direction="verical" gap={3}>
+							<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
+							<ListGroup
+								data-bs-theme={theme === "dark" && "dark"}
+								className={`text-start `}
+							>
+								{listOfProjects}
+							</ListGroup>
+						</Stack>
+					</Col>
+				</Row>
+			</ProjectsWrapper>
+		</section>
 	);
 };
 
