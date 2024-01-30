@@ -66,7 +66,10 @@ const ProjectCardColumn = styled(Col)`
 `;
 
 const ListGroupItem = styled(ListGroup.Item)`
-	animation: ${fadeIn} 1s;
+	animation: ${fadeIn} 0.4s;
+`;
+const AccordionItem = styled(Accordion.Item)`
+	animation: ${fadeIn} 0.4s;
 `;
 
 /* 
@@ -101,7 +104,7 @@ const Projects = ({ data }) => {
 		</ListGroupItem>
 	));
 	const accordionsOfProjects = projectsData.map((project, index) => (
-		<Accordion.Item
+		<AccordionItem
 			eventKey={`${index}`}
 			onClick={() => handlePreview(project.id)}
 			key={`${index}-${project.id}`}
@@ -112,7 +115,7 @@ const Projects = ({ data }) => {
 					<ProjectDetails data={previewDisplayed} />
 				)}
 			</Accordion.Body>
-		</Accordion.Item>
+		</AccordionItem>
 	));
 
 	return projectsData.length === 0 ? (
