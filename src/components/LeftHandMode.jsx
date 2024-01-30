@@ -1,11 +1,9 @@
 import { useContext } from "react";
 import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
 import Form from "react-bootstrap/Form";
 
 const LeftHandMode = () => {
 	const { leftHandedMode, toogleUiDirection } = useContext(UiContext);
-	const { theme } = useContext(ThemeContext);
 
 	const handleUiDirection = (e) => {
 		toogleUiDirection(e.currentTarget.checked);
@@ -15,20 +13,18 @@ const LeftHandMode = () => {
 		? "Enable left-handed mode"
 		: "Disable left-handed mode";
 
-	const toogleButtonLabel = !leftHandedMode
-		? "Activer le mode gaucher"
-		: "Désactiver le mode gaucher";
-
-	const toogleClassName = theme === "light" ? "text-muted" : "text-white";
 	return (
-		<Form>
+		<Form className="d-flex">
+			<span className="pe-1" style={{ transform: "rotateY(180deg)" }}>
+				👆
+			</span>
 			<Form.Check
 				type="switch"
 				aria-label={toogleButtonAriaLabel}
-				label={toogleButtonLabel}
 				onClick={handleUiDirection}
-				className={toogleClassName}
+				style={{ transform: "rotateY(180deg)" }}
 			/>
+			<span className="ps-1">👆</span>
 		</Form>
 	);
 };
