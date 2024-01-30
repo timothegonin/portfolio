@@ -138,7 +138,10 @@ const Projects = ({ data }) => {
 							>
 								{listOfProjects}
 							</ListGroup>
-							<Accordion className="d-sm-none">
+							<Accordion
+								data-bs-theme={theme === "dark" && "dark"}
+								className="d-sm-none"
+							>
 								{accordionsOfProjects}
 							</Accordion>
 						</Stack>
