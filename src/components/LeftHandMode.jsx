@@ -73,7 +73,7 @@ const LeftHandMode = () => {
 	const buttonVariant = theme === "light" ? "dark" : "light";
 	return (
 		<Button
-			className="d-flex align-items-center justify-content-center p-2 rounded-5"
+			className="d-flex align-items-center justify-content-center p-2"
 			role="button"
 			variant={`outline-${buttonVariant}`}
 			aria-label={toogleButtonAriaLabel}
