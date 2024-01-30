@@ -7,6 +7,7 @@ import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Loader from "../components/Loader";
 import ProjectCard from "../components/ProjectCard";
+import Accordion from "react-bootstrap/Accordion";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
 
@@ -90,14 +91,28 @@ const Projects = ({ data }) => {
 		setPreviewDisplayed(data.filter((data) => data.id === id));
 	};
 
-	const listOfProjects = projectsData.map((project, index) => (
-		<ListGroupItem
-			key={`${index}-${project.id}`}
-			action
+	// const listOfProjects = projectsData.map((project, index) => (
+	// 	<ListGroupItem
+	// 		key={`${index}-${project.id}`}
+	// 		action
+	// 		onClick={() => handlePreview(project.id)}
+	// 	>
+	// 		{project.infos.title}
+	// 	</ListGroupItem>
+	// ));
+	const accordionsOfProjects = projectsData.map((project, index) => (
+		<Accordion.Item
+			eventKey={`${index}`}
 			onClick={() => handlePreview(project.id)}
+			key={`${index}-${project.id}`}
 		>
-			{project.infos.title}
-		</ListGroupItem>
+			<Accordion.Header>{project.infos.title}</Accordion.Header>
+			<Accordion.Body>
+				{previewDisplayed !== undefined && (
+					<ProjectCard data={previewDisplayed} />
+				)}
+			</Accordion.Body>
+		</Accordion.Item>
 	));
 
 	return projectsData.length === 0 ? (
@@ -106,20 +121,21 @@ const Projects = ({ data }) => {
 		<section className="p-2">
 			<Container fluid className="px-2 mb-4 " style={{ maxWidth: "850px" }}>
 				<Row className={`justify-content-center flex-${layoutVariant}`}>
-					{previewDisplayed !== undefined && (
+					{/* {previewDisplayed !== undefined && (
 						<ProjectCardColumn className={`d-none d-sm-block`}>
 							<ProjectCard data={previewDisplayed} />
 						</ProjectCardColumn>
-					)}
+					)} */}
 					<ProjectsListColumn sm={6}>
 						<Stack direction="verical" gap={3}>
 							<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
-							<ListGroup
+							{/* <ListGroup
 								data-bs-theme={theme === "dark" && "dark"}
 								className={`text-start `}
 							>
 								{listOfProjects}
-							</ListGroup>
+							</ListGroup> */}
+							<Accordion>{accordionsOfProjects}</Accordion>
 						</Stack>
 					</ProjectsListColumn>
 				</Row>
