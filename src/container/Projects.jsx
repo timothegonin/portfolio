@@ -79,7 +79,6 @@ const Projects = ({ data }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [previewDisplayed, setPreviewDisplayed] = useState();
-	// console.log(previewDisplayed);
 
 	useEffect(() => {
 		setProjectsData(data);
@@ -120,7 +119,12 @@ const Projects = ({ data }) => {
 		<Loader title="Chargement" />
 	) : (
 		<section className="p-2">
-			<Container fluid className="px-2 mb-4 " style={{ maxWidth: "850px" }}>
+			<Container
+				fluid
+				className="px-2 mb-4 "
+				style={{ maxWidth: "850px" }}
+				data-bs-theme={theme === "dark" && "dark"}
+			>
 				<Row className={`justify-content-center flex-${layoutVariant}`}>
 					{previewDisplayed !== undefined && (
 						<ProjectCardColumn className={`d-none d-sm-block`}>
@@ -132,16 +136,10 @@ const Projects = ({ data }) => {
 					<ProjectsListColumn sm={6}>
 						<Stack direction="verical" gap={3}>
 							<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
-							<ListGroup
-								data-bs-theme={theme === "dark" && "dark"}
-								className={`text-start d-none d-sm-block`}
-							>
+							<ListGroup className={`text-start d-none d-sm-block`}>
 								{listOfProjects}
 							</ListGroup>
-							<Accordion
-								data-bs-theme={theme === "dark" && "dark"}
-								className="d-sm-none"
-							>
+							<Accordion className="d-sm-none">
 								{accordionsOfProjects}
 							</Accordion>
 						</Stack>
