@@ -92,15 +92,15 @@ const Projects = ({ data }) => {
 		setPreviewDisplayed(data.filter((data) => data.id === id));
 	};
 
-	// const listOfProjects = projectsData.map((project, index) => (
-	// 	<ListGroupItem
-	// 		key={`${index}-${project.id}`}
-	// 		action
-	// 		onClick={() => handlePreview(project.id)}
-	// 	>
-	// 		{project.infos.title}
-	// 	</ListGroupItem>
-	// ));
+	const listOfProjects = projectsData.map((project, index) => (
+		<ListGroupItem
+			key={`${index}-${project.id}`}
+			action
+			onClick={() => handlePreview(project.id)}
+		>
+			{project.infos.title}
+		</ListGroupItem>
+	));
 	const accordionsOfProjects = projectsData.map((project, index) => (
 		<Accordion.Item
 			eventKey={`${index}`}
@@ -110,9 +110,7 @@ const Projects = ({ data }) => {
 			<Accordion.Header>{project.infos.title}</Accordion.Header>
 			<Accordion.Body>
 				{previewDisplayed !== undefined && (
-					<ProjectCard data={previewDisplayed}>
-						<ProjectDetails data={previewDisplayed} />
-					</ProjectCard>
+					<ProjectDetails data={previewDisplayed} />
 				)}
 			</Accordion.Body>
 		</Accordion.Item>
@@ -124,21 +122,25 @@ const Projects = ({ data }) => {
 		<section className="p-2">
 			<Container fluid className="px-2 mb-4 " style={{ maxWidth: "850px" }}>
 				<Row className={`justify-content-center flex-${layoutVariant}`}>
-					{/* {previewDisplayed !== undefined && (
+					{previewDisplayed !== undefined && (
 						<ProjectCardColumn className={`d-none d-sm-block`}>
-							<ProjectCard data={previewDisplayed} />
+							<ProjectCard data={previewDisplayed}>
+								<ProjectDetails data={previewDisplayed} />
+							</ProjectCard>
 						</ProjectCardColumn>
-					)} */}
+					)}
 					<ProjectsListColumn sm={6}>
 						<Stack direction="verical" gap={3}>
 							<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
-							{/* <ListGroup
+							<ListGroup
 								data-bs-theme={theme === "dark" && "dark"}
-								className={`text-start `}
+								className={`text-start d-none d-sm-block`}
 							>
 								{listOfProjects}
-							</ListGroup> */}
-							<Accordion>{accordionsOfProjects}</Accordion>
+							</ListGroup>
+							<Accordion className="d-sm-none">
+								{accordionsOfProjects}
+							</Accordion>
 						</Stack>
 					</ProjectsListColumn>
 				</Row>
