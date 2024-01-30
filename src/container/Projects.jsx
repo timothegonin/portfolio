@@ -7,6 +7,7 @@ import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
 import Loader from "../components/Loader";
 import ProjectCard from "../components/ProjectCard";
+import ProjectDetails from "../components/ProjectDetails";
 import Accordion from "react-bootstrap/Accordion";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
@@ -109,7 +110,9 @@ const Projects = ({ data }) => {
 			<Accordion.Header>{project.infos.title}</Accordion.Header>
 			<Accordion.Body>
 				{previewDisplayed !== undefined && (
-					<ProjectCard data={previewDisplayed} />
+					<ProjectCard data={previewDisplayed}>
+						<ProjectDetails data={previewDisplayed} />
+					</ProjectCard>
 				)}
 			</Accordion.Body>
 		</Accordion.Item>
