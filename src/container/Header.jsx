@@ -28,7 +28,7 @@ const PresentationWrapper = styled(Container)`
 	max-width: 550px;
 `;
 
-const PictureAndInfosWrapper = styled(Row)`
+const InfosWrapper = styled(Row)`
 	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
@@ -47,14 +47,14 @@ const Header = () => {
 
 	return (
 		<header
-			className={`p-2 py-md-3 mt-4 d-flex flex-column justify-content-between ${textColorClass}`}
+			className={`p-2 py-md-3 d-flex flex-column justify-content-between ${textColorClass}`}
 		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid className="px-2">
-				<PictureAndInfosWrapper className="justify-content-center">
+				<InfosWrapper>
 					<Presentation />
-				</PictureAndInfosWrapper>
-				<ContactWrapper>
+				</InfosWrapper>
+				<ContactWrapper className="my-3">
 					<Contact />
 				</ContactWrapper>
 			</PresentationWrapper>

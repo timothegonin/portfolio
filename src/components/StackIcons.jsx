@@ -10,7 +10,7 @@ const TechIcons = () => {
 		theme === "light" ? "bg-white" : "bg-dark border-secondary";
 	return (
 		<section
-			className={`${darkModeStylesClass} d-inline-flex align-content-center`}
+			className={`${darkModeStylesClass} d-inline-flex align-content-center bg-transparent`}
 		>
 			<h3 className="visually-hidden">Technologies</h3>
 			<Stack direction="horizontal" gap={2} className="py-2 d-inline-flex">
