@@ -109,7 +109,7 @@ const Projects = ({ data }) => {
 			onClick={() => handlePreview(project.id)}
 			key={`${index}-${project.id}`}
 		>
-			<Accordion.Header>{project.infos.title}</Accordion.Header>
+			<Accordion.Header as="h4">{project.infos.title}</Accordion.Header>
 			<Accordion.Body>
 				{previewDisplayed !== undefined && (
 					<ProjectDetails data={previewDisplayed} />
