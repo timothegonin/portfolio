@@ -10,7 +10,7 @@ import "./fonts.css";
 
 function App({ data }) {
 	return (
-		<div className="App text-center" style={{ height: "100vh" }}>
+		<div className="App" style={{ height: "100vh", minHeight: "100vh" }}>
 			<ParticlesBackground />
 			<NavBar />
 			{/* <Toogler alignment="center" position="top">
