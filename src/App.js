@@ -6,6 +6,7 @@ import NavBar from "./components/Navbar";
 // import Toogler from "./components/Toogler";
 import Header from "./container/Header";
 import Projects from "./container/Projects";
+import "./fonts.css";
 
 function App({ data }) {
 	return (
