@@ -7,21 +7,29 @@ import Contact from "../components/Contact";
 import Presentation from "../components/Presentation";
 import { ThemeContext } from "../utils/context/ThemeContext";
 
+/**
+ * The `Header` component displays the presentation and contact information.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered Header component.
+ */
+
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
+// Animation for scaling up center
 const scaleUpCenter = keyframes`
-0% {
-	-webkit-transform: scale(0.5);
-					transform: scale(0.5);
-}
-100% {
-	-webkit-transform: scale(1);
-					transform: scale(1);
-}
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 `;
 
 const PresentationWrapper = styled(Container)`
@@ -42,7 +50,9 @@ const ContactWrapper = styled(Stack)`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Header = () => {
+	// Accessing the theme from the context
 	const { theme } = useContext(ThemeContext);
+	// Determining the text color class based on the theme
 	const textColorClass = theme === "light" ? "text-black" : "text-white";
 
 	return (
@@ -55,10 +65,12 @@ const Header = () => {
 				<InfosWrapper>
 					<Presentation />
 				</InfosWrapper>
+				{/* Contact information */}
 				<ContactWrapper className="my-3">
 					<Contact />
 				</ContactWrapper>
 			</PresentationWrapper>
+			{/* Horizontal rule */}
 			<hr className="my-3" />
 		</header>
 	);
