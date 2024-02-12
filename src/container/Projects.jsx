@@ -121,7 +121,7 @@ const Projects = ({ data }) => {
 	return projectsData.length === 0 ? (
 		<Loader title="Chargement" />
 	) : (
-		<section className="p-2">
+		<section className="p-2" style={{ height: "55vh" }}>
 			<Container
 				fluid
 				className="px-2 mb-4 "

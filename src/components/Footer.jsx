@@ -17,7 +17,7 @@ const Footer = () => {
 	};
 
 	return (
-		<footer className={`${footerClassName}`}>
+		<footer className={`${footerClassName}`} style={{ height: "15vh" }}>
 			<Copyright nameEntry="Timothé Gonin" customStyles={customStyle} />
 		</footer>
 	);
