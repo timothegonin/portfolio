@@ -14,6 +14,7 @@ import { UiContext } from "../utils/context/UiContext";
 
 /**
  * The `Projects` component displays a list of projects with sorting functionality.
+ * It supports theming, left-handed mode, and provides a detailed preview of each project.
  *
  * @component
  * @param {object} props - The component's properties.
@@ -27,36 +28,39 @@ import { UiContext } from "../utils/context/UiContext";
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 
+// Keyframe animations for styled components
 const fadeIn = keyframes`
-	0%{opacity:0}
-	100%{opacity:1}
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 `;
+
 const scalInCenter = keyframes`
-	0% {
+  0% {
     -webkit-transform: scaleX(0);
-		transform: scaleX(0);
+    transform: scaleX(0);
     opacity: 0;
   }
   100% {
     -webkit-transform: scaleX(1);
-		transform: scaleX(1);
+    transform: scaleX(1);
     opacity: 1;
   }
 `;
 
 const slideTop = keyframes`
-0% {
-	-webkit-transform: translateY(100px);
-	transform: translateY(100px);
-	opacity: 0;
-}
-100% {
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-	opacity: 1;
-}
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
 `;
 
+// Styled components with animations
 const ProjectsListColumn = styled(Col)`
 	animation: ${slideTop} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
@@ -68,6 +72,7 @@ const ProjectCardColumn = styled(Col)`
 const ListGroupItem = styled(ListGroup.Item)`
 	animation: ${fadeIn} 0.4s;
 `;
+
 const AccordionItem = styled(Accordion.Item)`
 	animation: ${fadeIn} 0.4s;
 `;
@@ -83,6 +88,7 @@ const Projects = ({ data }) => {
 	const [projectsData, setProjectsData] = useState([]);
 	const [previewDisplayed, setPreviewDisplayed] = useState();
 
+	// Update projects data when the input data changes
 	useEffect(() => {
 		setProjectsData(data);
 	}, [data]);
@@ -90,10 +96,12 @@ const Projects = ({ data }) => {
 	const titleVariant = theme === "light" ? "black" : "light";
 	const layoutVariant = leftHandedMode ? "row" : "row-reverse";
 
+	// Handle project preview display
 	const handlePreview = (id) => {
 		setPreviewDisplayed(data.filter((data) => data.id === id));
 	};
 
+	// Generate list of projects for ListGroup
 	const listOfProjects = projectsData.map((project, index) => (
 		<ListGroupItem
 			key={`${index}-${project.id}`}
@@ -103,6 +111,8 @@ const Projects = ({ data }) => {
 			{project.infos.title}
 		</ListGroupItem>
 	));
+
+	// Generate accordions for small screens
 	const accordionsOfProjects = projectsData.map((project, index) => (
 		<AccordionItem
 			eventKey={`${index}`}
@@ -118,7 +128,9 @@ const Projects = ({ data }) => {
 		</AccordionItem>
 	));
 
+	// Render the component
 	return projectsData.length === 0 ? (
+		// Display loader while data is loading
 		<Loader title="Chargement" />
 	) : (
 		<section className="p-2" style={{ height: "55vh" }}>
@@ -129,6 +141,7 @@ const Projects = ({ data }) => {
 				data-bs-theme={theme === "dark" && "dark"}
 			>
 				<Row className={`justify-content-center flex-${layoutVariant}`}>
+					{/* Display ProjectCardColumn for large screens */}
 					{previewDisplayed !== undefined && (
 						<ProjectCardColumn className={`d-none d-sm-block`}>
 							<ProjectCard data={previewDisplayed}>
@@ -136,12 +149,16 @@ const Projects = ({ data }) => {
 							</ProjectCard>
 						</ProjectCardColumn>
 					)}
+
+					{/* Display ProjectsListColumn */}
 					<ProjectsListColumn sm={6}>
 						<Stack direction="verical" gap={3}>
 							<h3 className={`m-0 text-${titleVariant} text-start`}>Projets</h3>
+							{/* Display ListGroup for large screens */}
 							<ListGroup className={`text-start d-none d-sm-block`}>
 								{listOfProjects}
 							</ListGroup>
+							{/* Display Accordion for small screens */}
 							<Accordion className="d-sm-none">
 								{accordionsOfProjects}
 							</Accordion>
