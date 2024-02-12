@@ -35,6 +35,7 @@ opacity: 1;
 
 const NavBarWrapper = styled(Navbar)`
 	animation: ${slideIn} 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+	padding: 12px 0;
 `;
 
 /* 
@@ -47,7 +48,7 @@ const NavBar = () => {
 	return (
 		<NavBarWrapper data-bs-theme={theme === "dark" && "dark"}>
 			<Container
-				className="py-2 justify-content-center"
+				className="py-0 justify-content-center"
 				style={{ maxWidth: "650px" }}
 			>
 				<ButtonGroup>
