@@ -46,7 +46,11 @@ const NavBarWrapper = styled(Navbar)`
 const NavBar = () => {
 	const { theme } = useContext(ThemeContext);
 	return (
-		<NavBarWrapper data-bs-theme={theme === "dark" && "dark"}>
+		<NavBarWrapper
+			data-bs-theme={theme === "dark" && "dark"}
+			className="py-0"
+			style={{ minHeight: "8vh" }}
+		>
 			<Container
 				className="py-0 justify-content-center"
 				style={{ maxWidth: "650px" }}

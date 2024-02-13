@@ -133,14 +133,14 @@ const Projects = ({ data }) => {
 		// Display loader while data is loading
 		<Loader title="Chargement" />
 	) : (
-		<section className="p-2" style={{ height: "55vh" }}>
+		<section className="p-2" style={{ minHeight: "52vh" }}>
 			<Container
 				fluid
-				className="px-2 mb-4 "
+				className="h-100 px-2 mb-4"
 				style={{ maxWidth: "850px" }}
 				data-bs-theme={theme === "dark" && "dark"}
 			>
-				<Row className={`justify-content-center flex-${layoutVariant}`}>
+				<Row className={`h-100 justify-content-center flex-${layoutVariant}`}>
 					{/* Display ProjectCardColumn for large screens */}
 					{previewDisplayed !== undefined && (
 						<ProjectCardColumn className={`d-none d-sm-block`}>

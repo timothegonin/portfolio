@@ -58,7 +58,7 @@ const Header = () => {
 	return (
 		<header
 			className={`p-2 py-md-3 d-flex flex-column justify-content-between ${textColorClass}`}
-			style={{ height: "35vh" }}
+			style={{ minHeight: "35vh" }}
 		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid className="px-2">

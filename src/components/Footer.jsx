@@ -12,12 +12,14 @@ const Footer = () => {
 
 	const customStyle = {
 		margin: "0",
-		padding: "1.8rem 0",
 		textAlign: "center",
 	};
 
 	return (
-		<footer className={`${footerClassName}`} style={{ height: "15vh" }}>
+		<footer
+			className={`${footerClassName} d-flex flex-column justify-content-center`}
+			style={{ minHeight: "5vh" }}
+		>
 			<Copyright nameEntry="Timothé Gonin" customStyles={customStyle} />
 		</footer>
 	);
