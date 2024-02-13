@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
@@ -11,8 +11,21 @@ import Icons from "./Icons";
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+const scaleInCenter = keyframes`
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+`;
+
 const shake = keyframes`
-	10%, 90% {
+  10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
   
@@ -30,7 +43,7 @@ const shake = keyframes`
 `;
 
 const IconLink = styled.a`
-	:hover {
+	&:hover {
 		animation: ${shake} 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite both;
 		transform: translate3d(0, 0, 0);
 		backface-visibility: hidden;
@@ -44,6 +57,11 @@ const IconLink = styled.a`
 			filter: invert(0%);
 		}
 	}
+	&.animated {
+		-webkit-animation: ${scaleInCenter} 0.5s
+			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: ${scaleInCenter} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
 `;
 
 /* 
@@ -56,10 +74,19 @@ const Contact = () => {
 	const gitHubIcon = Icons.contact[0];
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
+	const linkRef = useRef("");
 
 	const contactIconsClass = !leftHandedMode
 		? "justify-content-end"
 		: "justify-content-start";
+
+	useEffect(() => {
+		if (leftHandedMode) {
+			linkRef.current.classList.add("animated");
+		} else {
+			linkRef.current.classList.remove("animated");
+		}
+	}, [leftHandedMode]);
 
 	return (
 		<Container fluid as="section">
@@ -70,6 +97,7 @@ const Contact = () => {
 					target="_blank"
 					rel="noopener noreferrer"
 					$theme={theme}
+					ref={linkRef}
 				>
 					<img
 						src={gitHubIcon.svg}
