@@ -42,6 +42,14 @@ const shake = keyframes`
   }
 `;
 
+const IconLinkWrapper = styled(Stack)`
+	&.animated {
+		-webkit-animation: ${scaleInCenter} 0.3s
+			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: ${scaleInCenter} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+`;
+
 const IconLink = styled.a`
 	&:hover {
 		animation: ${shake} 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite both;
@@ -56,11 +64,6 @@ const IconLink = styled.a`
 		&:hover {
 			filter: invert(0%);
 		}
-	}
-	&.animated {
-		-webkit-animation: ${scaleInCenter} 0.5s
-			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-		animation: ${scaleInCenter} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 `;
 
@@ -81,23 +84,35 @@ const Contact = () => {
 		: "justify-content-start";
 
 	useEffect(() => {
-		if (leftHandedMode) {
-			linkRef.current.classList.add("animated");
-		} else {
-			linkRef.current.classList.remove("animated");
-		}
+		let currentRef = linkRef.current;
+
+		const handleAnimationEnd = () => {
+			currentRef.classList.remove("animated");
+			currentRef.removeEventListener("animationend", handleAnimationEnd);
+		};
+
+		currentRef.classList.add("animated");
+		currentRef.addEventListener("animationend", handleAnimationEnd);
+
+		return () => {
+			currentRef.removeEventListener("animationend", handleAnimationEnd);
+		};
 	}, [leftHandedMode]);
 
 	return (
 		<Container fluid as="section">
 			<h3 className="visually-hidden">Contact me :</h3>
-			<Stack direction="horizontal" gap={3} className={contactIconsClass}>
+			<IconLinkWrapper
+				direction="horizontal"
+				gap={3}
+				className={contactIconsClass}
+				ref={linkRef}
+			>
 				<IconLink
 					href="https://github.com/TimotheGonin"
 					target="_blank"
 					rel="noopener noreferrer"
 					$theme={theme}
-					ref={linkRef}
 				>
 					<img
 						src={gitHubIcon.svg}
@@ -118,7 +133,7 @@ const Contact = () => {
 						className="border border-2  p-2 rounded bg-white"
 					/>
 				</IconLink>
-			</Stack>
+			</IconLinkWrapper>
 		</Container>
 	);
 };
