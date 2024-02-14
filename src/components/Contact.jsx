@@ -86,17 +86,19 @@ const Contact = () => {
 	useEffect(() => {
 		let currentRef = linkRef.current;
 
-		const handleAnimationEnd = () => {
-			currentRef.classList.remove("animated");
-			currentRef.removeEventListener("animationend", handleAnimationEnd);
-		};
+		if (currentRef) {
+			const handleAnimationEnd = () => {
+				currentRef.classList.remove("animated");
+				currentRef.removeEventListener("animationend", handleAnimationEnd);
+			};
 
-		currentRef.classList.add("animated");
-		currentRef.addEventListener("animationend", handleAnimationEnd);
+			currentRef.classList.add("animated");
+			currentRef.addEventListener("animationend", handleAnimationEnd);
 
-		return () => {
-			currentRef.removeEventListener("animationend", handleAnimationEnd);
-		};
+			return () => {
+				currentRef.removeEventListener("animationend", handleAnimationEnd);
+			};
+		}
 	}, [leftHandedMode]);
 
 	return (
