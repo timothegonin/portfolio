@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
@@ -61,6 +61,12 @@ const slideTop = keyframes`
 `;
 
 // Styled components with animations
+const ProjectsSection = styled.section`
+	&.animated {
+		-webkit-animation: ${fadeIn} 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: ${fadeIn} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+`;
 const ProjectsListColumn = styled(Col)`
 	animation: ${slideTop} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
@@ -87,11 +93,30 @@ const Projects = ({ data }) => {
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
 	const [previewDisplayed, setPreviewDisplayed] = useState();
+	const projectsRef = useRef("");
 
 	// Update projects data when the input data changes
 	useEffect(() => {
 		setProjectsData(data);
 	}, [data]);
+
+	useEffect(() => {
+		const currentRef = projectsRef.current;
+
+		if (currentRef) {
+			const handleAnimationEnd = () => {
+				currentRef.classList.remove("animated");
+				currentRef.removeEventListener("animationend", handleAnimationEnd);
+			};
+
+			currentRef.classList.add("animated");
+			currentRef.addEventListener("animationend", handleAnimationEnd);
+
+			return () => {
+				currentRef.removeEventListener("animationend", handleAnimationEnd);
+			};
+		}
+	}, [leftHandedMode]);
 
 	const titleVariant = theme === "light" ? "black" : "light";
 	const layoutVariant = leftHandedMode ? "row" : "row-reverse";
@@ -133,7 +158,11 @@ const Projects = ({ data }) => {
 		// Display loader while data is loading
 		<Loader title="Chargement" />
 	) : (
-		<section className="p-2" style={{ minHeight: "52vh" }}>
+		<ProjectsSection
+			className="p-2"
+			style={{ minHeight: "52vh" }}
+			ref={projectsRef}
+		>
 			<Container
 				fluid
 				className="h-100 px-2 mb-4"
@@ -166,7 +195,7 @@ const Projects = ({ data }) => {
 					</ProjectsListColumn>
 				</Row>
 			</Container>
-		</section>
+		</ProjectsSection>
 	);
 };
 
