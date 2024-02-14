@@ -3,7 +3,6 @@ import ParticlesBackground from "./components/ParticlesBackground";
 import NavBar from "./components/Navbar";
 import Header from "./container/Header";
 import Projects from "./container/Projects";
-import "./fonts.css";
 
 function App({ data }) {
 	return (
