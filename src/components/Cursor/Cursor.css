@@ -1,16 +1,11 @@
 body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	background: #1b1b1b;
 	cursor: none;
-	overflow: hidden;
 }
 
 .cursor {
 	width: 40px;
 	height: 40px;
-	border: 1px dashed white;
+	border: 0.01rem solid grey;
 	border-radius: 50%;
 	position: absolute;
 	animation: Anim1 1s infinite alternate;
@@ -25,14 +20,14 @@ body {
 	transform: translate(-50%, -50%);
 	width: 5px;
 	height: 5px;
-	background: crimson;
+	background: black;
 	border-radius: 50%;
 }
 
 .expand {
 	animation: Anim2 0.5s;
-	background: crimson;
-	border: 1px solid crimson;
+	background: silver;
+	/* border: 1px solid crimson; */
 }
 @keyframes Anim1 {
 	from {
