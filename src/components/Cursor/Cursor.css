@@ -55,9 +55,9 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 22px;
-	height: 22px;
-	border: 2px solid rgba(31, 30, 30, 0.808);
+	width: 30px;
+	height: 30px;
+	border: 1px solid rgba(31, 30, 30, 0.808);
 	border-radius: 100%;
 	transform: translate(-50%, -50%);
 	-webkit-transition-duration: 100ms;
@@ -73,8 +73,8 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 8px;
-	height: 8px;
+	width: 5px;
+	height: 5px;
 	background-color: black;
 	border-radius: 100%;
 	transform: translate(-50%, -50%);
