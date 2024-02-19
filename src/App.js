@@ -3,10 +3,12 @@ import ParticlesBackground from "./components/ParticlesBackground";
 import NavBar from "./components/Navbar";
 import Header from "./container/Header";
 import Projects from "./container/Projects";
+import Cursor from "./components/Cursor/Cursor";
 
 function App({ data }) {
 	return (
 		<div className="App">
+			<Cursor />
 			<ParticlesBackground />
 			<NavBar />
 			<Header />
