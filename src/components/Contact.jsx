@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
+import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
 import Icons from "./Icons";
@@ -75,6 +76,7 @@ const IconLink = styled.a`
 const Contact = () => {
 	const linkedInIcon = Icons.contact[1];
 	const gitHubIcon = Icons.contact[0];
+	const { cursorChangeHandler } = useContext(MouseContext);
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
 	const linkRef = useRef("");
@@ -109,6 +111,8 @@ const Contact = () => {
 				gap={3}
 				className={contactIconsClass}
 				ref={linkRef}
+				onMouseEnter={() => cursorChangeHandler("hovered")}
+				onMouseLeave={() => cursorChangeHandler("")}
 			>
 				<IconLink
 					href="https://github.com/TimotheGonin"
