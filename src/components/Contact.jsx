@@ -120,7 +120,7 @@ const Contact = () => {
 				>
 					<img
 						src={gitHubIcon.svg}
-						alt={gitHubIcon.atlText}
+						alt={gitHubIcon.altText}
 						className="border border-2 p-2 rounded bg-white"
 						onMouseEnter={() => cursorChangeHandler("hovered")}
 						onMouseLeave={() => cursorChangeHandler("")}
