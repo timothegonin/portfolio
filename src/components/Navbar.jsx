@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -44,7 +45,9 @@ const NavBarWrapper = styled(Navbar)`
 └─────────────────────────────────────────────────────────────────────────┘
  */
 const NavBar = () => {
+	const { cursorChangeHandler } = useContext(MouseContext);
 	const { theme } = useContext(ThemeContext);
+
 	return (
 		<NavBarWrapper
 			data-bs-theme={theme === "dark" && "dark"}
@@ -55,7 +58,10 @@ const NavBar = () => {
 				className="py-0 justify-content-center"
 				style={{ maxWidth: "650px" }}
 			>
-				<ButtonGroup>
+				<ButtonGroup
+					onMouseEnter={() => cursorChangeHandler("hovered")}
+					onMouseLeave={() => cursorChangeHandler("")}
+				>
 					<LeftHandMode />
 					<Theme />
 				</ButtonGroup>

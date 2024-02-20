@@ -111,8 +111,6 @@ const Contact = () => {
 				gap={3}
 				className={contactIconsClass}
 				ref={linkRef}
-				onMouseEnter={() => cursorChangeHandler("hovered")}
-				onMouseLeave={() => cursorChangeHandler("")}
 			>
 				<IconLink
 					href="https://github.com/TimotheGonin"
@@ -124,6 +122,8 @@ const Contact = () => {
 						src={gitHubIcon.svg}
 						alt={gitHubIcon.atlText}
 						className="border border-2 p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
 					/>
 				</IconLink>
 
@@ -137,6 +137,8 @@ const Contact = () => {
 						src={linkedInIcon.svg}
 						alt={linkedInIcon.altText}
 						className="border border-2  p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
 					/>
 				</IconLink>
 			</IconLinkWrapper>
