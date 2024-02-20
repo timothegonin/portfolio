@@ -9,6 +9,7 @@ import Loader from "../components/Loader";
 import ProjectCard from "../components/ProjectCard";
 import ProjectDetails from "../components/ProjectDetails";
 import Accordion from "react-bootstrap/Accordion";
+import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
 
@@ -89,6 +90,7 @@ const AccordionItem = styled(Accordion.Item)`
   └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 const Projects = ({ data }) => {
+	const { cursorChangeHandler } = useContext(MouseContext);
 	const { theme } = useContext(ThemeContext);
 	const { leftHandedMode } = useContext(UiContext);
 	const [projectsData, setProjectsData] = useState([]);
@@ -132,6 +134,8 @@ const Projects = ({ data }) => {
 			key={`${index}-${project.id}`}
 			action
 			onClick={() => handlePreview(project.id)}
+			onMouseEnter={() => cursorChangeHandler("hovered")}
+			onMouseLeave={() => cursorChangeHandler("")}
 		>
 			{project.infos.title}
 		</ListGroupItem>
@@ -144,7 +148,13 @@ const Projects = ({ data }) => {
 			onClick={() => handlePreview(project.id)}
 			key={`${index}-${project.id}`}
 		>
-			<Accordion.Header as="h4">{project.infos.title}</Accordion.Header>
+			<Accordion.Header
+				as="h4"
+				onMouseEnter={() => cursorChangeHandler("hovered")}
+				onMouseLeave={() => cursorChangeHandler("")}
+			>
+				{project.infos.title}
+			</Accordion.Header>
 			<Accordion.Body>
 				{previewDisplayed !== undefined && (
 					<ProjectDetails data={previewDisplayed} />
