@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
 import Badge from "react-bootstrap/Badge";
@@ -7,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 
 const ProjectDetails = ({ data }) => {
+	const { cursorChangeHandler } = useContext(MouseContext);
 	const { theme } = useContext(ThemeContext);
 	const { leftHandedMode } = useContext(UiContext);
 
@@ -55,7 +57,11 @@ const ProjectDetails = ({ data }) => {
 
 				{/* buttons */}
 				<div className={`d-flex justify-content-${layoutPosition}`}>
-					<ButtonGroup size="sm">
+					<ButtonGroup
+						size="sm"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
+					>
 						<Button
 							href={
 								projectCardData.links && projectCardData.links.page
