@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import useMousePosition from "../../utils/hook/useMousePosition";
 import { MouseContext } from "../../utils/context/MouseContext";
+import { ThemeContext } from "../../utils/context/ThemeContext";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -14,7 +15,6 @@ const Ring = styled.div`
 	left: 0;
 	width: 30px;
 	height: 30px;
-	border: 1px solid rgba(31, 30, 30, 0.808);
 	border-radius: 100%;
 	transform: translate(-50%, -50%);
 	-webkit-transition-duration: 150ms;
@@ -35,7 +35,6 @@ const Dot = styled.div`
 	left: 50%;
 	width: 5px;
 	height: 5px;
-	background-color: black;
 	border-radius: 100%;
 	transform: translate(-50%, -50%);
 	z-index: 999;
@@ -52,15 +51,18 @@ const Dot = styled.div`
  */
 const DotRing = () => {
 	const { cursorType } = useContext(MouseContext);
+	const { theme } = useContext(ThemeContext);
 	const { x, y } = useMousePosition();
+	const cursorDotVariant = theme === "light" ? "bg-black" : "bg-light";
+
 	return (
 		<>
 			<Ring
 				style={{ left: `${x}px`, top: `${y}px` }}
-				className={"ring " + cursorType}
+				className={`ring ${cursorType} border border-1 border-secondary`}
 			></Ring>
 			<Dot
-				className={"dot " + cursorType}
+				className={`dot ${cursorType} ${cursorDotVariant}`}
 				style={{ left: `${x}px`, top: `${y}px` }}
 			></Dot>
 		</>
