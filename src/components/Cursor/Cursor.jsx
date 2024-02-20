@@ -17,18 +17,15 @@ const Ring = styled.div`
 	border: 1px solid rgba(31, 30, 30, 0.808);
 	border-radius: 100%;
 	transform: translate(-50%, -50%);
-	-webkit-transition-duration: 100ms;
-	transition-duration: 100ms;
+	-webkit-transition-duration: 150ms;
+	transition-duration: 150ms;
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
 	will-change: width, height, transform, border;
 	z-index: 999;
 	pointer-events: none;
 	&.hovered {
-		width: 50px;
-		height: 50px;
-		border-width: 3px;
-		border-color: lightgray;
+		transform: translate(-50%, -50%) scale(1.8);
 	}
 `;
 
@@ -44,7 +41,7 @@ const Dot = styled.div`
 	z-index: 999;
 	pointer-events: none;
 	&.hovered {
-		display: none;
+		opacity: 0;
 	}
 `;
 
