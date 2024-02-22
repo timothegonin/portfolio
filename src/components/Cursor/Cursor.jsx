@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import useMousePosition from "../../utils/hook/useMousePosition";
 import { MouseContext } from "../../utils/context/MouseContext";
@@ -17,9 +17,7 @@ const Ring = styled.div`
 	height: 30px;
 	border-radius: 100%;
 	transform: translate(-50%, -50%);
-	-webkit-transition-duration: 150ms;
 	transition-duration: 150ms;
-	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
 	will-change: width, height, transform, border;
 	z-index: 999;
@@ -49,7 +47,7 @@ const Dot = styled.div`
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const DotRing = () => {
+const DotRing = React.memo(() => {
 	const { cursorType } = useContext(MouseContext);
 	const { theme } = useContext(ThemeContext);
 	const { x, y } = useMousePosition();
@@ -67,6 +65,6 @@ const DotRing = () => {
 			></Dot>
 		</>
 	);
-};
+});
 
 export default DotRing;
