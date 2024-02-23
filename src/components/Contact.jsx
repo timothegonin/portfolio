@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components";
 import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
-import Icons from "./Icons";
+import Icons from "./UI/Icons";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐

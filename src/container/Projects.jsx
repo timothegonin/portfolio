@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
-import Loader from "../components/Loader";
+import Loader from "../components/UI/Loader";
 import ProjectCard from "../components/ProjectCard";
 import ProjectDetails from "../components/ProjectDetails";
 import Accordion from "react-bootstrap/Accordion";

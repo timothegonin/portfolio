@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { MouseContext } from "../utils/context/MouseContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
+import { MouseContext } from "../../utils/context/MouseContext";
+import { ThemeContext } from "../../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from "react-bootstrap/Container";

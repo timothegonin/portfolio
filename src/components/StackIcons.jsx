@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Stack from "react-bootstrap/Stack";
 import { ThemeContext } from "../utils/context/ThemeContext";
-import Icons from "./Icons";
+import Icons from "./UI/Icons";
 
 const TechIcons = () => {
 	const { theme } = useContext(ThemeContext);

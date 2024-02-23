@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
+import { UiContext } from "../../utils/context/UiContext";
+import { ThemeContext } from "../../utils/context/ThemeContext";
 import styled, { keyframes } from "styled-components";
 import Button from "react-bootstrap/Button";
 
