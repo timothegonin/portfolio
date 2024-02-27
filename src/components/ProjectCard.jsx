@@ -1,9 +1,6 @@
-// import { useContext, useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import styled, { keyframes } from "styled-components";
-
-// import { UiContext } from "../utils/context/UiContext";
 
 const scaleInVerTop = keyframes`
 	0% {
@@ -30,7 +27,6 @@ const CardWrapper = styled(Card)`
 
 const ProjectCard = ({ data, children }) => {
 	const projectCardData = data[0];
-	// const { leftHandedMode } = useContext(UiContext);
 	const [animationClass, setAnimationClass] = useState("");
 
 	useEffect(() => {
@@ -46,7 +42,6 @@ const ProjectCard = ({ data, children }) => {
 			<Card.Header className="p-0">
 				<h5 className="m-2 text-start">{projectCardData.infos.title}</h5>
 			</Card.Header>
-
 			{/* BODY */}
 			<Card.Body className="p-2">{children}</Card.Body>
 		</CardWrapper>

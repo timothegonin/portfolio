@@ -1,18 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
+import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
 import { UiContext } from "../utils/context/UiContext";
-import Icons from "./Icons";
+import Icons from "./UI/Icons";
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+const scaleInCenter = keyframes`
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+`;
+
 const shake = keyframes`
-	10%, 90% {
+  10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
   
@@ -29,14 +43,24 @@ const shake = keyframes`
   }
 `;
 
+const IconLinkWrapper = styled(Stack)`
+	&.animated {
+		-webkit-animation: ${scaleInCenter} 0.3s
+			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: ${scaleInCenter} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+`;
+
 const IconLink = styled.a`
-	:hover {
+	&:hover {
 		animation: ${shake} 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite both;
 		transform: translate3d(0, 0, 0);
 		backface-visibility: hidden;
 		perspective: 1000px;
 	}
 	img {
+		height: 40px;
+		width: 40px;
 		filter: ${(props) =>
 			props.$theme === "light" ? "invert(0%)" : "invert(85%)"};
 		transition: all 0.3s ease;
@@ -54,17 +78,42 @@ const IconLink = styled.a`
 const Contact = () => {
 	const linkedInIcon = Icons.contact[1];
 	const gitHubIcon = Icons.contact[0];
+	const { cursorChangeHandler } = useContext(MouseContext);
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
+	const linkRef = useRef("");
 
 	const contactIconsClass = !leftHandedMode
 		? "justify-content-end"
 		: "justify-content-start";
 
+	useEffect(() => {
+		let currentRef = linkRef.current;
+
+		if (currentRef) {
+			const handleAnimationEnd = () => {
+				currentRef.classList.remove("animated");
+				currentRef.removeEventListener("animationend", handleAnimationEnd);
+			};
+
+			currentRef.classList.add("animated");
+			currentRef.addEventListener("animationend", handleAnimationEnd);
+
+			return () => {
+				currentRef.removeEventListener("animationend", handleAnimationEnd);
+			};
+		}
+	}, [leftHandedMode]);
+
 	return (
 		<Container fluid as="section">
 			<h3 className="visually-hidden">Contact me :</h3>
-			<Stack direction="horizontal" gap={3} className={contactIconsClass}>
+			<IconLinkWrapper
+				direction="horizontal"
+				gap={3}
+				className={contactIconsClass}
+				ref={linkRef}
+			>
 				<IconLink
 					href="https://github.com/TimotheGonin"
 					target="_blank"
@@ -73,8 +122,10 @@ const Contact = () => {
 				>
 					<img
 						src={gitHubIcon.svg}
-						alt={gitHubIcon.atlText}
+						alt={gitHubIcon.altText}
 						className="border border-2 p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
 					/>
 				</IconLink>
 
@@ -88,9 +139,11 @@ const Contact = () => {
 						src={linkedInIcon.svg}
 						alt={linkedInIcon.altText}
 						className="border border-2  p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
 					/>
 				</IconLink>
-			</Stack>
+			</IconLinkWrapper>
 		</Container>
 	);
 };

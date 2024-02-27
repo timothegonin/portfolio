@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
+import { MouseContext } from "../utils/context/MouseContext";
 import { ThemeContext } from "../utils/context/ThemeContext";
+import { UiContext } from "../utils/context/UiContext";
 import Badge from "react-bootstrap/Badge";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 
 const ProjectDetails = ({ data }) => {
+	const { cursorChangeHandler } = useContext(MouseContext);
 	const { theme } = useContext(ThemeContext);
+	const { leftHandedMode } = useContext(UiContext);
 
 	const projectCardData = data[0];
 	const buttonVariant = theme === "light" ? "outline-primary" : "outline-light";
+	const layoutPosition = !leftHandedMode ? "end" : "start";
 
 	return (
 		<React.Fragment>
@@ -19,7 +24,11 @@ const ProjectDetails = ({ data }) => {
 			{/* WRAPPER */}
 			<Stack direction="column" gap={3} className="pb-2">
 				{/* badges */}
-				<Stack direction="horizontal" gap={2} className="justify-content-start">
+				<Stack
+					direction="horizontal"
+					gap={2}
+					className={`justify-content-${layoutPosition}`}
+				>
 					{projectCardData.infos.tags.map((tag, index) => (
 						<Badge
 							key={index}
@@ -32,7 +41,11 @@ const ProjectDetails = ({ data }) => {
 				</Stack>
 
 				{/* icons */}
-				<Stack direction="horizontal" gap={2} className="px-1">
+				<Stack
+					direction="horizontal"
+					gap={2}
+					className={`px-1 justify-content-${layoutPosition}`}
+				>
 					{projectCardData.medias.techIcons.map((icon, index) => (
 						<img
 							key={index}
@@ -43,8 +56,12 @@ const ProjectDetails = ({ data }) => {
 				</Stack>
 
 				{/* buttons */}
-				<div>
-					<ButtonGroup size="sm">
+				<div className={`d-flex justify-content-${layoutPosition}`}>
+					<ButtonGroup
+						size="sm"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
+					>
 						<Button
 							href={
 								projectCardData.links && projectCardData.links.page
