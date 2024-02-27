@@ -59,6 +59,8 @@ const IconLink = styled.a`
 		perspective: 1000px;
 	}
 	img {
+		height: 40px;
+		width: 40px;
 		filter: ${(props) =>
 			props.$theme === "light" ? "invert(0%)" : "invert(85%)"};
 		transition: all 0.3s ease;
