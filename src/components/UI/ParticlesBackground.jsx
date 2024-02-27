@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../utils/context/ThemeContext";
+import { ThemeContext } from "../../utils/context/ThemeContext";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 

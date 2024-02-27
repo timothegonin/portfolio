@@ -1,13 +1,18 @@
 import { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
 import styled, { keyframes } from "styled-components";
-import arrowDown from "../assets/icons/arrow-down-short.svg";
 import Contact from "../components/Contact";
-import Helper from "../components/Helper";
 import Presentation from "../components/Presentation";
-import StackIcons from "../components/StackIcons";
 import { ThemeContext } from "../utils/context/ThemeContext";
+
+/**
+ * The `Header` component displays the presentation and contact information.
+ *
+ * @component
+ * @returns {JSX.Element} - The rendered Header component.
+ */
 
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
@@ -15,44 +20,15 @@ import { ThemeContext } from "../utils/context/ThemeContext";
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
+// Animation for scaling up center
 const scaleUpCenter = keyframes`
-0% {
-	-webkit-transform: scale(0.5);
-					transform: scale(0.5);
-}
-100% {
-	-webkit-transform: scale(1);
-					transform: scale(1);
-}
-`;
-
-const scaleUpRight = keyframes`
-	0% {
+  0% {
     -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
+    transform: scale(0.5);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
-  }
-`;
-
-const scaleUpBottom = keyframes`
-	0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    -webkit-transform-origin: 50% 100%;
-            transform-origin: 50% 100%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 50% 100%;
-            transform-origin: 50% 100%;
+    transform: scale(1);
   }
 `;
 
@@ -60,21 +36,12 @@ const PresentationWrapper = styled(Container)`
 	max-width: 550px;
 `;
 
-const PictureAndInfosWrapper = styled(Row)`
+const InfosWrapper = styled(Row)`
 	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
-const ContactWrapper = styled(Row)`
-	animation: ${scaleUpRight} 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) 0s both;
-`;
-
-const StackIconsWrapper = styled(Container)`
-	max-width: 650px;
+const ContactWrapper = styled(Stack)`
 	animation: ${scaleUpCenter} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-`;
-
-const JumbotronFooter = styled.div`
-	animation: ${scaleUpBottom} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 /* 
@@ -82,41 +49,31 @@ const JumbotronFooter = styled.div`
   │ JSX                                                                     │
   └─────────────────────────────────────────────────────────────────────────┘
  */
-const Jumbotron = () => {
+const Header = () => {
+	// Accessing the theme from the context
 	const { theme } = useContext(ThemeContext);
+	// Determining the text color class based on the theme
 	const textColorClass = theme === "light" ? "text-black" : "text-white";
 
 	return (
 		<header
-			className={`p-2 py-md-3 mt-4 h-100 d-flex flex-column justify-content-between ${textColorClass}`}
-			style={{ maxHeight: "92vh" }}
+			className={`p-2 py-md-3 d-flex flex-column justify-content-between ${textColorClass}`}
+			style={{ minHeight: "35vh" }}
 		>
 			{/* PRESENTATION */}
 			<PresentationWrapper fluid className="px-2">
-				<PictureAndInfosWrapper className="justify-content-center">
+				<InfosWrapper>
 					<Presentation />
-				</PictureAndInfosWrapper>
-				<ContactWrapper>
+				</InfosWrapper>
+				{/* Contact information */}
+				<ContactWrapper className="my-3">
 					<Contact />
 				</ContactWrapper>
 			</PresentationWrapper>
-			{/* CONTATCT */}
-
-			<hr className="my-2" />
-			{/* TECHNOLOGIES */}
-			<StackIconsWrapper className="d-flex flex-column flex-md-row justify-content-center gap-md-3 my-0">
-				<StackIcons />
-			</StackIconsWrapper>
-			<hr className="my-2" />
-			<JumbotronFooter>
-				<Helper
-					text="Voir mes projets"
-					media={arrowDown}
-					alt="flêche vers le bas"
-				/>
-			</JumbotronFooter>
+			{/* Horizontal rule */}
+			<hr className="my-3" />
 		</header>
 	);
 };
 
-export default Jumbotron;
+export default Header;

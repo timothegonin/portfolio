@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ThemeContext } from "../utils/context/ThemeContext";
-import Icons from "./Icons";
 import Stack from "react-bootstrap/Stack";
+import { ThemeContext } from "../utils/context/ThemeContext";
+import Icons from "./UI/Icons";
 
 const TechIcons = () => {
 	const { theme } = useContext(ThemeContext);
@@ -9,30 +9,29 @@ const TechIcons = () => {
 	const darkModeStylesClass =
 		theme === "light" ? "bg-white" : "bg-dark border-secondary";
 	return (
-		<>
-			<section
-				className={`p-2 border border-1  rounded my-2 col-12 col-md-6 ${darkModeStylesClass}`}
-			>
-				<h3 className="text-start fs-5">Technologies</h3>
-				<hr className="border border-success border-1 opacity-50 m-0"></hr>
-				<Stack direction="horizontal" gap={2} className=" flex-wrap my-2">
-					{technologies.map((icon, index) => (
-						<img key={index} src={icon.svg} alt={icon.altText} />
-					))}
-				</Stack>
-			</section>
-			<section
-				className={`p-2 border border-1 rounded my-2 col-12 col-md-6 ${darkModeStylesClass}`}
-			>
-				<h3 className="text-start fs-5">Outils</h3>
-				<hr className="border border-success border-1 opacity-50 m-0"></hr>
-				<Stack direction="horizontal" gap={2} className=" flex-wrap my-2">
-					{tools.map((icon, index) => (
-						<img key={index} src={icon.svg} alt={icon.altText} />
-					))}
-				</Stack>
-			</section>
-		</>
+		<section
+			className={`${darkModeStylesClass} d-inline-flex align-content-center bg-transparent`}
+		>
+			<h3 className="visually-hidden">Technologies</h3>
+			<Stack direction="horizontal" gap={2} className="py-2 d-inline-flex">
+				{technologies.map((icon, index) => (
+					<img
+						key={index}
+						src={icon.svg}
+						alt={icon.altText}
+						style={{ height: "20px", width: "20px" }}
+					/>
+				))}
+				{tools.map((icon, index) => (
+					<img
+						key={index}
+						src={icon.svg}
+						alt={icon.altText}
+						style={{ height: "20px", width: "20px" }}
+					/>
+				))}
+			</Stack>
+		</section>
 	);
 };
 

@@ -1,22 +1,17 @@
 import Footer from "./components/Footer";
-import LeftHandMode from "./components/LeftHandMode";
-import ParticlesBackground from "./components/ParticlesBackground";
-import Theme from "./components/Theme";
-import Toogler from "./components/Toogler";
-import Jumbotron from "./container/Jumbotron";
+import ParticlesBackground from "./components/UI/ParticlesBackground";
+import NavBar from "./components/ToogleBar/Navbar";
+import Header from "./container/Header";
 import Projects from "./container/Projects";
+import Cursor from "./components/Cursor/Cursor";
 
 function App({ data }) {
 	return (
-		<div className="App text-center" style={{ height: "100vh" }}>
+		<div className="App">
+			<Cursor />
 			<ParticlesBackground />
-			<Toogler alignment="center" position="top">
-				<Theme />
-			</Toogler>
-			<Toogler alignment="start" position="bottom">
-				<LeftHandMode />
-			</Toogler>
-			<Jumbotron />
+			<NavBar />
+			<Header />
 			<Projects data={data} />
 			<Footer />
 		</div>

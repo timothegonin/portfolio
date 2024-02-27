@@ -1,68 +1,50 @@
-import { useContext } from "react";
-import { UiContext } from "../utils/context/UiContext";
-import { ThemeContext } from "../utils/context/ThemeContext";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
-import ProjectDetails from "./ProjectDetails";
-import ModalComponent from "./ModalComponent";
-import ProjectPreviews from "./ProjectPreviews";
-import Stack from "react-bootstrap/Stack";
+import styled, { keyframes } from "styled-components";
 
-const CardHeader = styled(Card.Header)`
-	img.dark {
-		filter: brightness(0.95);
+const scaleInVerTop = keyframes`
+	0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
+  }
+`;
+
+const CardWrapper = styled(Card)`
+	&.animated {
+		animation: ${scaleInVerTop} 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	}
 `;
 
-const ProjectCard = ({ infos, medias, links }) => {
-	const { leftHandedMode } = useContext(UiContext);
-	const { theme } = useContext(ThemeContext);
+const ProjectCard = ({ data, children }) => {
+	const projectCardData = data[0];
+	const [animationClass, setAnimationClass] = useState("");
 
-	const stylesClassNames =
-		theme === "light" ? "bg-white" : "bg-dark border-secondary";
+	useEffect(() => {
+		setAnimationClass("animated");
+		setTimeout(() => {
+			setAnimationClass("");
+		}, 300);
+	}, [data]);
 
 	return (
-		<Card className={`w-100 ${stylesClassNames} `}>
+		<CardWrapper className={`${animationClass}`}>
 			{/* HEAD */}
-			<CardHeader className="p-0">
-				<Card.Img
-					variant="top"
-					src={require(`../assets/thumbnails/${medias.thumbnail}`)}
-					alt={`Thumbnail of ${infos.title} project`}
-					className={theme === "dark" && "dark"}
-				/>
-			</CardHeader>
+			<Card.Header className="p-0">
+				<h5 className="m-2 text-start">{projectCardData.infos.title}</h5>
+			</Card.Header>
 			{/* BODY */}
-			<Card.Body className="p-2">
-				<Stack
-					direction="horizontal"
-					gap={2}
-					className="justify-content-start mb-2"
-				>
-					{infos.tags.map((tag, index) => (
-						<Badge
-							key={index}
-							bg={theme === "light" ? "light" : "dark"}
-							className={`fw-light ${
-								theme === "light" ? "text-black" : "text-white-50"
-							}`}
-						>{`#${tag}`}</Badge>
-					))}
-				</Stack>
-				<ProjectDetails
-					infos={infos}
-					links={links}
-					medias={medias}
-					placement={leftHandedMode}
-					theme={theme}
-				>
-					<ModalComponent title="Agrandir">
-						<ProjectPreviews medias={medias.preview} title={infos.title} />
-					</ModalComponent>
-				</ProjectDetails>
-			</Card.Body>
-		</Card>
+			<Card.Body className="p-2">{children}</Card.Body>
+		</CardWrapper>
 	);
 };
 

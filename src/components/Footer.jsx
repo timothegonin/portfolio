@@ -10,13 +10,17 @@ const Footer = () => {
 			? "bg-light text-body"
 			: "bg-dark border-top border-secondary text-white";
 
-	// const customStyle = {
-	// 	marginBottom: 0,
-	// 	fontFamily: "Fira Code",
-	// };
+	const customStyle = {
+		margin: "0",
+		textAlign: "center",
+	};
+
 	return (
-		<footer className={`py-5 ${footerClassName}`}>
-			<Copyright nameEntry="Timothé Gonin" />
+		<footer
+			className={`${footerClassName} d-flex flex-column justify-content-center`}
+			style={{ minHeight: "5vh" }}
+		>
+			<Copyright nameEntry="Timothé Gonin" customStyles={customStyle} />
 		</footer>
 	);
 };
