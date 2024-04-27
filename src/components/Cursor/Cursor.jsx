@@ -9,8 +9,30 @@ import { ThemeContext } from "../../utils/context/ThemeContext";
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+const Pointer = styled.div`
+	width: 30px;
+	height: 30px;
+	border: 1px dashed white;
+	border-radius: 50%;
+	position: relative;
+	animation: Anim1 1s infinite alternate;
+	z-index: 999;
+	pointer-events: none;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 5px;
+		height: 5px;
+		background: crimson;
+		border-radius: 50%;
+	}
+`;
+
 const Ring = styled.div`
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 30px;
@@ -28,7 +50,7 @@ const Ring = styled.div`
 `;
 
 const Dot = styled.div`
-	position: fixed;
+	position: relative;
 	top: 50%;
 	left: 50%;
 	width: 5px;
@@ -55,14 +77,18 @@ const DotRing = React.memo(() => {
 
 	return (
 		<>
-			<Ring
+			{/* <Ring
 				style={{ left: `${x}px`, top: `${y}px` }}
 				className={`ring ${cursorType} border border-1 border-secondary`}
 			></Ring>
 			<Dot
 				className={`dot ${cursorType} ${cursorDotVariant}`}
 				style={{ left: `${x}px`, top: `${y}px` }}
-			></Dot>
+			></Dot> */}
+			<Pointer
+				style={{ left: `calc(${x}px - 20px)`, top: `calc(${y}px - 20px)` }}
+				className={`${cursorDotVariant}`}
+			/>
 		</>
 	);
 });
