@@ -12,7 +12,6 @@ import { ThemeContext } from "../../utils/context/ThemeContext";
 const Pointer = styled.div`
 	width: 30px;
 	height: 30px;
-	border: 1px dashed white;
 	border-radius: 50%;
 	position: relative;
 	animation: Anim1 1s infinite alternate;
@@ -26,8 +25,11 @@ const Pointer = styled.div`
 		transform: translate(-50%, -50%);
 		width: 5px;
 		height: 5px;
-		background: crimson;
+		background: ${(props) => props.$inputColor};
 		border-radius: 50%;
+	}
+	&.hovered::before {
+		opacity: 0;
 	}
 `;
 
@@ -73,7 +75,7 @@ const DotRing = React.memo(() => {
 	const { cursorType } = useContext(MouseContext);
 	const { theme } = useContext(ThemeContext);
 	const { x, y } = useMousePosition();
-	const cursorDotVariant = theme === "light" ? "bg-black" : "bg-light";
+	const cursorDotVariant = theme === "light" ? "black" : "white";
 
 	return (
 		<>
@@ -86,8 +88,9 @@ const DotRing = React.memo(() => {
 				style={{ left: `${x}px`, top: `${y}px` }}
 			></Dot> */}
 			<Pointer
+				$inputColor={cursorDotVariant}
 				style={{ left: `calc(${x}px - 20px)`, top: `calc(${y}px - 20px)` }}
-				className={`${cursorDotVariant}`}
+				className={`${cursorDotVariant} ${cursorType} border border-1 border-secondary bg-transparent`}
 			/>
 		</>
 	);
