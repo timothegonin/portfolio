@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import useMousePosition from "../../utils/hook/useMousePosition";
 import { MouseContext } from "../../utils/context/MouseContext";
 import { ThemeContext } from "../../utils/context/ThemeContext";
@@ -9,12 +9,21 @@ import { ThemeContext } from "../../utils/context/ThemeContext";
   │ STYLES                                                                  │
   └─────────────────────────────────────────────────────────────────────────┘
  */
+
+const grow = keyframes`
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0.7);
+	}
+`;
 const Pointer = styled.div`
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
 	position: relative;
-	animation: Anim1 1s infinite alternate;
+	animation: ${grow} 500ms infinite alternate;
 	z-index: 999;
 	pointer-events: none;
 	&::before {
