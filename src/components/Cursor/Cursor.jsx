@@ -19,6 +19,14 @@ const grow = keyframes`
 	}
 `;
 
+const scale = keyframes`
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.5);
+	}
+`;
 const Pointer = styled.div`
 	width: 30px;
 	height: 30px;
@@ -40,6 +48,9 @@ const Pointer = styled.div`
 	}
 	&.hovered::before {
 		opacity: 0;
+	}
+	&.hovered {
+		animation: ${scale} 350ms ease-out forwards;
 	}
 `;
 
