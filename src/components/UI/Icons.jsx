@@ -8,6 +8,7 @@ import SassIcon from "../../assets/icons/tech/sass.svg";
 
 //TOOLS ICONS
 import FigmaIcon from "../../assets/icons/tools/figma.svg";
+import JestIcon from "../../assets/icons/tech/jest.svg"
 import GitIcon from "../../assets/icons/tools/git.svg";
 import GitHubIcon from "../../assets/icons/tools/github.svg";
 
@@ -19,6 +20,7 @@ const Icons = {
 		{ svg: CssIcon, altText: "Css icon" },
 		{ svg: HtmlIcon, altText: "Html5 icon" },
 		{ svg: JavaScriptIcon, altText: "Javascript icon" },
+		{ svg: JestIcon, altText: "Jest icon" },
 		{ svg: ReactIcon, altText: "React icon" },
 		{ svg: ReduxIcon, altText: "Redux icon" },
 		{ svg: SassIcon, altText: "Sass icon" },
