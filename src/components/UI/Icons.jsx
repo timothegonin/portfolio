@@ -14,6 +14,9 @@ import GitHubIcon from "../../assets/icons/tools/github.svg";
 
 //CONTACT ICONS
 import LinkedInIcon from "../../assets/icons/contact/linkedin.svg";
+import XIcon from "../../assets/icons/contact/x.svg";
+import InstagramIcon from "../../assets/icons/contact/instagram.svg";
+import FacebookIcon from "../../assets/icons/contact/facebook.svg";
 
 const Icons = {
 	technologies: [
@@ -32,6 +35,9 @@ const Icons = {
 	contact: [
 		{ svg: GitHubIcon, altText: "Github icon" },
 		{ svg: LinkedInIcon, altText: "LinkedIn icon" },
+		{ svg: XIcon, altText: "X icon" },
+		{ svg: InstagramIcon, altText: "Instagram icon" },
+		{ svg: FacebookIcon, altText: "Facebook icon" },
 	],
 };
 
