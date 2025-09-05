@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     font-family: "IBM Plex Sans", sans-serif;
-    cursor: none !important;
+    /* cursor: none !important; */
     touch-action: manipulation;
   }
   
