@@ -76,8 +76,11 @@ const IconLink = styled.a`
   └─────────────────────────────────────────────────────────────────────────┘
  */
 const Contact = () => {
-	const linkedInIcon = Icons.contact[1];
 	const gitHubIcon = Icons.contact[0];
+	const linkedInIcon = Icons.contact[1];
+	const XIcon = Icons.contact[2];
+	const InstagramIcon = Icons.contact[3];
+	const FacebookICon = Icons.contact[4];
 	const { cursorChangeHandler } = useContext(MouseContext);
 	const { leftHandedMode } = useContext(UiContext);
 	const { theme } = useContext(ThemeContext);
@@ -106,7 +109,7 @@ const Contact = () => {
 	}, [leftHandedMode]);
 
 	return (
-		<Container fluid as="section">
+		<Container fluid as="section" className="px-0">
 			<h3 className="visually-hidden">Contact me :</h3>
 			<IconLinkWrapper
 				direction="horizontal"
@@ -138,6 +141,48 @@ const Contact = () => {
 					<img
 						src={linkedInIcon.svg}
 						alt={linkedInIcon.altText}
+						className="border border-2  p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
+					/>
+				</IconLink>
+				<IconLink
+					href="https://x.com/timothe_gonin"
+					target="_blank"
+					rel="noopener noreferrer"
+					$theme={theme}
+				>
+					<img
+						src={XIcon.svg}
+						alt={XIcon.altText}
+						className="border border-2  p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
+					/>
+				</IconLink>
+				<IconLink
+					href="https://www.instagram.com/timothe_gonin/"
+					target="_blank"
+					rel="noopener noreferrer"
+					$theme={theme}
+				>
+					<img
+						src={InstagramIcon.svg}
+						alt={InstagramIcon.altText}
+						className="border border-2  p-2 rounded bg-white"
+						onMouseEnter={() => cursorChangeHandler("hovered")}
+						onMouseLeave={() => cursorChangeHandler("")}
+					/>
+				</IconLink>
+				<IconLink
+					href="https://www.facebook.com/profile.php?id=61580325804177"
+					target="_blank"
+					rel="noopener noreferrer"
+					$theme={theme}
+				>
+					<img
+						src={FacebookICon.svg}
+						alt={FacebookICon.altText}
 						className="border border-2  p-2 rounded bg-white"
 						onMouseEnter={() => cursorChangeHandler("hovered")}
 						onMouseLeave={() => cursorChangeHandler("")}
